@@ -1,0 +1,629 @@
+fileFormatVersion: 2
+guid: 69b006c6ffd9fca47a267e98bbce9ca5
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100002: metal 46
+    100006: metal 43
+    100010: metal 44
+    100014: metal 45
+    100018: metal 42
+    100022: metal 41
+    100026: metal 39
+    100030: metal 24
+    100034: metal 32
+    100038: metal 31
+    100042: metal 30
+    100046: metal 28
+    100050: metal 27
+    100054: metal 29
+    100058: metal 26
+    100062: metal 25
+    100066: metal 23
+    100070: metal 6
+    100074: metal 13
+    100078: metal 12
+    100082: metal 11
+    100086: metal 9
+    100090: metal 8
+    100094: metal 10
+    100098: metal 7
+    100102: metal 5
+    100106: metal 4
+    100112: //RootNode
+    100114: metal 38
+    100118: metal 37
+    100122: metal 35
+    100126: metal 36
+    100130: metal 34
+    100134: metal 40
+    100138: metal 48
+    100142: metal 47
+    100182: metal 99
+    100184: metal01
+    100218: metal 100
+    100222: metal 18
+    100226: metal 17
+    100230: metal 19
+    100234: metal 16
+    100238: metal 15
+    100242: metal 14
+    100246: metal 20
+    100250: metal 21
+    100254: metal 22
+    100334: metal 90
+    100338: metal 98
+    100342: metal 97
+    100346: metal 96
+    100350: metal 94
+    100354: metal 95
+    100358: metal 92
+    100362: metal 91
+    100366: metal 89
+    100370: metal 93
+    100374: metal 80
+    100378: metal 88
+    100382: metal 87
+    100386: metal 86
+    100390: metal 84
+    100394: metal 83
+    100398: metal 85
+    100402: metal 82
+    100406: metal 81
+    100410: metal 79
+    100414: metal 60
+    100418: metal 68
+    100422: metal 67
+    100426: metal 66
+    100430: metal 64
+    100434: metal 63
+    100438: metal 65
+    100442: metal 62
+    100446: metal 61
+    100450: metal 59
+    100494: metal 70
+    100498: metal 78
+    100502: metal 77
+    100506: metal 76
+    100510: metal 74
+    100514: metal 73
+    100518: metal 75
+    100522: metal 72
+    100526: metal 71
+    100530: metal 69
+    100534: metal 50
+    100538: metal 58
+    100542: metal 57
+    100546: metal 56
+    100550: metal 54
+    100554: metal 53
+    100558: metal 55
+    100562: metal 52
+    100566: metal 51
+    100570: metal 49
+    100574: metal 3
+    100578: metal 2
+    100582: metal 1
+    100586: metal
+    100590: metal 33
+    400002: metal 46
+    400006: metal 43
+    400010: metal 44
+    400014: metal 45
+    400018: metal 42
+    400022: metal 41
+    400026: metal 39
+    400030: metal 24
+    400034: metal 32
+    400038: metal 31
+    400042: metal 30
+    400046: metal 28
+    400050: metal 27
+    400054: metal 29
+    400058: metal 26
+    400062: metal 25
+    400066: metal 23
+    400070: metal 6
+    400074: metal 13
+    400078: metal 12
+    400082: metal 11
+    400086: metal 9
+    400090: metal 8
+    400094: metal 10
+    400098: metal 7
+    400102: metal 5
+    400106: metal 4
+    400112: //RootNode
+    400114: metal 38
+    400118: metal 37
+    400122: metal 35
+    400126: metal 36
+    400130: metal 34
+    400134: metal 40
+    400138: metal 48
+    400142: metal 47
+    400182: metal 99
+    400184: metal01
+    400218: metal 100
+    400222: metal 18
+    400226: metal 17
+    400230: metal 19
+    400234: metal 16
+    400238: metal 15
+    400242: metal 14
+    400246: metal 20
+    400250: metal 21
+    400254: metal 22
+    400334: metal 90
+    400338: metal 98
+    400342: metal 97
+    400346: metal 96
+    400350: metal 94
+    400354: metal 95
+    400358: metal 92
+    400362: metal 91
+    400366: metal 89
+    400370: metal 93
+    400374: metal 80
+    400378: metal 88
+    400382: metal 87
+    400386: metal 86
+    400390: metal 84
+    400394: metal 83
+    400398: metal 85
+    400402: metal 82
+    400406: metal 81
+    400410: metal 79
+    400414: metal 60
+    400418: metal 68
+    400422: metal 67
+    400426: metal 66
+    400430: metal 64
+    400434: metal 63
+    400438: metal 65
+    400442: metal 62
+    400446: metal 61
+    400450: metal 59
+    400494: metal 70
+    400498: metal 78
+    400502: metal 77
+    400506: metal 76
+    400510: metal 74
+    400514: metal 73
+    400518: metal 75
+    400522: metal 72
+    400526: metal 71
+    400530: metal 69
+    400534: metal 50
+    400538: metal 58
+    400542: metal 57
+    400546: metal 56
+    400550: metal 54
+    400554: metal 53
+    400558: metal 55
+    400562: metal 52
+    400566: metal 51
+    400570: metal 49
+    400574: metal 3
+    400578: metal 2
+    400582: metal 1
+    400586: metal
+    400590: metal 33
+    2300000: metal 46
+    2300002: metal 43
+    2300004: metal 44
+    2300006: metal 45
+    2300008: metal 42
+    2300010: metal 41
+    2300012: metal 39
+    2300014: metal 24
+    2300016: metal 32
+    2300018: metal 31
+    2300020: metal 30
+    2300022: metal 28
+    2300024: metal 27
+    2300026: metal 29
+    2300028: metal 26
+    2300030: metal 25
+    2300032: metal 23
+    2300034: metal 6
+    2300036: metal 13
+    2300038: metal 12
+    2300040: metal 11
+    2300042: metal 9
+    2300044: metal 8
+    2300046: metal 10
+    2300048: metal 7
+    2300050: metal 5
+    2300052: metal 4
+    2300056: metal 38
+    2300058: metal 37
+    2300060: metal 35
+    2300062: metal 36
+    2300064: metal 34
+    2300066: metal 40
+    2300068: metal 48
+    2300070: metal 47
+    2300090: metal 99
+    2300108: metal 100
+    2300110: metal 18
+    2300112: metal 17
+    2300114: metal 19
+    2300116: metal 16
+    2300118: metal 15
+    2300120: metal 14
+    2300122: metal 20
+    2300124: metal 21
+    2300126: metal 22
+    2300166: metal 90
+    2300168: metal 98
+    2300170: metal 97
+    2300172: metal 96
+    2300174: metal 94
+    2300176: metal 95
+    2300178: metal 92
+    2300180: metal 91
+    2300182: metal 89
+    2300184: metal 93
+    2300186: metal 80
+    2300188: metal 88
+    2300190: metal 87
+    2300192: metal 86
+    2300194: metal 84
+    2300196: metal 83
+    2300198: metal 85
+    2300200: metal 82
+    2300202: metal 81
+    2300204: metal 79
+    2300206: metal 60
+    2300208: metal 68
+    2300210: metal 67
+    2300212: metal 66
+    2300214: metal 64
+    2300216: metal 63
+    2300218: metal 65
+    2300220: metal 62
+    2300222: metal 61
+    2300224: metal 59
+    2300246: metal 70
+    2300248: metal 78
+    2300250: metal 77
+    2300252: metal 76
+    2300254: metal 74
+    2300256: metal 73
+    2300258: metal 75
+    2300260: metal 72
+    2300262: metal 71
+    2300264: metal 69
+    2300266: metal 50
+    2300268: metal 58
+    2300270: metal 57
+    2300272: metal 56
+    2300274: metal 54
+    2300276: metal 53
+    2300278: metal 55
+    2300280: metal 52
+    2300282: metal 51
+    2300284: metal 49
+    2300286: metal 3
+    2300288: metal 2
+    2300290: metal 1
+    2300292: metal
+    2300294: metal 33
+    2300296: metal01
+    3300000: metal 46
+    3300002: metal 43
+    3300004: metal 44
+    3300006: metal 45
+    3300008: metal 42
+    3300010: metal 41
+    3300012: metal 39
+    3300014: metal 24
+    3300016: metal 32
+    3300018: metal 31
+    3300020: metal 30
+    3300022: metal 28
+    3300024: metal 27
+    3300026: metal 29
+    3300028: metal 26
+    3300030: metal 25
+    3300032: metal 23
+    3300034: metal 6
+    3300036: metal 13
+    3300038: metal 12
+    3300040: metal 11
+    3300042: metal 9
+    3300044: metal 8
+    3300046: metal 10
+    3300048: metal 7
+    3300050: metal 5
+    3300052: metal 4
+    3300056: metal 38
+    3300058: metal 37
+    3300060: metal 35
+    3300062: metal 36
+    3300064: metal 34
+    3300066: metal 40
+    3300068: metal 48
+    3300070: metal 47
+    3300090: metal 99
+    3300108: metal 100
+    3300110: metal 18
+    3300112: metal 17
+    3300114: metal 19
+    3300116: metal 16
+    3300118: metal 15
+    3300120: metal 14
+    3300122: metal 20
+    3300124: metal 21
+    3300126: metal 22
+    3300166: metal 90
+    3300168: metal 98
+    3300170: metal 97
+    3300172: metal 96
+    3300174: metal 94
+    3300176: metal 95
+    3300178: metal 92
+    3300180: metal 91
+    3300182: metal 89
+    3300184: metal 93
+    3300186: metal 80
+    3300188: metal 88
+    3300190: metal 87
+    3300192: metal 86
+    3300194: metal 84
+    3300196: metal 83
+    3300198: metal 85
+    3300200: metal 82
+    3300202: metal 81
+    3300204: metal 79
+    3300206: metal 60
+    3300208: metal 68
+    3300210: metal 67
+    3300212: metal 66
+    3300214: metal 64
+    3300216: metal 63
+    3300218: metal 65
+    3300220: metal 62
+    3300222: metal 61
+    3300224: metal 59
+    3300246: metal 70
+    3300248: metal 78
+    3300250: metal 77
+    3300252: metal 76
+    3300254: metal 74
+    3300256: metal 73
+    3300258: metal 75
+    3300260: metal 72
+    3300262: metal 71
+    3300264: metal 69
+    3300266: metal 50
+    3300268: metal 58
+    3300270: metal 57
+    3300272: metal 56
+    3300274: metal 54
+    3300276: metal 53
+    3300278: metal 55
+    3300280: metal 52
+    3300282: metal 51
+    3300284: metal 49
+    3300286: metal 3
+    3300288: metal 2
+    3300290: metal 1
+    3300292: metal
+    3300294: metal 33
+    3300296: metal01
+    4300000: metal
+    4300002: metal
+    4300004: metal
+    4300006: metal
+    4300008: metal
+    4300010: metal
+    4300012: metal
+    4300014: metal
+    4300016: metal
+    4300018: metal
+    4300020: metal
+    4300022: metal
+    4300024: metal
+    4300026: metal
+    4300028: metal
+    4300030: metal
+    4300032: metal
+    4300034: metal
+    4300036: metal
+    4300038: metal
+    4300040: metal
+    4300042: metal
+    4300044: metal
+    4300046: metal
+    4300048: metal
+    4300050: metal
+    4300052: metal
+    4300054: metal
+    4300056: metal
+    4300058: metal
+    4300060: metal
+    4300062: metal
+    4300064: metal
+    4300066: metal
+    4300068: metal
+    4300070: metal
+    4300072: metal
+    4300074: metal
+    4300076: metal
+    4300078: metal
+    4300080: metal
+    4300082: metal
+    4300084: metal
+    4300086: metal
+    4300088: metal
+    4300090: metal
+    4300092: metal
+    4300094: metal
+    4300096: metal
+    4300098: metal
+    4300100: metal
+    4300102: metal
+    4300104: metal
+    4300106: metal
+    4300108: metal
+    4300110: metal
+    4300112: metal
+    4300114: metal
+    4300116: metal
+    4300118: metal
+    4300120: metal
+    4300122: metal
+    4300124: metal
+    4300126: metal
+    4300128: metal
+    4300130: metal
+    4300132: metal
+    4300134: metal
+    4300136: metal
+    4300138: metal
+    4300140: metal
+    4300142: metal
+    4300144: metal
+    4300146: metal
+    4300148: metal
+    4300150: metal
+    4300152: metal
+    4300154: metal
+    4300156: metal
+    4300158: metal
+    4300160: metal
+    4300162: metal
+    4300164: metal
+    4300166: metal
+    4300168: metal
+    4300170: metal
+    4300172: metal
+    4300174: metal
+    4300176: metal
+    4300178: metal
+    4300180: metal
+    4300182: metal
+    4300184: metal
+    4300186: metal
+    4300188: metal
+    4300190: metal
+    4300192: metal
+    4300194: metal
+    4300196: metal
+    4300198: metal
+    4300200: metal
+    4300202: metal
+    4300204: metal
+    4300206: metal
+    4300208: metal
+    4300210: metal
+    4300212: metal
+    4300214: metal
+    4300216: metal
+    4300218: metal
+    4300220: metal
+    4300222: metal
+    4300224: metal
+    4300226: metal
+    4300228: metal
+    4300230: metal
+    4300232: metal
+    4300234: metal
+    4300236: metal
+    4300238: metal
+    4300240: metal
+    4300242: metal
+    4300244: metal
+    4300246: metal
+    4300248: metal
+    4300250: metal
+    4300252: metal
+    4300254: metal
+    4300256: metal
+    4300258: metal
+    4300260: metal
+    4300262: metal
+    4300264: metal
+    4300266: metal
+    4300268: metal
+    4300270: metal
+    4300272: metal
+    4300274: metal
+    4300276: metal
+    4300278: metal
+    4300280: metal
+    4300282: metal
+    4300284: metal
+    4300286: metal
+    4300288: metal
+    4300290: metal
+    4300292: metal
+    4300294: metal
+    4300296: metal
+    4300298: metal
+    4300300: metal
+    4300302: metal
+    4300304: metal
+    4300306: metal
+    4300308: metal
+    4300310: metal
+    4300312: metal
+    4300314: metal01
+    4300316: metal
+    11100000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 0
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

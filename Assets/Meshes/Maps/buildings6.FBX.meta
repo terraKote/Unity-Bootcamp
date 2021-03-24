@@ -1,0 +1,340 @@
+fileFormatVersion: 2
+guid: 9acb1d06b55c6cf40827eb4332b50638
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: building_hb
+    100002: mixed03
+    100004: metal 11
+    100006: concrete_wall_e
+    100008: iron_gate_a
+    100010: concrete
+    100012: metal04
+    100014: concrete 6
+    100016: brick_wall_c
+    100018: roofing_d
+    100020: building_l
+    100022: iron_beam_h
+    100024: concrete 8
+    100026: metal 6
+    100028: metal06
+    100030: metal 1
+    100032: building_j
+    100034: metal 7
+    100036: metal_wall
+    100038: concrete 2
+    100040: concrete 3
+    100042: brick_wall_f
+    100044: concrete 12
+    100046: concrete_wall_i
+    100048: brick_wall_e
+    100050: concrete 11
+    100052: metal 4
+    100054: concrete 7
+    100056: iron_beam_i
+    100058: metal 10
+    100060: concrete_wall_g
+    100062: concrete 10
+    100064: concrete 9
+    100066: concrete_wall_h
+    100068: alpha
+    100070: metal 3
+    100072: iron_beam_g
+    100074: metal 5
+    100076: iron_beam_f
+    100078: house_c
+    100080: mixed02
+    100082: metalerer02
+    100084: concrete_wall_f
+    100086: metal05
+    100088: //RootNode
+    100090: concrete 1
+    100092: brick_wall_d
+    100094: building_i
+    100096: railing_b_small_a
+    100098: railing_b_small_b
+    100100: railing_b_small_c
+    100102: metal 2
+    100104: metal 9
+    100106: alphas
+    100108: metal 8
+    100110: post_a
+    100112: concrete 4
+    100114: wood
+    100116: iron_beam_e
+    100118: post_b
+    100120: wood 1
+    100122: metal03
+    100124: concrete 14
+    100126: metal02
+    100128: concrete 13
+    100130: post_d
+    100132: metal01
+    100134: post_c
+    100136: mixed
+    100138: metal
+    100140: building_g
+    100142: wood01
+    100144: building_h
+    100146: mixed01
+    100148: concrete 5
+    400000: building_hb
+    400002: mixed03
+    400004: metal 11
+    400006: concrete_wall_e
+    400008: iron_gate_a
+    400010: concrete
+    400012: metal04
+    400014: concrete 6
+    400016: brick_wall_c
+    400018: roofing_d
+    400020: building_l
+    400022: iron_beam_h
+    400024: concrete 8
+    400026: metal 6
+    400028: metal06
+    400030: metal 1
+    400032: building_j
+    400034: metal 7
+    400036: metal_wall
+    400038: concrete 2
+    400040: concrete 3
+    400042: brick_wall_f
+    400044: concrete 12
+    400046: concrete_wall_i
+    400048: brick_wall_e
+    400050: concrete 11
+    400052: metal 4
+    400054: concrete 7
+    400056: iron_beam_i
+    400058: metal 10
+    400060: concrete_wall_g
+    400062: concrete 10
+    400064: concrete 9
+    400066: concrete_wall_h
+    400068: alpha
+    400070: metal 3
+    400072: iron_beam_g
+    400074: metal 5
+    400076: iron_beam_f
+    400078: house_c
+    400080: mixed02
+    400082: metalerer02
+    400084: concrete_wall_f
+    400086: metal05
+    400088: //RootNode
+    400090: concrete 1
+    400092: brick_wall_d
+    400094: building_i
+    400096: railing_b_small_a
+    400098: railing_b_small_b
+    400100: railing_b_small_c
+    400102: metal 2
+    400104: metal 9
+    400106: alphas
+    400108: metal 8
+    400110: post_a
+    400112: concrete 4
+    400114: wood
+    400116: iron_beam_e
+    400118: post_b
+    400120: wood 1
+    400122: metal03
+    400124: concrete 14
+    400126: metal02
+    400128: concrete 13
+    400130: post_d
+    400132: metal01
+    400134: post_c
+    400136: mixed
+    400138: metal
+    400140: building_g
+    400142: wood01
+    400144: building_h
+    400146: mixed01
+    400148: concrete 5
+    2300000: mixed03
+    2300002: metal 11
+    2300004: concrete
+    2300006: metal04
+    2300008: concrete 6
+    2300010: concrete 8
+    2300012: metal 6
+    2300014: metal06
+    2300016: metal 1
+    2300018: metal 7
+    2300020: concrete 2
+    2300022: concrete 3
+    2300024: concrete 12
+    2300026: concrete 11
+    2300028: metal 4
+    2300030: concrete 7
+    2300032: metal 10
+    2300034: concrete 10
+    2300036: concrete 9
+    2300038: alpha
+    2300040: metal 3
+    2300042: metal 5
+    2300044: house_c
+    2300046: mixed02
+    2300048: metal05
+    2300050: concrete 1
+    2300052: metal 2
+    2300054: metal 9
+    2300056: alphas
+    2300058: metal 8
+    2300060: concrete 4
+    2300062: wood
+    2300064: wood 1
+    2300066: metal03
+    2300068: concrete 14
+    2300070: metal02
+    2300072: concrete 13
+    2300074: metal01
+    2300076: mixed
+    2300078: metal
+    2300080: wood01
+    2300082: mixed01
+    2300084: concrete 5
+    3300000: mixed03
+    3300002: metal 11
+    3300004: concrete
+    3300006: metal04
+    3300008: concrete 6
+    3300010: concrete 8
+    3300012: metal 6
+    3300014: metal06
+    3300016: metal 1
+    3300018: metal 7
+    3300020: concrete 2
+    3300022: concrete 3
+    3300024: concrete 12
+    3300026: concrete 11
+    3300028: metal 4
+    3300030: concrete 7
+    3300032: metal 10
+    3300034: concrete 10
+    3300036: concrete 9
+    3300038: alpha
+    3300040: metal 3
+    3300042: metal 5
+    3300044: house_c
+    3300046: mixed02
+    3300048: metal05
+    3300050: concrete 1
+    3300052: metal 2
+    3300054: metal 9
+    3300056: alphas
+    3300058: metal 8
+    3300060: concrete 4
+    3300062: wood
+    3300064: wood 1
+    3300066: metal03
+    3300068: concrete 14
+    3300070: metal02
+    3300072: concrete 13
+    3300074: metal01
+    3300076: mixed
+    3300078: metal
+    3300080: wood01
+    3300082: mixed01
+    3300084: concrete 5
+    4300000: mixed
+    4300002: metal
+    4300004: concrete
+    4300006: wood
+    4300008: wood
+    4300010: metal01
+    4300012: concrete
+    4300014: metal02
+    4300016: concrete
+    4300018: concrete
+    4300020: wood01
+    4300022: mixed01
+    4300024: metal03
+    4300026: alphas
+    4300028: metal
+    4300030: metal
+    4300032: metal
+    4300034: metal
+    4300036: metal
+    4300038: alpha
+    4300040: metal
+    4300042: metal
+    4300044: metal
+    4300046: metal04
+    4300048: concrete
+    4300050: metal
+    4300052: metal05
+    4300054: mixed02
+    4300056: house_c
+    4300058: concrete
+    4300060: concrete
+    4300062: concrete
+    4300064: concrete
+    4300066: concrete
+    4300068: concrete
+    4300070: concrete
+    4300072: concrete
+    4300074: concrete
+    4300076: metal
+    4300078: metal
+    4300080: metal06
+    4300082: mixed03
+    4300084: concrete
+    4300086: concrete01
+    11100000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 0
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

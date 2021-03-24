@@ -1,0 +1,907 @@
+fileFormatVersion: 2
+guid: 0d5dbb26b365def46a1af0dc30354b22
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: High_voltage_tower
+    100002: container_garbage_b
+    100004: container_garbage_a
+    100006: air_conditioner_b
+    100008: air_conditioner_a
+    100010: barrel_a
+    100012: mixed
+    100014: boot
+    100016: mixed 7
+    100018: tire_b
+    100020: mixed 6
+    100022: tire_a
+    100024: wood
+    100026: black_board
+    100028: metal 13
+    100030: mixed 4
+    100032: chair
+    100034: metal 21
+    100036: desk_b
+    100038: paint_bucket
+    100040: ink_can
+    100042: mixed 3
+    100044: cardboard_box_c
+    100046: mixed 2
+    100048: cardboard_box_b
+    100050: mixed 1
+    100052: cardboard_box_a
+    100054: metal 20
+    100056: desk_a
+    100058: metal 7
+    100060: archive_d
+    100062: metal 6
+    100064: archive_c
+    100066: metal 5
+    100068: archive_b
+    100070: metal 4
+    100072: archive_a
+    100074: metal 16
+    100076: clost
+    100078: //RootNode
+    100080: concrete 7
+    100082: terminal_box_g
+    100084: concrete 6
+    100086: terminal_box_f
+    100088: Box05
+    100090: terminal_box_e
+    100092: metal 37
+    100094: terminal_box_d
+    100096: metal 36
+    100098: terminal_box_c
+    100100: concrete 5
+    100102: terminal_box_b
+    100104: metal 35
+    100106: terminal_box_a
+    100108: metal
+    100110: metal 1
+    100112: metal 12
+    100114: beam_a
+    100116: metal 32
+    100118: lamp_d
+    100120: metal 31
+    100122: lamp_c
+    100124: metal 30
+    100126: lamp_b
+    100128: metal 29
+    100130: lamp_a
+    100132: metal 40
+    100134: metal 39
+    100138: metal 28
+    100140: metal 27
+    100142: fence_b
+    100144: metal 26
+    100146: metal 25
+    100148: fence_a
+    100150: metal 15
+    100152: chimney_d
+    100154: concrete 2
+    100156: metal 14
+    100158: chimney_c
+    100160: concrete 1
+    100162: chimney_b
+    100164: concrete
+    100166: chimney_a
+    100168: metal 38
+    100170: watertank
+    100172: metal 24
+    100174: metal 23
+    100176: exhauster_b
+    100178: metal 22
+    100180: exhauster_a
+    100182: metal 19
+    100184: concrete 4
+    100186: mixed 5
+    100188: wood 1
+    100190: metal 18
+    100192: concrete 3
+    100194: concrete_block
+    100196: metal 3
+    100198: metal 2
+    100200: metal 17
+    100202: container
+    100204: metal 34
+    100206: pole
+    100208: concreteq
+    100210: concrete_brick
+    100212: metal 33
+    100214: metal_crate
+    100216: wood 3
+    100218: wood_frame
+    100220: wood 2
+    100222: wood_crate
+    100224: metal 11
+    100226: barrel_d
+    100228: metal 10
+    100230: barrel_c
+    100232: metal 9
+    100234: barrel_b
+    100236: metal 8
+    100238: metal 41
+    100240: car
+    100242: mixed 8
+    100244: metal 49
+    100246: porta_j
+    100248: metal 48
+    100250: metal 47
+    100252: porta_i
+    100254: metal 46
+    100256: porta_h
+    100258: metal 45
+    100260: metal 44
+    100262: porta_g
+    100264: metal 43
+    100266: porta_f
+    100268: metal 42
+    100270: porta_e
+    100272: porta_d
+    100274: porta_c
+    100276: porta_b
+    100278: porta_a
+    100280: metal 57
+    100282: metal 56
+    100284: metal 55
+    100286: metal 60
+    100288: metal 59
+    100290: metal 58
+    100292: metal 53
+    100294: porta_p
+    100296: metal 54
+    100298: porta_v
+    100300: metal 52
+    100302: porta_n
+    100304: metal 51
+    100306: porta_m
+    100308: metal 50
+    100310: porta_l
+    100312: wire
+    100314: cardboard_box_c01
+    100316: garbage_bag_black 1
+    100318: garbage_bag_black
+    100320: cardboard_box_e 1
+    100322: dirt 3
+    100324: cardboard_box_f
+    100326: dirt 4
+    100328: cardboard_box_g
+    100330: dirt 5
+    100332: cardboard_box_h
+    100334: metal-opc 1
+    100336: metal_shelf
+    100338: wood 19
+    100340: wood 18
+    100342: wood 17
+    100344: wood 16
+    100346: wood 15
+    100348: wood 14
+    100350: wood 13
+    100352: wood 12
+    100354: wood 11
+    100356: wood 10
+    100358: wood 9
+    100360: wood 8
+    100362: wood 7
+    100364: wood 6
+    100366: wood 5
+    100368: wood 4
+    100370: porta_q
+    100372: wood 21
+    100374: wood 20
+    100376: dirt-block-a
+    100378: cardboard_box_e
+    100380: dirt
+    100382: dirt 2
+    100384: dirt 1
+    100386: cardboard_box_d
+    100388: dirt 6
+    100390: dirt 7
+    100392: metal-opc
+    100394: Rectangle01
+    100396: crane
+    100398: concrete 8
+    100400: metal-opc 2
+    100402: water_tank-a
+    100404: Line02
+    100406: concrete01
+    100408: metal02
+    100410: metal01
+    100412: water_tank-b
+    100414: metal 62
+    100418: metal 61
+    100420: Plane01
+    100422: lamp_f
+    100424: Object01
+    100428: alpha
+    100430: wood38
+    400000: High_voltage_tower
+    400002: container_garbage_b
+    400004: container_garbage_a
+    400006: air_conditioner_b
+    400008: air_conditioner_a
+    400010: barrel_a
+    400012: mixed
+    400014: boot
+    400016: mixed 7
+    400018: tire_b
+    400020: mixed 6
+    400022: tire_a
+    400024: wood
+    400026: black_board
+    400028: metal 13
+    400030: mixed 4
+    400032: chair
+    400034: metal 21
+    400036: desk_b
+    400038: paint_bucket
+    400040: ink_can
+    400042: mixed 3
+    400044: cardboard_box_c
+    400046: mixed 2
+    400048: cardboard_box_b
+    400050: mixed 1
+    400052: cardboard_box_a
+    400054: metal 20
+    400056: desk_a
+    400058: metal 7
+    400060: archive_d
+    400062: metal 6
+    400064: archive_c
+    400066: metal 5
+    400068: archive_b
+    400070: metal 4
+    400072: archive_a
+    400074: metal 16
+    400076: clost
+    400078: //RootNode
+    400080: concrete 7
+    400082: terminal_box_g
+    400084: concrete 6
+    400086: terminal_box_f
+    400088: Box05
+    400090: terminal_box_e
+    400092: metal 37
+    400094: terminal_box_d
+    400096: metal 36
+    400098: terminal_box_c
+    400100: concrete 5
+    400102: terminal_box_b
+    400104: metal 35
+    400106: terminal_box_a
+    400108: metal
+    400110: metal 1
+    400112: metal 12
+    400114: beam_a
+    400116: metal 32
+    400118: lamp_d
+    400120: metal 31
+    400122: lamp_c
+    400124: metal 30
+    400126: lamp_b
+    400128: metal 29
+    400130: lamp_a
+    400132: metal 40
+    400134: metal 39
+    400138: metal 28
+    400140: metal 27
+    400142: fence_b
+    400144: metal 26
+    400146: metal 25
+    400148: fence_a
+    400150: metal 15
+    400152: chimney_d
+    400154: concrete 2
+    400156: metal 14
+    400158: chimney_c
+    400160: concrete 1
+    400162: chimney_b
+    400164: concrete
+    400166: chimney_a
+    400168: metal 38
+    400170: watertank
+    400172: metal 24
+    400174: metal 23
+    400176: exhauster_b
+    400178: metal 22
+    400180: exhauster_a
+    400182: metal 19
+    400184: concrete 4
+    400186: mixed 5
+    400188: wood 1
+    400190: metal 18
+    400192: concrete 3
+    400194: concrete_block
+    400196: metal 3
+    400198: metal 2
+    400200: metal 17
+    400202: container
+    400204: metal 34
+    400206: pole
+    400208: concreteq
+    400210: concrete_brick
+    400212: metal 33
+    400214: metal_crate
+    400216: wood 3
+    400218: wood_frame
+    400220: wood 2
+    400222: wood_crate
+    400224: metal 11
+    400226: barrel_d
+    400228: metal 10
+    400230: barrel_c
+    400232: metal 9
+    400234: barrel_b
+    400236: metal 8
+    400238: metal 41
+    400240: car
+    400242: mixed 8
+    400244: metal 49
+    400246: porta_j
+    400248: metal 48
+    400250: metal 47
+    400252: porta_i
+    400254: metal 46
+    400256: porta_h
+    400258: metal 45
+    400260: metal 44
+    400262: porta_g
+    400264: metal 43
+    400266: porta_f
+    400268: metal 42
+    400270: porta_e
+    400272: porta_d
+    400274: porta_c
+    400276: porta_b
+    400278: porta_a
+    400280: metal 57
+    400282: metal 56
+    400284: metal 55
+    400286: metal 60
+    400288: metal 59
+    400290: metal 58
+    400292: metal 53
+    400294: porta_p
+    400296: metal 54
+    400298: porta_v
+    400300: metal 52
+    400302: porta_n
+    400304: metal 51
+    400306: porta_m
+    400308: metal 50
+    400310: porta_l
+    400312: wire
+    400314: cardboard_box_c01
+    400316: garbage_bag_black 1
+    400318: garbage_bag_black
+    400320: cardboard_box_e 1
+    400322: dirt 3
+    400324: cardboard_box_f
+    400326: dirt 4
+    400328: cardboard_box_g
+    400330: dirt 5
+    400332: cardboard_box_h
+    400334: metal-opc 1
+    400336: metal_shelf
+    400338: wood 19
+    400340: wood 18
+    400342: wood 17
+    400344: wood 16
+    400346: wood 15
+    400348: wood 14
+    400350: wood 13
+    400352: wood 12
+    400354: wood 11
+    400356: wood 10
+    400358: wood 9
+    400360: wood 8
+    400362: wood 7
+    400364: wood 6
+    400366: wood 5
+    400368: wood 4
+    400370: porta_q
+    400372: wood 21
+    400374: wood 20
+    400376: dirt-block-a
+    400378: cardboard_box_e
+    400380: dirt
+    400382: dirt 2
+    400384: dirt 1
+    400386: cardboard_box_d
+    400388: dirt 6
+    400390: dirt 7
+    400392: metal-opc
+    400394: Rectangle01
+    400396: crane
+    400398: concrete 8
+    400400: metal-opc 2
+    400402: water_tank-a
+    400404: Line02
+    400406: concrete01
+    400408: metal02
+    400410: metal01
+    400412: water_tank-b
+    400414: metal 62
+    400418: metal 61
+    400420: Plane01
+    400422: lamp_f
+    400424: Object01
+    400428: alpha
+    400430: wood38
+    2300000: mixed
+    2300002: mixed 7
+    2300004: mixed 6
+    2300006: wood
+    2300008: metal 13
+    2300010: mixed 4
+    2300012: metal 21
+    2300014: paint_bucket
+    2300016: mixed 3
+    2300018: mixed 2
+    2300020: mixed 1
+    2300022: metal 20
+    2300024: metal 7
+    2300026: metal 6
+    2300028: metal 5
+    2300030: metal 4
+    2300032: metal 16
+    2300034: concrete 7
+    2300036: concrete 6
+    2300038: Box05
+    2300040: metal 37
+    2300042: metal 36
+    2300044: concrete 5
+    2300046: metal 35
+    2300048: metal 62
+    2300050: metal 1
+    2300052: metal 12
+    2300054: metal 32
+    2300056: metal 31
+    2300058: metal 30
+    2300060: metal 29
+    2300062: metal 40
+    2300064: metal 39
+    2300066: metal 28
+    2300068: metal 27
+    2300070: metal 26
+    2300072: metal 25
+    2300074: metal 15
+    2300076: concrete 2
+    2300078: metal 14
+    2300080: concrete 1
+    2300082: concrete
+    2300084: metal 38
+    2300086: metal 24
+    2300088: metal 23
+    2300090: metal 22
+    2300092: metal 19
+    2300094: concrete 4
+    2300096: mixed 5
+    2300098: wood 1
+    2300100: metal 18
+    2300102: concrete 3
+    2300104: metal 3
+    2300106: metal 2
+    2300108: metal 17
+    2300110: metal 34
+    2300112: concreteq
+    2300114: metal 33
+    2300116: wood 3
+    2300118: wood 2
+    2300120: metal 11
+    2300122: metal 10
+    2300124: metal 9
+    2300126: metal 8
+    2300128: metal 41
+    2300130: mixed 8
+    2300132: metal 49
+    2300134: metal 48
+    2300136: metal 47
+    2300138: metal 46
+    2300140: metal 45
+    2300142: metal 44
+    2300144: metal 43
+    2300146: metal 42
+    2300148: metal 57
+    2300150: metal 56
+    2300152: metal 55
+    2300154: metal 60
+    2300156: metal 59
+    2300158: metal 58
+    2300160: metal 53
+    2300162: metal 54
+    2300164: metal 52
+    2300166: metal 51
+    2300168: metal 50
+    2300170: wire
+    2300172: dirt 3
+    2300174: dirt 4
+    2300176: dirt 5
+    2300178: metal-opc 1
+    2300180: dirt-block-a
+    2300182: dirt
+    2300184: dirt 2
+    2300186: dirt 1
+    2300188: dirt 6
+    2300190: dirt 7
+    2300192: metal-opc
+    2300194: wood 19
+    2300196: wood 18
+    2300198: wood 17
+    2300200: wood 16
+    2300202: wood 15
+    2300204: wood 14
+    2300206: wood 13
+    2300208: wood 12
+    2300210: wood 11
+    2300212: wood 10
+    2300214: wood 9
+    2300216: wood 8
+    2300218: wood 7
+    2300220: wood 6
+    2300222: wood 5
+    2300224: wood 4
+    2300226: wood 21
+    2300228: wood 20
+    2300230: Rectangle01
+    2300232: concrete 8
+    2300234: metal-opc 2
+    2300236: concrete01
+    2300238: metal02
+    2300240: metal01
+    2300242: Object01
+    2300246: metal 61
+    2300248: Plane01
+    2300252: alpha
+    2300282: wood38
+    3300000: mixed
+    3300002: mixed 7
+    3300004: mixed 6
+    3300006: wood
+    3300008: metal 13
+    3300010: mixed 4
+    3300012: metal 21
+    3300014: paint_bucket
+    3300016: mixed 3
+    3300018: mixed 2
+    3300020: mixed 1
+    3300022: metal 20
+    3300024: metal 7
+    3300026: metal 6
+    3300028: metal 5
+    3300030: metal 4
+    3300032: metal 16
+    3300034: concrete 7
+    3300036: concrete 6
+    3300038: Box05
+    3300040: metal 37
+    3300042: metal 36
+    3300044: concrete 5
+    3300046: metal 35
+    3300048: metal 62
+    3300050: metal 1
+    3300052: metal 12
+    3300054: metal 32
+    3300056: metal 31
+    3300058: metal 30
+    3300060: metal 29
+    3300062: metal 40
+    3300064: metal 39
+    3300066: metal 28
+    3300068: metal 27
+    3300070: metal 26
+    3300072: metal 25
+    3300074: metal 15
+    3300076: concrete 2
+    3300078: metal 14
+    3300080: concrete 1
+    3300082: concrete
+    3300084: metal 38
+    3300086: metal 24
+    3300088: metal 23
+    3300090: metal 22
+    3300092: metal 19
+    3300094: concrete 4
+    3300096: mixed 5
+    3300098: wood 1
+    3300100: metal 18
+    3300102: concrete 3
+    3300104: metal 3
+    3300106: metal 2
+    3300108: metal 17
+    3300110: metal 34
+    3300112: concreteq
+    3300114: metal 33
+    3300116: wood 3
+    3300118: wood 2
+    3300120: metal 11
+    3300122: metal 10
+    3300124: metal 9
+    3300126: metal 8
+    3300128: metal 41
+    3300130: mixed 8
+    3300132: metal 49
+    3300134: metal 48
+    3300136: metal 47
+    3300138: metal 46
+    3300140: metal 45
+    3300142: metal 44
+    3300144: metal 43
+    3300146: metal 42
+    3300148: metal 57
+    3300150: metal 56
+    3300152: metal 55
+    3300154: metal 60
+    3300156: metal 59
+    3300158: metal 58
+    3300160: metal 53
+    3300162: metal 54
+    3300164: metal 52
+    3300166: metal 51
+    3300168: metal 50
+    3300170: wire
+    3300172: dirt 3
+    3300174: dirt 4
+    3300176: dirt 5
+    3300178: metal-opc 1
+    3300180: dirt-block-a
+    3300182: dirt
+    3300184: dirt 2
+    3300186: dirt 1
+    3300188: dirt 6
+    3300190: dirt 7
+    3300192: metal-opc
+    3300194: wood 19
+    3300196: wood 18
+    3300198: wood 17
+    3300200: wood 16
+    3300202: wood 15
+    3300204: wood 14
+    3300206: wood 13
+    3300208: wood 12
+    3300210: wood 11
+    3300212: wood 10
+    3300214: wood 9
+    3300216: wood 8
+    3300218: wood 7
+    3300220: wood 6
+    3300222: wood 5
+    3300224: wood 4
+    3300226: wood 21
+    3300228: wood 20
+    3300230: Rectangle01
+    3300232: concrete 8
+    3300234: metal-opc 2
+    3300236: concrete01
+    3300238: metal02
+    3300240: metal01
+    3300242: Object01
+    3300246: metal 61
+    3300248: Plane01
+    3300252: alpha
+    3300282: wood38
+    4300000: metal
+    4300002: metal
+    4300004: metal
+    4300006: metal
+    4300008: metal
+    4300010: metal
+    4300012: mixed
+    4300014: mixed
+    4300016: mixed
+    4300018: paint_bucket
+    4300020: metal
+    4300022: mixed
+    4300024: metal
+    4300026: wood
+    4300028: mixed
+    4300030: mixed
+    4300032: mixed
+    4300034: metal
+    4300036: metal
+    4300038: metal
+    4300040: metal
+    4300042: wood
+    4300044: wood
+    4300046: metal
+    4300048: concreteq
+    4300050: metal
+    4300052: metal
+    4300054: metal
+    4300056: metal
+    4300058: concrete
+    4300060: metal
+    4300062: wood
+    4300064: mixed
+    4300066: concrete
+    4300068: metal
+    4300070: metal
+    4300072: metal
+    4300074: metal
+    4300076: metal
+    4300078: concrete
+    4300080: concrete
+    4300082: metal
+    4300084: concrete
+    4300086: metal
+    4300088: metal
+    4300090: metal
+    4300092: metal
+    4300094: metal
+    4300096: metal
+    4300098: metal
+    4300100: metal
+    4300102: metal
+    4300104: metal
+    4300106: metal
+    4300108: metal
+    4300110: metal
+    4300112: metal
+    4300114: metal
+    4300116: concrete
+    4300118: metal
+    4300120: metal
+    4300122: Box05
+    4300124: concrete
+    4300126: concrete
+    4300128: metal
+    4300130: mixed
+    4300132: metal
+    4300134: metal
+    4300136: metal
+    4300138: metal
+    4300140: metal
+    4300142: metal
+    4300144: metal
+    4300146: metal
+    4300148: metal
+    4300150: metal
+    4300152: metal
+    4300154: metal
+    4300156: metal
+    4300158: metal
+    4300160: metal
+    4300162: metal
+    4300164: metal
+    4300166: metal
+    4300168: metal
+    4300170: wood
+    4300172: wood
+    4300174: wood
+    4300176: wood
+    4300178: wood
+    4300180: wood
+    4300182: wood
+    4300184: wood
+    4300186: wood
+    4300188: wood
+    4300190: wood
+    4300192: wood
+    4300194: wood
+    4300196: wood
+    4300198: wood
+    4300200: wood
+    4300202: wood
+    4300204: wood
+    4300206: wood01
+    4300208: wood02
+    4300210: wood03
+    4300212: wood04
+    4300214: wood05
+    4300216: wood06
+    4300218: wood07
+    4300220: wood08
+    4300222: wood09
+    4300224: wood10
+    4300226: wood11
+    4300228: wood12
+    4300230: wood13
+    4300232: wood14
+    4300234: wood15
+    4300236: wood16
+    4300238: wood17
+    4300240: wood18
+    4300242: wood19
+    4300244: wood20
+    4300246: wood21
+    4300248: wood22
+    4300250: wood23
+    4300252: wood24
+    4300254: wood25
+    4300256: wood26
+    4300258: wood27
+    4300260: wood28
+    4300262: wood29
+    4300264: wood30
+    4300266: wood31
+    4300268: wood32
+    4300270: wood33
+    4300272: wood34
+    4300274: wood35
+    4300276: wood36
+    4300278: wood38
+    4300280: wood37
+    4300282: wood
+    4300284: metal-opc
+    4300286: metal-opc
+    4300288: glass
+    4300290: metal-opc
+    4300292: metal01
+    4300294: concrete01
+    4300296: concrete
+    4300298: metal
+    4300300: metal
+    4300302: wire
+    4300304: dirt
+    4300306: dirt
+    4300308: dirt
+    4300310: dirt
+    4300312: dirt
+    4300314: dirt
+    4300316: dirt
+    4300318: dirt
+    4300320: dirt-block-a
+    4300322: metal-opc
+    4300324: metal
+    4300326: Plane01
+    4300328: Rectangle01
+    4300330: metal02
+    4300332: alpha
+    4300334: Object02
+    4300336: Object01
+    11100000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 0
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

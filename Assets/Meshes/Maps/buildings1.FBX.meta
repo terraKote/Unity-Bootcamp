@@ -1,0 +1,412 @@
+fileFormatVersion: 2
+guid: c770947df9cd5f64ea105a7ac624483a
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: plastic_window
+    100002: building_b
+    100004: concrete
+    100006: metal
+    100008: wood
+    100010: fire_stair_a
+    100012: railing_a_tiny
+    100014: rusted_beam_a
+    100016: building_d3
+    100018: concrete 4
+    100020: platform_medium
+    100022: wood 1
+    100024: concrete 3
+    100026: railing_a_large
+    100028: window_small_a
+    100030: metal 7
+    100032: metal 4
+    100034: building_d2
+    100036: sill_medium_b
+    100038: old_roof_a
+    100040: metal 6
+    100042: wood 3
+    100044: sill_medium
+    100046: concrete 10
+    100048: metal 11
+    100050: sill_small
+    100052: concrete 11
+    100054: metal 12
+    100056: scissor_beam_a
+    100058: roofing_a
+    100060: iron_beam_c
+    100062: building_c
+    100064: metal 1
+    100066: concrete 1
+    100068: concrete_wall_a
+    100070: concrete_wall_b
+    100072: facade_a
+    100074: wood 2
+    100076: concrete 5
+    100078: metal 5
+    100080: building_d1
+    100082: concrete 2
+    100084: metal 2
+    100086: metal 3
+    100088: concrete 6
+    100090: platform_small
+    100092: metal 9
+    100094: metal 8
+    100096: concrete 8
+    100098: concrete 7
+    100100: wood 4
+    100102: metal 13
+    100104: //RootNode
+    100106: wood 5
+    100108: metal 14
+    100110: window_small_c
+    100112: concrete 9
+    100114: window_small_b
+    100116: iron_column_a
+    100118: chimney_a
+    100120: iron_beam_b
+    100122: power_terminal
+    100124: metal 10
+    100126: railing_a_stair_b
+    100128: railing_a_small_c
+    100130: guard_rail_medium
+    100132: guard_rail_small
+    100134: railing_a_small_b
+    100136: railing_a_exlarge
+    100138: short_wall_small
+    100140: railing_a_small_a
+    100142: railing_a_stair_a
+    100144: short_wall_medium
+    100146: railing_a_medium
+    100148: wood_plank_block_a
+    100150: wood_plank_d
+    100152: wood_plank_c
+    100154: wood_plank_b
+    100156: wood_plank_a
+    100158: wood_plank_e
+    400000: plastic_window
+    400002: building_b
+    400004: concrete
+    400006: metal
+    400008: wood
+    400010: fire_stair_a
+    400012: railing_a_tiny
+    400014: rusted_beam_a
+    400016: building_d3
+    400018: concrete 4
+    400020: platform_medium
+    400022: wood 1
+    400024: concrete 3
+    400026: railing_a_large
+    400028: window_small_a
+    400030: metal 7
+    400032: metal 4
+    400034: building_d2
+    400036: sill_medium_b
+    400038: old_roof_a
+    400040: metal 6
+    400042: wood 3
+    400044: sill_medium
+    400046: concrete 10
+    400048: metal 11
+    400050: sill_small
+    400052: concrete 11
+    400054: metal 12
+    400056: scissor_beam_a
+    400058: roofing_a
+    400060: iron_beam_c
+    400062: building_c
+    400064: metal 1
+    400066: concrete 1
+    400068: concrete_wall_a
+    400070: concrete_wall_b
+    400072: facade_a
+    400074: wood 2
+    400076: concrete 5
+    400078: metal 5
+    400080: building_d1
+    400082: concrete 2
+    400084: metal 2
+    400086: metal 3
+    400088: concrete 6
+    400090: platform_small
+    400092: metal 9
+    400094: metal 8
+    400096: concrete 8
+    400098: concrete 7
+    400100: wood 4
+    400102: metal 13
+    400104: //RootNode
+    400106: wood 5
+    400108: metal 14
+    400110: window_small_c
+    400112: concrete 9
+    400114: window_small_b
+    400116: iron_column_a
+    400118: chimney_a
+    400120: iron_beam_b
+    400122: power_terminal
+    400124: metal 10
+    400126: railing_a_stair_b
+    400128: railing_a_small_c
+    400130: guard_rail_medium
+    400132: guard_rail_small
+    400134: railing_a_small_b
+    400136: railing_a_exlarge
+    400138: short_wall_small
+    400140: railing_a_small_a
+    400142: railing_a_stair_a
+    400144: short_wall_medium
+    400146: railing_a_medium
+    400148: wood_plank_block_a
+    400150: wood_plank_d
+    400152: wood_plank_c
+    400154: wood_plank_b
+    400156: wood_plank_a
+    400158: wood_plank_e
+    2300000: plastic_window
+    2300002: concrete
+    2300004: metal
+    2300006: wood
+    2300008: fire_stair_a
+    2300010: railing_a_tiny
+    2300012: rusted_beam_a
+    2300014: concrete 4
+    2300016: wood 1
+    2300018: concrete 3
+    2300020: railing_a_large
+    2300022: window_small_a
+    2300024: metal 7
+    2300026: metal 4
+    2300028: sill_medium_b
+    2300030: metal 6
+    2300032: wood 3
+    2300034: concrete 10
+    2300036: metal 11
+    2300038: concrete 11
+    2300040: metal 12
+    2300042: scissor_beam_a
+    2300044: roofing_a
+    2300046: iron_beam_c
+    2300048: metal 1
+    2300050: concrete 1
+    2300052: concrete_wall_a
+    2300054: concrete_wall_b
+    2300056: wood 2
+    2300058: concrete 5
+    2300060: metal 5
+    2300062: concrete 2
+    2300064: metal 2
+    2300066: metal 3
+    2300068: concrete 6
+    2300070: metal 9
+    2300072: metal 8
+    2300074: concrete 8
+    2300076: concrete 7
+    2300078: wood 4
+    2300080: metal 13
+    2300082: wood 5
+    2300084: metal 14
+    2300086: concrete 9
+    2300088: iron_column_a
+    2300090: chimney_a
+    2300092: iron_beam_b
+    2300094: power_terminal
+    2300096: metal 10
+    2300098: railing_a_stair_b
+    2300100: railing_a_small_c
+    2300102: guard_rail_medium
+    2300104: guard_rail_small
+    2300106: railing_a_small_b
+    2300108: railing_a_exlarge
+    2300110: railing_a_small_a
+    2300112: railing_a_stair_a
+    2300114: railing_a_medium
+    2300116: wood_plank_block_a
+    2300118: wood_plank_d
+    2300120: wood_plank_c
+    2300122: wood_plank_b
+    2300124: wood_plank_a
+    2300126: wood_plank_e
+    3300000: plastic_window
+    3300002: concrete
+    3300004: metal
+    3300006: wood
+    3300008: fire_stair_a
+    3300010: railing_a_tiny
+    3300012: rusted_beam_a
+    3300014: concrete 4
+    3300016: wood 1
+    3300018: concrete 3
+    3300020: railing_a_large
+    3300022: window_small_a
+    3300024: metal 7
+    3300026: metal 4
+    3300028: sill_medium_b
+    3300030: metal 6
+    3300032: wood 3
+    3300034: concrete 10
+    3300036: metal 11
+    3300038: concrete 11
+    3300040: metal 12
+    3300042: scissor_beam_a
+    3300044: roofing_a
+    3300046: iron_beam_c
+    3300048: metal 1
+    3300050: concrete 1
+    3300052: concrete_wall_a
+    3300054: concrete_wall_b
+    3300056: wood 2
+    3300058: concrete 5
+    3300060: metal 5
+    3300062: concrete 2
+    3300064: metal 2
+    3300066: metal 3
+    3300068: concrete 6
+    3300070: metal 9
+    3300072: metal 8
+    3300074: concrete 8
+    3300076: concrete 7
+    3300078: wood 4
+    3300080: metal 13
+    3300082: wood 5
+    3300084: metal 14
+    3300086: concrete 9
+    3300088: iron_column_a
+    3300090: chimney_a
+    3300092: iron_beam_b
+    3300094: power_terminal
+    3300096: metal 10
+    3300098: railing_a_stair_b
+    3300100: railing_a_small_c
+    3300102: guard_rail_medium
+    3300104: guard_rail_small
+    3300106: railing_a_small_b
+    3300108: railing_a_exlarge
+    3300110: railing_a_small_a
+    3300112: railing_a_stair_a
+    3300114: railing_a_medium
+    3300116: wood_plank_block_a
+    3300118: wood_plank_d
+    3300120: wood_plank_c
+    3300122: wood_plank_b
+    3300124: wood_plank_a
+    3300126: wood_plank_e
+    4300000: plastic_window
+    4300002: concrete
+    4300004: metal
+    4300006: wood
+    4300008: railing_a_medium
+    4300010: railing_a_stair_b
+    4300012: railing_a_stair_a
+    4300014: railing_a_tiny
+    4300016: railing_a_small_c
+    4300018: fire_stair_a
+    4300020: rusted_beam_a
+    4300022: sill_medium_b
+    4300024: metal
+    4300026: wood
+    4300028: concrete
+    4300030: metal
+    4300032: railing_a_small_a
+    4300034: concrete
+    4300036: metal
+    4300038: scissor_beam_a
+    4300040: roofing_a
+    4300042: iron_beam_c
+    4300044: metal
+    4300046: concrete
+    4300048: concrete_wall_a
+    4300050: concrete_wall_b
+    4300052: wood
+    4300054: concrete
+    4300056: metal
+    4300058: concrete
+    4300060: metal
+    4300062: wood
+    4300064: concrete
+    4300066: metal
+    4300068: concrete
+    4300070: metal
+    4300072: window_small_a
+    4300074: railing_a_exlarge
+    4300076: railing_a_large
+    4300078: railing_a_small_b
+    4300080: concrete
+    4300082: metal
+    4300084: concrete
+    4300086: metal
+    4300088: concrete
+    4300090: metal
+    4300092: concrete
+    4300094: metal
+    4300096: power_terminal
+    4300098: guard_rail_medium
+    4300100: guard_rail_small
+    4300102: iron_beam_b
+    4300104: chimney_a
+    4300106: iron_column_a
+    4300108: metal
+    4300110: wood
+    4300112: metal
+    4300114: wood
+    4300116: wood_plank_a
+    4300118: wood_plank_block_a
+    4300120: wood_plank_e
+    4300122: wood_plank_b
+    4300124: wood_plank_c
+    4300126: wood_plank_d
+    11100000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 0
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
