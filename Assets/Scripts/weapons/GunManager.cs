@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Bootcamp.Soldier;
+using Bootcamp.Hud;
 
 namespace Bootcamp.Weapons
 {
