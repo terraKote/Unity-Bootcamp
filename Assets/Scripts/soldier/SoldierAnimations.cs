@@ -36,12 +36,14 @@ namespace Bootcamp.Soldier
         private float fireWeight = 0;
 
         private Animation _animation;
+        private CharacterController _characterController;
 
         void OnEnable()
         {
             soldier = gameObject.GetComponent<SoldierController>();
             motor = gameObject.GetComponent<CharacterMotor>();
             _animation = GetComponent<Animation>();
+            _characterController = GetComponent<CharacterController>();
 
             SetAnimationProperties();
         }
@@ -174,7 +176,7 @@ namespace Bootcamp.Soldier
             currentWeapon = soldier.currentWeapon;
             moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-            inAir = !GetComponent("CharacterController").isGrounded;
+            inAir = !_characterController.isGrounded;
         }
 
         //Method that initializes _animations properties
