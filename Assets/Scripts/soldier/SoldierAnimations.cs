@@ -101,7 +101,7 @@ namespace Bootcamp.Soldier
             _animation["NormalFireGroup"].weight = uprightWeight * fireWeight * groundedWeight;
             _animation["CrouchFireGroup"].weight = crouchWeight * fireWeight * groundedWeight;
 
-            var runningJump = Mathf.Clamp01(Vector3.Dot(motor.movement.velocity, transform.forward) / 2.0);
+            var runningJump = Mathf.Clamp01(Vector3.Dot(motor.movement.velocity, transform.forward) / 2.0f);
             _animation["StandingJump"].weight = (1 - groundedWeight) * (1 - runningJump);
             _animation["RunJump"].weight = (1 - groundedWeight) * runningJump;
             if (inAir)
@@ -145,7 +145,7 @@ namespace Bootcamp.Soldier
 
             if (reloading)
             {
-                _animation.CrossFade("Reload" + soldier.currentWeaponName, 0.1);
+                _animation.CrossFade("Reload" + soldier.currentWeaponName, 0.1f);
             }
 
             if (currentWeapon > 0 && fire)
