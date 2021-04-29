@@ -253,7 +253,7 @@ if (table.ContainsKey(m.ToLower()))
 		}
 	}
 	
-	void ShowInstruction(string instruction)
+	public void ShowInstruction(string instruction)
 	{
 	if (table == null) return;
 
