@@ -560,23 +560,23 @@ public class MainMenuScreen : MonoBehaviour
 
         sceneConf.detailObjectDensity = SettingsSlider(
             "Terrain Grass Density", 136, "Grass density.",
-            sceneConf.detailObjectDensity, 0.0, 1.0, "",
-            1.0, 0.0);
+            sceneConf.detailObjectDensity, 0.0f, 1.0f, "",
+            1.0f, 0.0f);
 
         sceneConf.detailObjectDistance = SettingsSlider(
             "Terrain Grass Distance", 141, "Grass drawing distance.",
-            sceneConf.detailObjectDistance, 0.0, 50.0, "",
-            1.0, 0.0);
+            sceneConf.detailObjectDistance, 0.0f, 50.0f, "",
+            1.0f, 0.0f);
 
         sceneConf.nearTerrainPixelError = SettingsSlider(
             "Terrain Pixel Error", 146, "Set terrain pixel error.",
-            sceneConf.nearTerrainPixelError, 50.0, 5.0, "",
-            1.0, 0.0);
+            sceneConf.nearTerrainPixelError, 50.0f, 5.0f, "",
+            1.0f, 0.0f);
 
         sceneConf.treeDistance = SettingsSlider(
             "Terrain Tree Distance", 137, "Tree drawing distance.",
-            sceneConf.treeDistance, 200.0, 400.0, "",
-            1.0, 0.0);
+            sceneConf.treeDistance, 200.0f, 400.0f, "",
+            1.0f, 0.0f);
 
         sceneConf.heightmapMaximumLOD = SettingsIntSlider(
             "Terrain Level of Detail", 139, "Overall terrain Level of Detail.",
@@ -587,8 +587,8 @@ public class MainMenuScreen : MonoBehaviour
 
         sceneConf.terrainTreesBillboardStart = SettingsSlider(
             "Terrain Billboard Start", 140, "Distance from the camera where trees will be rendered as billboards.",
-            sceneConf.terrainTreesBillboardStart, 10.0, 70.0, "",
-            1.0, 0.0);
+            sceneConf.terrainTreesBillboardStart, 10.0f, 70.0f, "",
+            1.0f, 0.0f);
 
         sceneConf.maxMeshTrees = SettingsIntSlider(
             "Max Mesh Trees", 100, "Set the maximum number of trees rendered at full LOD.",
