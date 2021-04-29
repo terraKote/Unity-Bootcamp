@@ -143,7 +143,7 @@ public class SargeManager : MonoBehaviour {
 		
 		if(currentInstruction.texture != null)
 		{
-			var auxRect = new Rect((backgroundRect.width - currentInstruction.texture.width) * 0.5 + backgroundRect.x, (backgroundRect.height - currentInstruction.texture.height) * 0.5 + backgroundRect.y, currentInstruction.texture.width, currentInstruction.texture.height);
+			var auxRect = new Rect((backgroundRect.width - currentInstruction.texture.width) * 0.5f + backgroundRect.x, (backgroundRect.height - currentInstruction.texture.height) * 0.5f + backgroundRect.y, currentInstruction.texture.width, currentInstruction.texture.height);
 	GUI.DrawTexture(auxRect, currentInstruction.texture);
 		}
 		else
@@ -239,7 +239,7 @@ if (table.ContainsKey(m.ToLower()))
 	lastInstruction = currentInstruction;
 	friendlyFire = true;
 	currentInstruction = table[m];
-	timeToHide = currentInstruction.timeToDisplay + ((1.0 - sargeAlpha) + (1.0 - backgroundAlpha) + (1.0 - contentAlpha)) * (1.0 / fadeTime);
+	timeToHide = currentInstruction.timeToDisplay + ((1.0f - sargeAlpha) + (1.0f - backgroundAlpha) + (1.0f - contentAlpha)) * (1.0f / fadeTime);
 
 	if (currentInstruction.audio != null)
 	{
