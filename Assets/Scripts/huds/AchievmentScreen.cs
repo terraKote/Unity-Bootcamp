@@ -336,8 +336,8 @@ public class AchievmentScreen : MonoBehaviour
                 GUI.Label(new Rect(achievmentIconBackgroundRect.width + 12, achievmentIconBackgroundRect.y - 4, 200, 20), achievments[i].name.ToUpper());
                 GUI.Label(new Rect(achievmentIconBackgroundRect.width + 12, achievmentIconBackgroundRect.y + 12, 170, 50), achievments[i].description, descriptionStyle);
 
-                GUI.DrawTexture(new Rect(achievmentIconBackgroundRect.x + (achievmentIconBackgroundRect.width - achievments[i].icon.width) * 0.5 - 1,
-                                    achievmentIconBackgroundRect.y + (achievmentIconBackgroundRect.height - achievments[i].icon.height) * 0.5 - 1,
+                GUI.DrawTexture(new Rect(achievmentIconBackgroundRect.x + (achievmentIconBackgroundRect.width - achievments[i].icon.width) * 0.5f - 1,
+                                    achievmentIconBackgroundRect.y + (achievmentIconBackgroundRect.height - achievments[i].icon.height) * 0.5f - 1,
                                     achievments[i].icon.width,
                                     achievments[i].icon.height), achievments[i].icon);
 
