@@ -189,7 +189,6 @@ public class MainMenuScreen : MonoBehaviour
 
     void DrawGUI(Event e)
     {
-        evt = e;
         screenSize = new Vector2(Screen.width, Screen.height);
         mousePos = new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y);
 
@@ -691,6 +690,8 @@ public class MainMenuScreen : MonoBehaviour
 
     void DrawMenu()
     {
+        Event evt = Event.current;
+
         menuBackgroundRect.x = 0;
         menuBackgroundRect.y = (screenSize.y - menuBackgroundRect.height) * 0.5f - 50;
 
