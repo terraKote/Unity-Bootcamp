@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-enum DummyPart
+public enum DummyPart
 {
 	HEAD = 0,
 	NECK,
