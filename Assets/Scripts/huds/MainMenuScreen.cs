@@ -125,7 +125,7 @@ public class MainMenuScreen : MonoBehaviour
         unityLogo = hudSkin.GetStyle("UnityLogo");
         questionRect = new Rect(0, 0, 11, 11);
 
-        alpha = 1.0;
+        alpha = 1.0f;
         goingToGame = false;
         resumeGame = false;
 
