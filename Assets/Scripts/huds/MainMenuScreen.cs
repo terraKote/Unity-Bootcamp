@@ -537,15 +537,15 @@ public class MainMenuScreen : MonoBehaviour
 
         GameQualitySettings.dynamicObjectsFarClip = SettingsSlider(
             "Dynamic Objects Far Distance", 180, "Drawing distance of dynamic objects.",
-            GameQualitySettings.dynamicObjectsFarClip, 0.0, 1.0, "DYNAMIC: ",
+            GameQualitySettings.dynamicObjectsFarClip, 0.0f, 1.0f, "DYNAMIC: ",
             GameQualitySettings._dynamicLayersRange.y - GameQualitySettings._dynamicLayersRange.x, GameQualitySettings._dynamicLayersRange.x);
 
         SettingsSpace(27);
 
         GameQualitySettings.shadowDistance = SettingsSlider(
             "Shadow Distance", 108, "Realtime shadows drawing distance.",
-            GameQualitySettings.shadowDistance, 0.0, 30.0, "",
-            1.0, 0.0);
+            GameQualitySettings.shadowDistance, 0.0f, 30.0f, "",
+            1.0f, 0.0f);
 
         SettingsSpace(28);
 
