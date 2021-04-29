@@ -52,8 +52,6 @@ public class MainMenuScreen : MonoBehaviour
     private Vector2 mousePos;
     private Vector2 screenSize;
 
-    private Event evt;
-
     private MainMenuState state;
     private float lastMouseTime;
 
@@ -279,7 +277,9 @@ public class MainMenuScreen : MonoBehaviour
         var dRect = damageRect;
         dRect.x = panelRightRect.x + ((panelRightRect.width - damageRect.width) * 0.5f);
 
-        if (evt.current.type == EventType.MouseUp && evt.button == 0 && Time.time > lastMouseTime)
+        Event e = Event.current;
+
+        if (e.type == EventType.MouseUp && e.button == 0 && Time.time > lastMouseTime)
         {
             if (damageRect.Contains(mousePos))
             {
