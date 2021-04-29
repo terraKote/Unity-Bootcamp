@@ -41,7 +41,7 @@ public class TrainingStatistics : MonoBehaviour {
 	public static int rArm ;
 	public static int torso ;
 	
-	static void ResetStatistics()
+	public static void ResetStatistics()
 	{
 		statistics = new TrainingStat[14];
 
