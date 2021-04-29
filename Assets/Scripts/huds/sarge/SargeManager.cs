@@ -238,7 +238,7 @@ if (table.ContainsKey(m.ToLower()))
 {
 	lastInstruction = currentInstruction;
 	friendlyFire = true;
-	currentInstruction = table[m];
+	currentInstruction = (SargeInstruction)table[m];
 	timeToHide = currentInstruction.timeToDisplay + ((1.0f - sargeAlpha) + (1.0f - backgroundAlpha) + (1.0f - contentAlpha)) * (1.0f / fadeTime);
 
 	if (currentInstruction.audio != null)
@@ -272,7 +272,7 @@ if (table.ContainsKey(m.ToLower()))
 			}
 		}
 
-		currentInstruction = table[instruction];
+		currentInstruction = (SargeInstruction)table[instruction];
 		timeToHide = currentInstruction.timeToDisplay + ((1.0f - sargeAlpha) + (1.0f - backgroundAlpha) + (1.0f - contentAlpha)) * (1.0f / fadeTime);
 
 		if (currentInstruction.audio != null)
