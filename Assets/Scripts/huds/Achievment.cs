@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-class Achievment
+public class Achievment
 {
     public string name;
     public bool enabled;
