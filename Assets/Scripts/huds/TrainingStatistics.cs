@@ -70,7 +70,7 @@ public class TrainingStatistics : MonoBehaviour {
 		for (var i = 0; i < 14; i++)
 		{
 			t = new TrainingStat();
-			t.dummyPart = i;
+			t.dummyPart = (DummyPart)i;
 			t.name = t.dummyPart.ToString().Replace("_", " ");
 			t.points = 0;
 
