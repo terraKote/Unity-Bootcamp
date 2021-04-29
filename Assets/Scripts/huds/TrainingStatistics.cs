@@ -82,7 +82,7 @@ public class TrainingStatistics : MonoBehaviour {
 	{
 		if (statistics == null) return;
 
-		var i = part;
+		int i = (int)part;
 
 		if (i < 0 || i > statistics.Length - 1) return;
 
