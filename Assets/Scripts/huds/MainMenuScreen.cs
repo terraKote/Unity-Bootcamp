@@ -187,7 +187,7 @@ public class MainMenuScreen : MonoBehaviour
         }
     }
 
-    void DrawGUI(Event e)
+    public void DrawGUI(Event e)
     {
         screenSize = new Vector2(Screen.width, Screen.height);
         mousePos = new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y);
