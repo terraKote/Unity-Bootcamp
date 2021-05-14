@@ -99,7 +99,7 @@ public class SargeManager : MonoBehaviour {
 		}
 	}
 
-	void DrawGUI(Event e)
+	public void DrawGUI(Event e)
 	{
 		if (contentAlpha <= 0.0) return;
 
