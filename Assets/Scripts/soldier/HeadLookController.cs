@@ -39,7 +39,11 @@ namespace Bootcamp.Soldier
         [SerializeField] Vector3 headUpVector = Vector3.up;
         [SerializeField] Vector3 target = Vector3.zero;
         [SerializeField] Transform targetTransform;
+<<<<<<< HEAD
         public float effect = 1.0f;
+=======
+        [SerializeField] float effect = 1.0f;
+>>>>>>> main
         [SerializeField] bool overrideAnimation = false;
 
         private void Start()
