@@ -19,7 +19,7 @@ public class SargeHelper : Editor
 
 			if (t.debug)
 			{
-				for (int i = 0; i < t.instructions.length; i++)
+				for (int i = 0; i < t.instructions.Length; i++)
 				{
 					var inst = t.instructions[i].name;
 					if (GUILayout.Button(inst))
