@@ -264,7 +264,7 @@ public class SoldierCamera : MonoBehaviour
         }
     }
 
-    void StartShake(float distance)
+    public void StartShake(float distance)
     {
         float proximity = distance / maxShakeDistance;
 
