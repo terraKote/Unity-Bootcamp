@@ -336,7 +336,7 @@ namespace Bootcamp.Weapons
 
             if (shottingParticles != null)
             {
-                shottingParticles.rotation = Quaternion.FromToRotation(Vector3.forward, (cam.ScreenToWorldPoint(new Vector3(Screen.width * 0.5, Screen.height * 0.5, cam.farClipPlane)) - weaponTransformReference.position).normalized);
+                shottingParticles.rotation = Quaternion.FromToRotation(Vector3.forward, (cam.ScreenToWorldPoint(new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, cam.farClipPlane)) - weaponTransformReference.position).normalized);
             }
 
             if (Physics.Raycast(origin, dir, out hit, fireRange, hitLayer))
