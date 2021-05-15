@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Bootcamp.Hud.Sarge;
 
 public class GameManager : MonoBehaviour {
     public GameObject gamePlaySoldier ;
