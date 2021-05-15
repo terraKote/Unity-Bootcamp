@@ -357,7 +357,7 @@ namespace Bootcamp.Weapons
 
         void GenerateGraphicStuff(RaycastHit hit)
         {
-            HitType hitType ;
+            HitType hitType = HitType.CONCRETE;
 
             Rigidbody body   = hit.collider.rigidbody;
             if (body == null)
