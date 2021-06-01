@@ -109,7 +109,7 @@ public class SoundObject : MonoBehaviour
         timeToSound -= Time.deltaTime;
     }
 
-    void OnCollisionEnter(Collision collisionData)
+    public void OnCollisionEnter(Collision collisionData)
     {
         var speed = collisionData.relativeVelocity.sqrMagnitude;
 
