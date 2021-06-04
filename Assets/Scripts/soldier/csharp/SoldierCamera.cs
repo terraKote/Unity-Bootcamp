@@ -118,14 +118,13 @@ public class SoldierCamera : MonoBehaviour
     void Update()
     {
         if (GameManager.pause || GameManager.scores) return;
-        //if(GameManager.scores) return;
 
         if (orbit && (Input.GetKeyDown(KeyCode.O) || Input.GetAxis("Horizontal") != 0.0 || Input.GetAxis("Vertical") != 0.0 || soldierController.aim || soldierController.fire))
         {
             GoToOrbitMode(false);
         }
 
-        if (!orbit && soldierController && soldierController.idleTimer > 0.1)
+        if (!orbit && soldierController.idleTimer > 0.1)
         {
             GoToOrbitMode(true);
         }
@@ -135,7 +134,7 @@ public class SoldierCamera : MonoBehaviour
     {
         if (GameManager.pause || GameManager.scores) return;
 
-        deltaTime = Time.deltaTime;
+        deltaTime = Time.fixedDeltaTime;
 
         GetInput();
 
@@ -273,6 +272,7 @@ public class SoldierCamera : MonoBehaviour
     void GetInput()
     {
         var a = soldierController.aim ? aimSpeed : speed;
+        Debug.Log(deltaTime);
         x += Mathf.Clamp(Input.GetAxis("Mouse X") * a.x, -maxSpeed.x, maxSpeed.x) * deltaTime;
         y -= Mathf.Clamp(Input.GetAxis("Mouse Y") * a.y, -maxSpeed.y, maxSpeed.y) * deltaTime;
         y = ClampAngle(y, yMinLimit, yMaxLimit);
