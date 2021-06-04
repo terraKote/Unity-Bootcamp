@@ -34,15 +34,6 @@ public class BlurEffect : MonoBehaviour
         }
     }
 
-    protected void OnDisable()
-    {
-        if (m_Material)
-        {
-            DestroyImmediate(m_Material.shader);
-            DestroyImmediate(m_Material);
-        }
-    }
-
     // --------------------------------------------------------
 
     protected void Start()
