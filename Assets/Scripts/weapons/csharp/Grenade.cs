@@ -36,9 +36,9 @@ public class Grenade : MonoBehaviour
 
         exploded = true;
 
-        if (renderer != null)
+        if (GetComponent<Renderer>() != null)
         {
-            renderer.enabled = false;
+            GetComponent<Renderer>().enabled = false;
 
             if (smoke != null)
             {
@@ -70,14 +70,14 @@ public class Grenade : MonoBehaviour
                 col[c].gameObject.SendMessage("Destruct", SendMessageOptions.DontRequireReceiver);
 
                 body = null;
-                body = col[c].gameObject.rigidbody;
+                body = col[c].gameObject.GetComponent<Rigidbody>();
                 if (body != null)
                 {
                     body.isKinematic = false;
                 }
                 else if (col[c].gameObject.transform.parent != null)
                 {
-                    body = col[c].gameObject.transform.parent.rigidbody;
+                    body = col[c].gameObject.transform.parent.GetComponent<Rigidbody>();
                     if (body != null)
                     {
                         body.isKinematic = false;
@@ -89,7 +89,7 @@ public class Grenade : MonoBehaviour
                     body.AddExplosionForce(power, _explosionPosition, explosionRadius, 3.0f);
                 }
 
-                if (col[c].collider.tag == "glass")
+                if (col[c].GetComponent<Collider>().tag == "glass")
                 {
                     col[c].gameObject.SendMessage("BreakAll", SendMessageOptions.DontRequireReceiver);
                 }
@@ -113,13 +113,13 @@ public class Grenade : MonoBehaviour
         if (distance < farSoundDistance)
         {
             sIndex = Random.Range(0, nearSounds.Length);
-            audio.PlayOneShot(nearSounds[sIndex]);
+            GetComponent<AudioSource>().PlayOneShot(nearSounds[sIndex]);
             timer = nearSounds[sIndex].length + 1.0f;
         }
         else
         {
             sIndex = Random.Range(0, farSounds.Length);
-            audio.PlayOneShot(farSounds[sIndex]);
+            GetComponent<AudioSource>().PlayOneShot(farSounds[sIndex]);
             timer = farSounds[sIndex].length + 1.0f;
         }
     }

@@ -108,10 +108,10 @@ class GameQualitySettings extends MonoBehaviour
 		{
 			var setting : AmbientParticleSettings = new AmbientParticleSettings();
 			if(go) {
-			setting.minSize = go.particleEmitter.minSize;
-			setting.maxSize = go.particleEmitter.maxSize;
-			setting.minEmission = go.particleEmitter.minEmission;
-			setting.maxEmission = go.particleEmitter.maxEmission;
+			setting.minSize = go.GetComponent.<ParticleEmitter>().minSize;
+			setting.maxSize = go.GetComponent.<ParticleEmitter>().maxSize;
+			setting.minEmission = go.GetComponent.<ParticleEmitter>().minEmission;
+			setting.maxEmission = go.GetComponent.<ParticleEmitter>().maxEmission;
 			}
 			_ambientParticleObjectSettings.Push(setting);
 		}
@@ -205,10 +205,10 @@ class GameQualitySettings extends MonoBehaviour
 				if(ambientParticleObjects[k] == null) continue;
 				if(!ambientParticleObjects[k].active) continue;			
 			
-				ambientParticleObjects[k].particleEmitter.minSize = setting.minSize*_particleQualityMultiplier;
-				ambientParticleObjects[k].particleEmitter.maxSize = setting.maxSize*_particleQualityMultiplier;
-				ambientParticleObjects[k].particleEmitter.minEmission = setting.minEmission*_particleQualityMultiplier;
-				ambientParticleObjects[k].particleEmitter.maxEmission = setting.maxEmission*_particleQualityMultiplier;
+				ambientParticleObjects[k].GetComponent.<ParticleEmitter>().minSize = setting.minSize*_particleQualityMultiplier;
+				ambientParticleObjects[k].GetComponent.<ParticleEmitter>().maxSize = setting.maxSize*_particleQualityMultiplier;
+				ambientParticleObjects[k].GetComponent.<ParticleEmitter>().minEmission = setting.minEmission*_particleQualityMultiplier;
+				ambientParticleObjects[k].GetComponent.<ParticleEmitter>().maxEmission = setting.maxEmission*_particleQualityMultiplier;
 			}
 		}	
 	}

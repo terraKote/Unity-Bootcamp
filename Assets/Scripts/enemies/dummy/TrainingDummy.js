@@ -77,9 +77,9 @@ class TrainingDummy extends MonoBehaviour
 	
 	function Start()
 	{	
-		animation["dum_crouch"].speed = animSpeed.x;
-		animation["dum_stand"].speed = animSpeed.y;	
-		animation["dum_death"].speed = 2.0;		
+		GetComponent.<Animation>()["dum_crouch"].speed = animSpeed.x;
+		GetComponent.<Animation>()["dum_stand"].speed = animSpeed.y;	
+		GetComponent.<Animation>()["dum_death"].speed = 2.0;		
 					
 		running = false;
 		
@@ -99,7 +99,7 @@ class TrainingDummy extends MonoBehaviour
 		failEffectTimeVariation *= 0.5;
 
 		failEffectTimer = Mathf.Max(Random.Range(failEffectTime - failEffectTimeVariation, failEffectTime + failEffectTimeVariation), 0.5);
-		animation.Play("dum_crouch_idle");
+		GetComponent.<Animation>().Play("dum_crouch_idle");
 		
 		GunEffects(false);
 	}
@@ -195,7 +195,7 @@ class TrainingDummy extends MonoBehaviour
 				}
 			}
 			
-			audio.PlayOneShot(shootSound);
+			GetComponent.<AudioSource>().PlayOneShot(shootSound);
 			
 			shootTime = Time.time + 0.1;
 			
@@ -229,42 +229,42 @@ class TrainingDummy extends MonoBehaviour
 
 		if(timer <= 0.0)
 		{
-			if(animation == null) return;
+			if(GetComponent.<Animation>() == null) return;
 			
 			switch(state)
 			{
 				case 0:
-					if(animation["dum_crouch"] == null) return;
+					if(GetComponent.<Animation>()["dum_crouch"] == null) return;
 					
-					timer = animation["dum_crouch"].length / animSpeed.x;
-					animation.CrossFade("dum_crouch");
+					timer = GetComponent.<Animation>()["dum_crouch"].length / animSpeed.x;
+					GetComponent.<Animation>().CrossFade("dum_crouch");
 					
-					audio.PlayOneShot(downSound);
+					GetComponent.<AudioSource>().PlayOneShot(downSound);
 					
 					if(canShoot) GunEffects(false);
 					break;
 				case 1:
-					if(animation["dum_crouch_idle"] == null) return;
+					if(GetComponent.<Animation>()["dum_crouch_idle"] == null) return;
 					
 					timer = Mathf.Max(Random.Range(animTime.x - animTimeVariation, animTime.x + animTimeVariation), 0.5);
-					animation["dum_crouch_idle"].time = 0.0;
-					animation.Play("dum_crouch_idle");
+					GetComponent.<Animation>()["dum_crouch_idle"].time = 0.0;
+					GetComponent.<Animation>().Play("dum_crouch_idle");
 					break;
 				case 2:
-					if(animation["dum_stand"] == null) return;
+					if(GetComponent.<Animation>()["dum_stand"] == null) return;
 					
-					timer = animation["dum_stand"].length / animSpeed.y;
+					timer = GetComponent.<Animation>()["dum_stand"].length / animSpeed.y;
 					
-					audio.PlayOneShot(riseSound);
+					GetComponent.<AudioSource>().PlayOneShot(riseSound);
 					
-					animation.CrossFade("dum_stand");
+					GetComponent.<Animation>().CrossFade("dum_stand");
 					break;
 				case 3:
-					if(animation["dum_stand_idle"] == null) return;
+					if(GetComponent.<Animation>()["dum_stand_idle"] == null) return;
 					
 					timer = Mathf.Max(Random.Range(animTime.y - animTimeVariation, animTime.y + animTimeVariation), 0.5);
-					animation["dum_stand_idle"].time = 0.0;
-					animation.Play("dum_stand_idle");
+					GetComponent.<Animation>()["dum_stand_idle"].time = 0.0;
+					GetComponent.<Animation>().Play("dum_stand_idle");
 					if(canShoot) GunEffects(true);
 					break;
 			}
@@ -284,12 +284,12 @@ class TrainingDummy extends MonoBehaviour
 			timerToCreateDecal = 0.1;
 			var hitType : HitType;
 			
-			var body : Rigidbody = hit.collider.rigidbody;
+			var body : Rigidbody = hit.collider.GetComponent.<Rigidbody>();
 			if(body == null)
 			{
 				if(hit.collider.transform.parent != null)
 				{
-					body = hit.collider.transform.parent.rigidbody;
+					body = hit.collider.transform.parent.GetComponent.<Rigidbody>();
 				}
 			}
 			
@@ -341,7 +341,7 @@ class TrainingDummy extends MonoBehaviour
 			
 			go.layer = hit.collider.gameObject.layer;
 			
-			if(hit.collider.renderer == null) return;
+			if(hit.collider.GetComponent.<Renderer>() == null) return;
 			
 		
 			go = GameObject.Instantiate(bulletMark, hit.point, Quaternion.FromToRotation(Vector3.forward, -hit.normal));
@@ -376,11 +376,11 @@ class TrainingDummy extends MonoBehaviour
 					TrainingStatistics.dummies++;
 					GunEffects(false);
 					
-					audio.PlayOneShot(dieSound);
+					GetComponent.<AudioSource>().PlayOneShot(dieSound);
 					
 					Destruct(4);
 					
-					animation.CrossFade("dum_death");
+					GetComponent.<Animation>().CrossFade("dum_death");
 				}
 			}
 			
@@ -411,7 +411,7 @@ class TrainingDummy extends MonoBehaviour
 					{
 						dead = true;
 						TrainingStatistics.dummies++;
-						audio.PlayOneShot(dieSound);
+						GetComponent.<AudioSource>().PlayOneShot(dieSound);
 						GunEffects(false);
 					}
 					if(go == weapon) 
@@ -511,7 +511,7 @@ class TrainingDummy extends MonoBehaviour
 						TrainingStatistics.headShoot++;
 						TrainingStatistics.dummies++;
 						
-						audio.PlayOneShot(dieSound);
+						GetComponent.<AudioSource>().PlayOneShot(dieSound);
 						GunEffects(false);
 						
 						if(state != 0)
@@ -519,7 +519,7 @@ class TrainingDummy extends MonoBehaviour
 							Hit(hit, 4, shootsToDestroyPart);
 						}
 						
-						animation.CrossFade("dum_death");
+						GetComponent.<Animation>().CrossFade("dum_death");
 					}
 				}
 				
@@ -550,7 +550,7 @@ class TrainingDummy extends MonoBehaviour
 						{
 							dead = true;
 							TrainingStatistics.dummies++;
-							audio.PlayOneShot(dieSound);
+							GetComponent.<AudioSource>().PlayOneShot(dieSound);
 							GunEffects(false);
 						}
 						if(go == weapon) 
@@ -618,14 +618,14 @@ class TrainingDummy extends MonoBehaviour
 		
 		mat = new Material(fadeShader);
 		
-		var r : Renderer = go.renderer;
+		var r : Renderer = go.GetComponent.<Renderer>();
 		
 		mat.mainTexture = r.material.mainTexture;
 		r.material = mat;
 		
 		if(go.GetComponent("TrainingDummyPartDestructor") == null)
 		{
-			go.AddComponent("TrainingDummyPartDestructor");
+			go.AddComponent.<TrainingDummyPartDestructor>();
 		}
 			
 		
@@ -638,7 +638,7 @@ class TrainingDummy extends MonoBehaviour
 	
 	function InitializeRigidbody(go : GameObject) : Rigidbody
 	{
-		var rb : Rigidbody = go.rigidbody;
+		var rb : Rigidbody = go.GetComponent.<Rigidbody>();
 		rb.isKinematic = false;
 		
 		return rb;

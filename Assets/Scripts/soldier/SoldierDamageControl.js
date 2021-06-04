@@ -31,18 +31,18 @@ class SoldierDamageControl extends MonoBehaviour
 		{
 			life -= 0.05;
 			
-			if(!audio.isPlaying)
+			if(!GetComponent.<AudioSource>().isPlaying)
 			{
 				if(life < 0.5 && (Random.Range(0, 100) < 30))
 				{
-					audio.clip = dyingSound;
+					GetComponent.<AudioSource>().clip = dyingSound;
 				}
 				else
 				{
-					audio.clip = hitSounds[Random.Range(0, hitSounds.length)];
+					GetComponent.<AudioSource>().clip = hitSounds[Random.Range(0, hitSounds.length)];
 				}
 				
-				audio.Play();
+				GetComponent.<AudioSource>().Play();
 			}
 			
 			recoverTime = (1.0 - life) * 10.0;

@@ -8,6 +8,6 @@ public class IgnoreCollider : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		Physics.IgnoreCollision(transform.collider, otherCollider, true);
+		Physics.IgnoreCollision(transform.GetComponent<Collider>(), otherCollider, true);
 	}
 }

@@ -1,3 +1,7 @@
+#warning Upgrade NOTE: unity_Scale shader variable was removed; replaced 'unity_Scale.w' with '1.0'
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "FX/Water GrabPass" {
 	Properties {
 		_TintColor ("Tint Color", Color) = (0.5,0.5,0.5,0.5)
@@ -103,7 +107,7 @@ v2f_aniOnly vert_onlyAnimation(appdata_full v)
 	v2f_aniOnly o;
 					
 	v.vertex.xyz += vertexOffsetObjectSpace(v);		
-	o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);				
+	o.vertex = UnityObjectToClipPos(v.vertex);				
 
 	return o;
 }
@@ -118,14 +122,14 @@ v2f_noProjPos vert_noScreen(appdata_full v)
 										
 	v.vertex.xyz += vertexOffsetObjectSpace(v);
 					
-	o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);		
+	o.vertex = UnityObjectToClipPos(v.vertex);		
 						
 	o.viewDirWorld = -WorldSpaceViewDir(v.vertex);
 					
 	TANGENT_SPACE_ROTATION;
-	o.TtoW0 = mul(rotation, _Object2World[0].xyz * unity_Scale.w);
-	o.TtoW1 = mul(rotation, _Object2World[1].xyz * unity_Scale.w);
-	o.TtoW2 = mul(rotation, _Object2World[2].xyz * unity_Scale.w);				
+	o.TtoW0 = mul(rotation, unity_ObjectToWorld[0].xyz * 1.0);
+	o.TtoW1 = mul(rotation, unity_ObjectToWorld[1].xyz * 1.0);
+	o.TtoW2 = mul(rotation, unity_ObjectToWorld[2].xyz * 1.0);				
 					
 	return o;
 }
@@ -140,15 +144,15 @@ v2f vert_full (appdata_full v)
 					
 	v.vertex.xyz += vertexOffsetObjectSpace(v);
 					
-	o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);		
+	o.vertex = UnityObjectToClipPos(v.vertex);		
 	o.projPos = ComputeScreenPos(o.vertex);
 					
 	o.viewDirWorld = -WorldSpaceViewDir(v.vertex);
 					
 	TANGENT_SPACE_ROTATION;
-	o.TtoW0 = mul(rotation, _Object2World[0].xyz * unity_Scale.w);
-	o.TtoW1 = mul(rotation, _Object2World[1].xyz * unity_Scale.w);
-	o.TtoW2 = mul(rotation, _Object2World[2].xyz * unity_Scale.w);				
+	o.TtoW0 = mul(rotation, unity_ObjectToWorld[0].xyz * 1.0);
+	o.TtoW1 = mul(rotation, unity_ObjectToWorld[1].xyz * 1.0);
+	o.TtoW2 = mul(rotation, unity_ObjectToWorld[2].xyz * 1.0);				
 					
 	return o;
 }

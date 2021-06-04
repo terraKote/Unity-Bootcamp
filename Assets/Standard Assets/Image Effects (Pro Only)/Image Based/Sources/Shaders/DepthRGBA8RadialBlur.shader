@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/DepthRGBA8RadialBlur" 
 {
 	Properties {
@@ -24,7 +26,7 @@ Shader "Hidden/DepthRGBA8RadialBlur"
 		
 	v2f vert( appdata_img v ) {
 		v2f o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
 		o.uv.xy =  v.texcoord.xy;
 		
 		o.blurVector = (sunPosition.xy - v.texcoord.xy) * blurRadius4.xy;	

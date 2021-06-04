@@ -127,20 +127,20 @@ public class CombineChildren : MonoBehaviour {
 			
 			if(removeColliders)
 			{
-				if(filter.collider != null)
+				if(filter.GetComponent<Collider>() != null)
 				{
 					if(Application.isEditor)
 					{
-						DestroyImmediate(filter.collider);
+						DestroyImmediate(filter.GetComponent<Collider>());
 					}
 					else
 					{
-						Destroy(filter.collider);
+						Destroy(filter.GetComponent<Collider>());
 					}
 				}
 			}
 			
-			Renderer curRenderer  = filters[i].renderer;
+			Renderer curRenderer  = filters[i].GetComponent<Renderer>();
 			MeshCombineUtility.MeshInstance instance = new MeshCombineUtility.MeshInstance ();
 			instance.mesh = filter.sharedMesh;
 			if (curRenderer != null && curRenderer.enabled && instance.mesh != null) 
@@ -179,12 +179,12 @@ public class CombineChildren : MonoBehaviour {
 				if (GetComponent(typeof(MeshFilter)) == null)
 					gameObject.AddComponent(typeof(MeshFilter));
 				if (!GetComponent("MeshRenderer"))
-					gameObject.AddComponent("MeshRenderer");
+					gameObject.AddComponent<MeshRenderer>();
 	
 				MeshFilter filter = (MeshFilter)GetComponent(typeof(MeshFilter));
 				filter.mesh = MeshCombineUtility.Combine(instances, generateTriangleStrips);
-				renderer.material = (Material)de.Key;
-				renderer.enabled = true;
+				GetComponent<Renderer>().material = (Material)de.Key;
+				GetComponent<Renderer>().enabled = true;
 			}
 			// We have multiple materials to take care of, build one mesh / gameobject for each material
 			// and parent it to this object
@@ -197,8 +197,8 @@ public class CombineChildren : MonoBehaviour {
 				go.transform.localRotation = Quaternion.identity;
 				go.transform.localPosition = Vector3.zero;
 				go.AddComponent(typeof(MeshFilter));
-				go.AddComponent("MeshRenderer");
-				go.renderer.material = (Material)de.Key;
+				go.AddComponent<MeshRenderer>();
+				go.GetComponent<Renderer>().material = (Material)de.Key;
 				MeshFilter filter = (MeshFilter)go.GetComponent(typeof(MeshFilter));
 				filter.mesh = MeshCombineUtility.Combine(instances, generateTriangleStrips);
 			}

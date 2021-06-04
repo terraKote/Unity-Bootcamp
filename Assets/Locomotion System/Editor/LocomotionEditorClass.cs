@@ -126,7 +126,7 @@ class LocomotionEditorClass : Editor {
 			List<InspectorAnimationGroup> groups = new List<InspectorAnimationGroup>();
 			groups.Add(new InspectorAnimationGroup(""));
 			if (GUILayout.Button("Reset") || lc.sourceAnimations.Length == 0) {
-				AnimationClip[] clips = AnimationUtility.GetAnimationClips(lc.animation);
+				AnimationClip[] clips = AnimationUtility.GetAnimationClips(lc.gameObject);
 				for (int c=0; c<clips.Length; c++) {
 					MotionAnalyzer motion = new MotionAnalyzer();
 					motion.animation = clips[c];
@@ -225,9 +225,9 @@ class LocomotionEditorClass : Editor {
 		
 	}
 	
-	[DrawGizmo (GizmoType.SelectedOrChild)]
+	[DrawGizmo (GizmoType.InSelectionHierarchy)]
 	static void RenderGizmo (LegController legC, GizmoType gizmoType) {
-		if (Application.isPlaying || AnimationUtility.InAnimationMode())
+		if (Application.isPlaying || AnimationMode.InAnimationMode())
 			return;
 		
 		Vector3 up = legC.transform.up;

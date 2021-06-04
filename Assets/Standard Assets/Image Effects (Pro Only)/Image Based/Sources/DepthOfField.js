@@ -170,7 +170,7 @@ class DepthOfField extends PostEffectsBase {
 	
 	function Start () {
 		CreateMaterials ();
-		camera.depthTextureMode |= DepthTextureMode.Depth;		
+		GetComponent.<Camera>().depthTextureMode |= DepthTextureMode.Depth;		
 	}
 
 
@@ -209,8 +209,8 @@ class DepthOfField extends PostEffectsBase {
                 
 		if(focusOnThis) 
 		{
-			var vpPoint = camera.WorldToViewportPoint(focusOnThis.position);
-			vpPoint.z = (vpPoint.z) / (camera.farClipPlane);
+			var vpPoint = GetComponent.<Camera>().WorldToViewportPoint(focusOnThis.position);
+			vpPoint.z = (vpPoint.z) / (GetComponent.<Camera>().farClipPlane);
 			_focalDistance01 = vpPoint.z;
 		} 
 		else if(focusOnScreenCenterDepth) 
@@ -223,13 +223,13 @@ class DepthOfField extends PostEffectsBase {
 		}
 		else 
 		{
-			_focalDistance01 = camera.WorldToViewportPoint(focalZDistance * camera.transform.forward + camera.transform.position).z / (camera.farClipPlane);	
+			_focalDistance01 = GetComponent.<Camera>().WorldToViewportPoint(focalZDistance * GetComponent.<Camera>().transform.forward + GetComponent.<Camera>().transform.position).z / (GetComponent.<Camera>().farClipPlane);	
 		}
 		
-		if(focalZEnd > camera.farClipPlane)
-			focalZEnd = camera.farClipPlane;
-		_focalStart01 = camera.WorldToViewportPoint(focalZStart * camera.transform.forward + camera.transform.position).z / (camera.farClipPlane);
-		_focalEnd01 = camera.WorldToViewportPoint(focalZEnd * camera.transform.forward + camera.transform.position).z / (camera.farClipPlane);
+		if(focalZEnd > GetComponent.<Camera>().farClipPlane)
+			focalZEnd = GetComponent.<Camera>().farClipPlane;
+		_focalStart01 = GetComponent.<Camera>().WorldToViewportPoint(focalZStart * GetComponent.<Camera>().transform.forward + GetComponent.<Camera>().transform.position).z / (GetComponent.<Camera>().farClipPlane);
+		_focalEnd01 = GetComponent.<Camera>().WorldToViewportPoint(focalZEnd * GetComponent.<Camera>().transform.forward + GetComponent.<Camera>().transform.position).z / (GetComponent.<Camera>().farClipPlane);
 
 		
 		if(_focalEnd01<_focalStart01)

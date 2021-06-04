@@ -67,7 +67,7 @@ public class WaterInteractions : MonoBehaviour
         int i;
 
         movementContainer.parent = null;
-        movementContainer.audio.volume = 0.0f;
+        movementContainer.GetComponent<AudioSource>().volume = 0.0f;
         for (i = 0; i < movementEmitters.Length; i++)
         {
             movementEmitters[i].emit = false;
@@ -174,28 +174,28 @@ public class WaterInteractions : MonoBehaviour
 
         if (emitMovement)
         {
-            if (movementContainer.audio.volume < 0.65f)
+            if (movementContainer.GetComponent<AudioSource>().volume < 0.65f)
             {
-                if (!movementContainer.audio.isPlaying) movementContainer.audio.Play();
+                if (!movementContainer.GetComponent<AudioSource>().isPlaying) movementContainer.GetComponent<AudioSource>().Play();
 
-                movementContainer.audio.volume += Time.deltaTime * fadeSpeed;
+                movementContainer.GetComponent<AudioSource>().volume += Time.deltaTime * fadeSpeed;
             }
             else
             {
-                movementContainer.audio.volume = 0.65f;
+                movementContainer.GetComponent<AudioSource>().volume = 0.65f;
             }
         }
         else
         {
-            if (movementContainer.audio.isPlaying)
+            if (movementContainer.GetComponent<AudioSource>().isPlaying)
             {
-                if (movementContainer.audio.volume > 0.0)
+                if (movementContainer.GetComponent<AudioSource>().volume > 0.0)
                 {
-                    movementContainer.audio.volume -= Time.deltaTime * fadeSpeed * 2.0f;
+                    movementContainer.GetComponent<AudioSource>().volume -= Time.deltaTime * fadeSpeed * 2.0f;
                 }
                 else
                 {
-                    movementContainer.audio.Pause();
+                    movementContainer.GetComponent<AudioSource>().Pause();
                 }
             }
         }
@@ -221,15 +221,15 @@ public class WaterInteractions : MonoBehaviour
     {
         var go = Instantiate(jumpParticle, hitInfo.point, Quaternion.identity) as GameObject;
 
-        if (go.audio != null)
+        if (go.GetComponent<AudioSource>() != null)
         {
             if (b)
             {
-                go.audio.PlayOneShot(waterImpactSound, 0.5f);
+                go.GetComponent<AudioSource>().PlayOneShot(waterImpactSound, 0.5f);
             }
             else
             {
-                go.audio.PlayOneShot(waterJumpingSound, 1);
+                go.GetComponent<AudioSource>().PlayOneShot(waterJumpingSound, 1);
             }
         }
 

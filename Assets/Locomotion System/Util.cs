@@ -204,8 +204,8 @@ public class Util {
 		
 		// Set font of TextMesh component (it works according to the inspector)
 		textMeshComponent.font = font;
-		myTextObject.renderer.material = font.material;
-		myTextObject.renderer.material.color = color;
+		myTextObject.GetComponent<Renderer>().material = font.material;
+		myTextObject.GetComponent<Renderer>().material.color = color;
 		
 		// Set the text string of the TextMesh component (it works according to the inspector)
 		textMeshComponent.text = text;

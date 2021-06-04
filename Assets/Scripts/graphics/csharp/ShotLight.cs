@@ -8,27 +8,27 @@ public class ShotLight : MonoBehaviour {
 	
 	void OnEnable()
 	{
-		if (light == null)
+		if (GetComponent<Light>() == null)
 		{
 			Destroy(this);
 		}
 		else
 		{
 			timer = time;
-			light.enabled = false;
+			GetComponent<Light>().enabled = false;
 		}
 	}
 
 	void OnDisable()
 	{
-		if (light == null)
+		if (GetComponent<Light>() == null)
 		{
 			Destroy(this);
 		}
 		else
 		{
 			timer = time;
-			light.enabled = false;
+			GetComponent<Light>().enabled = false;
 		}
 	}
 
@@ -39,7 +39,7 @@ public class ShotLight : MonoBehaviour {
 		if (timer <= 0.0)
 		{
 			timer = time;
-			light.enabled = !light.enabled;
+			GetComponent<Light>().enabled = !GetComponent<Light>().enabled;
 		}
 	}
 }

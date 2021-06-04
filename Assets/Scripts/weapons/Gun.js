@@ -119,7 +119,7 @@ class Gun extends MonoBehaviour
 	
 	function OnEnable()
 	{
-		cam = soldierCamera.camera;
+		cam = soldierCamera.GetComponent.<Camera>();
 		
 		reloadTimer = 0.0;
 		reloading = false;
@@ -271,11 +271,11 @@ class Gun extends MonoBehaviour
 		
 		projectile.transform.rotation = Quaternion.LookRotation(camRay.direction);
 		
-		var projectileRigidbody : Rigidbody = projectile.rigidbody;
+		var projectileRigidbody : Rigidbody = projectile.GetComponent.<Rigidbody>();
 		
-		if(projectile.rigidbody == null)
+		if(projectile.GetComponent.<Rigidbody>() == null)
 		{
-			projectileRigidbody = projectile.AddComponent("Rigidbody");	
+			projectileRigidbody = projectile.AddComponent.<Rigidbody>();	
 		}
 		projectileRigidbody.useGravity = useGravity;
 		
@@ -360,12 +360,12 @@ class Gun extends MonoBehaviour
 	{
 		var hitType : HitType;
 		
-		var body : Rigidbody = hit.collider.rigidbody;
+		var body : Rigidbody = hit.collider.GetComponent.<Rigidbody>();
 		if(body == null)
 		{
 			if(hit.collider.transform.parent != null)
 			{
-				body = hit.collider.transform.parent.rigidbody;
+				body = hit.collider.transform.parent.GetComponent.<Rigidbody>();
 			}
 		}
 		
@@ -424,7 +424,7 @@ class Gun extends MonoBehaviour
 		
 		go.layer = hit.collider.gameObject.layer;
 		
-		if(hit.collider.renderer == null) return;
+		if(hit.collider.GetComponent.<Renderer>() == null) return;
 		
 		if(timerToCreateDecal < 0.0 && hit.collider.tag != "water")
 		{
@@ -491,16 +491,16 @@ class Gun extends MonoBehaviour
 	//---------------AUDIO METHODS--------
 	function PlayOutOfAmmoSound()
 	{
-		audio.PlayOneShot(outOfAmmoSound, 1.5);
+		GetComponent.<AudioSource>().PlayOneShot(outOfAmmoSound, 1.5);
 	}
 	
 	function PlayReloadSound()
 	{
-		audio.PlayOneShot(reloadSound, 1.5);
+		GetComponent.<AudioSource>().PlayOneShot(reloadSound, 1.5);
 	}
 	
 	function PlayShootSound()
 	{
-		audio.PlayOneShot(shootSound);
+		GetComponent.<AudioSource>().PlayOneShot(shootSound);
 	}
 }

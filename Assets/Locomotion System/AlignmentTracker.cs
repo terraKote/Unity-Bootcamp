@@ -39,7 +39,7 @@ public class AlignmentTracker : MonoBehaviour {
 	private Rigidbody m_RigidBody;
 	
 	void Awake() {
-		m_RigidBody = rigidbody;
+		m_RigidBody = GetComponent<Rigidbody>();
 		m_CurrentLateTime = -1;
 		m_CurrentFixedTime = -1;
 	}

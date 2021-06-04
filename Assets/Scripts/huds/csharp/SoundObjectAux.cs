@@ -7,7 +7,7 @@ public class SoundObjectAux : MonoBehaviour
 
     void Awake()
     {
-        if (rigidbody != null) rigidbody.Sleep();
+        if (GetComponent<Rigidbody>() != null) GetComponent<Rigidbody>().Sleep();
     }
 
     void OnCollisionEnter(Collision collision)

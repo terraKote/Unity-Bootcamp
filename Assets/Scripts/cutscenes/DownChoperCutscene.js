@@ -42,15 +42,15 @@ class DownChoperCutscene extends MonoBehaviour
 		destroy = false;
 		SendMessageUpwards("CutsceneStart");
 		endCutscene = false;
-		rope.animation.Play("RopeAnimation");
-		rope.animation["RopeAnimation"].enabled = true;
-		rope.animation["RopeAnimation"].time = 0.05;
-		rope.animation.Sample();
-		rope.animation["RopeAnimation"].enabled = false;
+		rope.GetComponent.<Animation>().Play("RopeAnimation");
+		rope.GetComponent.<Animation>()["RopeAnimation"].enabled = true;
+		rope.GetComponent.<Animation>()["RopeAnimation"].time = 0.05;
+		rope.GetComponent.<Animation>().Sample();
+		rope.GetComponent.<Animation>()["RopeAnimation"].enabled = false;
 		currentWeaponParent = soldierWeapon.transform.parent;
 		currentWeaponPosition = soldierWeapon.transform.localPosition;
 		currentWeaponRotation = soldierWeapon.transform.localRotation;
-		animation.Play("heli_rapel_cutscene");
+		GetComponent.<Animation>().Play("heli_rapel_cutscene");
 	}
 	
 	function StartAudios()
@@ -83,12 +83,12 @@ class DownChoperCutscene extends MonoBehaviour
                 windZone.active = false;
             }
 
-			animation["heli_rapel_cutscene"].speed = 0.0;
-			rope.animation["RopeAnimation"].speed = 0.0;
-			soldier.animation["CS_Rope"].speed = 0.0;
-			weaponAnimation.animation["Take 001"].speed = 0.0;
-            pilot.animation["CS_Pilot1"].speed = 0.0;
-            wingman.animation["CS_Pilot2"].speed = 0.0;
+			GetComponent.<Animation>()["heli_rapel_cutscene"].speed = 0.0;
+			rope.GetComponent.<Animation>()["RopeAnimation"].speed = 0.0;
+			soldier.GetComponent.<Animation>()["CS_Rope"].speed = 0.0;
+			weaponAnimation.GetComponent.<Animation>()["Take 001"].speed = 0.0;
+            pilot.GetComponent.<Animation>()["CS_Pilot1"].speed = 0.0;
+            wingman.GetComponent.<Animation>()["CS_Pilot2"].speed = 0.0;
 
             if(particles != null)
             {
@@ -118,14 +118,14 @@ class DownChoperCutscene extends MonoBehaviour
                 windZone.active = true;
             }
 
-			if(animation["heli_rapel_cutscene"].speed < 1.0)
+			if(GetComponent.<Animation>()["heli_rapel_cutscene"].speed < 1.0)
 			{
-				animation["heli_rapel_cutscene"].speed = 1.0;
-				rope.animation["RopeAnimation"].speed = 1.0;
-				soldier.animation["CS_Rope"].speed = 1.0;
-				weaponAnimation.animation["Take 001"].speed = 1.0;
-                pilot.animation["CS_Pilot1"].speed = 1.0;
-                wingman.animation["CS_Pilot2"].speed = 1.0;
+				GetComponent.<Animation>()["heli_rapel_cutscene"].speed = 1.0;
+				rope.GetComponent.<Animation>()["RopeAnimation"].speed = 1.0;
+				soldier.GetComponent.<Animation>()["CS_Rope"].speed = 1.0;
+				weaponAnimation.GetComponent.<Animation>()["Take 001"].speed = 1.0;
+                pilot.GetComponent.<Animation>()["CS_Pilot1"].speed = 1.0;
+                wingman.GetComponent.<Animation>()["CS_Pilot2"].speed = 1.0;
 
                 if(particles != null)
                 {
@@ -145,11 +145,11 @@ class DownChoperCutscene extends MonoBehaviour
 			{
 				if(Input.GetKeyDown(KeyCode.Space))
 				{
-					animation.Stop();
-					audio.Stop();
-					animation["heli_rapel_cutscene"].enabled = true;
-					animation["heli_rapel_cutscene"].time = 25.0;
-					animation.Play("heli_rapel_cutscene");
+					GetComponent.<Animation>().Stop();
+					GetComponent.<AudioSource>().Stop();
+					GetComponent.<Animation>()["heli_rapel_cutscene"].enabled = true;
+					GetComponent.<Animation>()["heli_rapel_cutscene"].time = 25.0;
+					GetComponent.<Animation>().Play("heli_rapel_cutscene");
 
                     if(sarge != null)
                     {
@@ -159,7 +159,7 @@ class DownChoperCutscene extends MonoBehaviour
 					EndCutscene();
 				}
 				
-				if(rope.animation["RopeAnimation"].normalizedTime > 0.6)
+				if(rope.GetComponent.<Animation>()["RopeAnimation"].normalizedTime > 0.6)
 				{
 					soldierWeapon.transform.parent = currentWeaponParent;
 					soldierWeapon.transform.localPosition = currentWeaponPosition;
@@ -191,7 +191,7 @@ class DownChoperCutscene extends MonoBehaviour
 				}
 				else
 				{
-					if(animation["heli_rapel_cutscene"].normalizedTime > 0.99)
+					if(GetComponent.<Animation>()["heli_rapel_cutscene"].normalizedTime > 0.99)
 					{
 						destroy = true;
 					}
@@ -206,9 +206,9 @@ class DownChoperCutscene extends MonoBehaviour
 		
 		soldierWeapon.transform.parent = weaponAnimation.transform.GetChild(0);
 		soldierWeapon.transform.localPosition = Vector3.zero;
-		weaponAnimation.animation.Play("Take 001");
-		rope.animation.Play("RopeAnimation");
-		soldier.animation.Play("CS_Rope");
+		weaponAnimation.GetComponent.<Animation>().Play("Take 001");
+		rope.GetComponent.<Animation>().Play("RopeAnimation");
+		soldier.GetComponent.<Animation>().Play("CS_Rope");
 	}
 	
 	function EndCutscene()

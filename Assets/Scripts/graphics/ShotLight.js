@@ -9,27 +9,27 @@ class ShotLight extends MonoBehaviour
 	
 	function OnEnable()
 	{
-		if(light == null)
+		if(GetComponent.<Light>() == null)
 		{
 			Destroy(this);
 		}
 		else
 		{
 			timer = time;
-			light.enabled = false;
+			GetComponent.<Light>().enabled = false;
 		}
 	}
 	
 	function OnDisable()
 	{
-		if(light == null)
+		if(GetComponent.<Light>() == null)
 		{
 			Destroy(this);
 		}
 		else
 		{
 			timer = time;
-			light.enabled = false;
+			GetComponent.<Light>().enabled = false;
 		}
 	}
 	
@@ -40,7 +40,7 @@ class ShotLight extends MonoBehaviour
 		if(timer <= 0.0)
 		{
 			timer = time;
-			light.enabled = !light.enabled;
+			GetComponent.<Light>().enabled = !GetComponent.<Light>().enabled;
 		}
 	}
 }

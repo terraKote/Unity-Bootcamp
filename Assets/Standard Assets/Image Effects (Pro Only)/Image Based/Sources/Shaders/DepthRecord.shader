@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/DepthRecord" {
 	Properties {
 		_Color ("Main Color", Color) = (1,1,1,1)
@@ -20,7 +22,7 @@ Shader "Hidden/DepthRecord" {
 		
 	v2f vert (appdata_base v) {
 		v2f o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
 		o.uv = MultiplyUV(UNITY_MATRIX_TEXTURE0, v.texcoord);
 		o.projPos = o.pos;
 		return o;

@@ -494,7 +494,7 @@ public class Decal : MonoBehaviour
 		m.normals = newNormals;
 		m.triangles = newTris;
 		m.uv = newUv;
-		m.uv1 = newUv;
+		m.uv2 = newUv;
 		m.uv2 = newUv;	
 
 		m.tangents = newTangents;

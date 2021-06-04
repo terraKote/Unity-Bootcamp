@@ -149,8 +149,8 @@ public class SoldierCamera : MonoBehaviour
     {
         if (soldierController.aim)
         {
-            camera.GetComponent<DepthOfField>().enabled = true;
-            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, zoomFOV, deltaTime * lerpSpeed);
+            GetComponent<Camera>().GetComponent<DepthOfField>().enabled = true;
+            GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoomFOV, deltaTime * lerpSpeed);
 
             if (soldierController.crouch)
             {
@@ -167,8 +167,8 @@ public class SoldierCamera : MonoBehaviour
         }
         else
         {
-            camera.GetComponent<DepthOfField>().enabled = false;
-            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, normalFOV, deltaTime * lerpSpeed);
+            GetComponent<Camera>().GetComponent<DepthOfField>().enabled = false;
+            GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, normalFOV, deltaTime * lerpSpeed);
 
             if (soldierController.crouch)
             {

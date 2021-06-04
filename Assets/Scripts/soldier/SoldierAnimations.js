@@ -78,34 +78,34 @@ class SoldierAnimations extends MonoBehaviour
 			relaxedWeight = CrossFadeDown(relaxedWeight, 0.3);
 		var nonRelaxedWeight = 1 - relaxedWeight;
 		
-		animation["NormalGroup"].weight  = uprightWeight * nonAimWeight * groundedWeight * nonRelaxedWeight;
-		animation["RelaxedGroup"].weight = uprightWeight * nonAimWeight * groundedWeight * relaxedWeight;
-		animation["CrouchGroup"].weight  = crouchWeight  * nonAimWeight * groundedWeight;
+		GetComponent.<Animation>()["NormalGroup"].weight  = uprightWeight * nonAimWeight * groundedWeight * nonRelaxedWeight;
+		GetComponent.<Animation>()["RelaxedGroup"].weight = uprightWeight * nonAimWeight * groundedWeight * relaxedWeight;
+		GetComponent.<Animation>()["CrouchGroup"].weight  = crouchWeight  * nonAimWeight * groundedWeight;
 		
-		animation["NormalAimGroup"].weight = uprightWeight * aimButNotFireWeight * groundedWeight;
-		animation["CrouchAimGroup"].weight = crouchWeight  * aimButNotFireWeight * groundedWeight;
+		GetComponent.<Animation>()["NormalAimGroup"].weight = uprightWeight * aimButNotFireWeight * groundedWeight;
+		GetComponent.<Animation>()["CrouchAimGroup"].weight = crouchWeight  * aimButNotFireWeight * groundedWeight;
 		
-		animation["NormalFireGroup"].weight = uprightWeight * fireWeight * groundedWeight;
-		animation["CrouchFireGroup"].weight = crouchWeight  * fireWeight * groundedWeight;
+		GetComponent.<Animation>()["NormalFireGroup"].weight = uprightWeight * fireWeight * groundedWeight;
+		GetComponent.<Animation>()["CrouchFireGroup"].weight = crouchWeight  * fireWeight * groundedWeight;
 		
 		var runningJump = Mathf.Clamp01(Vector3.Dot(motor.movement.velocity, transform.forward) / 2.0);
-		animation["StandingJump"].weight = (1 - groundedWeight) * (1 - runningJump);
-		animation["RunJump"].weight = (1 - groundedWeight) * runningJump;
+		GetComponent.<Animation>()["StandingJump"].weight = (1 - groundedWeight) * (1 - runningJump);
+		GetComponent.<Animation>()["RunJump"].weight = (1 - groundedWeight) * runningJump;
 		if (inAir) {
 			//var normalizedTime = Mathf.Lerp(0.15, 0.65, Mathf.InverseLerp(jumpAnimStretch, -jumpAnimStretch, motor.movement.velocity.y));
 			var normalizedTime = Mathf.InverseLerp(jumpAnimStretch, -jumpAnimStretch, motor.movement.velocity.y);
-			animation["StandingJump"].normalizedTime = normalizedTime;
-			animation["RunJump"].normalizedTime = normalizedTime;
+			GetComponent.<Animation>()["StandingJump"].normalizedTime = normalizedTime;
+			GetComponent.<Animation>()["RunJump"].normalizedTime = normalizedTime;
 		}
 		
 		//Debug.Log("motor.movement.velocity.y="+motor.movement.velocity.y+" - "+animation["StandingJump"].normalizedTime);
 		
 		var locomotionWeight : float = 1;
-		locomotionWeight *= 1 - animation["Crouch"].weight;
-		locomotionWeight *= 1 - animation["CrouchAim"].weight;
-		locomotionWeight *= 1 - animation["CrouchFire"].weight;
+		locomotionWeight *= 1 - GetComponent.<Animation>()["Crouch"].weight;
+		locomotionWeight *= 1 - GetComponent.<Animation>()["CrouchAim"].weight;
+		locomotionWeight *= 1 - GetComponent.<Animation>()["CrouchFire"].weight;
 		
-		animation["LocomotionSystem"].weight = locomotionWeight;
+		GetComponent.<Animation>()["LocomotionSystem"].weight = locomotionWeight;
 		
 		// Aiming up/down
 		var aimDir = (aimTarget.position - aimPivot.position).normalized;
@@ -117,26 +117,26 @@ class SoldierAnimations extends MonoBehaviour
 		headLookController.effect = nonAimWeight;
 		
 		// Use additive animations for aiming when aiming and firing
-		animation["StandingAimUp"].weight = uprightWeight * aimWeight;
-		animation["StandingAimDown"].weight = uprightWeight * aimWeight;
-		animation["CrouchAimUp"].weight = crouchWeight * aimWeight;
-		animation["CrouchAimDown"].weight = crouchWeight * aimWeight;
+		GetComponent.<Animation>()["StandingAimUp"].weight = uprightWeight * aimWeight;
+		GetComponent.<Animation>()["StandingAimDown"].weight = uprightWeight * aimWeight;
+		GetComponent.<Animation>()["CrouchAimUp"].weight = crouchWeight * aimWeight;
+		GetComponent.<Animation>()["CrouchAimDown"].weight = crouchWeight * aimWeight;
 		
 		// Set time of animations according to current vertical aiming angle
-		animation["StandingAimUp"].time = Mathf.Clamp01(aimAngleY / 90);
-		animation["StandingAimDown"].time = Mathf.Clamp01(-aimAngleY / 90);
-		animation["CrouchAimUp"].time = Mathf.Clamp01(aimAngleY / 90);
-		animation["CrouchAimDown"].time = Mathf.Clamp01(-aimAngleY / 90);
+		GetComponent.<Animation>()["StandingAimUp"].time = Mathf.Clamp01(aimAngleY / 90);
+		GetComponent.<Animation>()["StandingAimDown"].time = Mathf.Clamp01(-aimAngleY / 90);
+		GetComponent.<Animation>()["CrouchAimUp"].time = Mathf.Clamp01(aimAngleY / 90);
+		GetComponent.<Animation>()["CrouchAimDown"].time = Mathf.Clamp01(-aimAngleY / 90);
 		
 		
 		if(reloading)
 		{
-			animation.CrossFade("Reload" + soldier.currentWeaponName, 0.1);
+			GetComponent.<Animation>().CrossFade("Reload" + soldier.currentWeaponName, 0.1);
 		}
 		
 		if(currentWeapon > 0 && fire)
 		{
-			animation.CrossFade("FireM203");
+			GetComponent.<Animation>().CrossFade("FireM203");
 		}
 	}
 	
@@ -164,36 +164,36 @@ class SoldierAnimations extends MonoBehaviour
 	//Method that initializes animations properties
 	function SetAnimationProperties()
 	{
-		animation.AddClip(animation["StandingReloadM4"].clip, "ReloadM4");
-    	animation["ReloadM4"].AddMixingTransform(transform.Find("Pelvis/Spine1/Spine2"));
-    	animation["ReloadM4"].wrapMode = WrapMode.Clamp;
-    	animation["ReloadM4"].layer = 3;
-    	animation["ReloadM4"].time = 0;
-    	animation["ReloadM4"].speed = 1.0;
+		GetComponent.<Animation>().AddClip(GetComponent.<Animation>()["StandingReloadM4"].clip, "ReloadM4");
+    	GetComponent.<Animation>()["ReloadM4"].AddMixingTransform(transform.Find("Pelvis/Spine1/Spine2"));
+    	GetComponent.<Animation>()["ReloadM4"].wrapMode = WrapMode.Clamp;
+    	GetComponent.<Animation>()["ReloadM4"].layer = 3;
+    	GetComponent.<Animation>()["ReloadM4"].time = 0;
+    	GetComponent.<Animation>()["ReloadM4"].speed = 1.0;
     	
-    	animation.AddClip(animation["StandingReloadRPG1"].clip, "ReloadM203");
-    	animation["ReloadM203"].AddMixingTransform(transform.Find("Pelvis/Spine1/Spine2"));
-    	animation["ReloadM203"].wrapMode = WrapMode.Clamp;
-    	animation["ReloadM203"].layer = 3;
-    	animation["ReloadM203"].time = 0;
-    	animation["ReloadM203"].speed = 1.0;
+    	GetComponent.<Animation>().AddClip(GetComponent.<Animation>()["StandingReloadRPG1"].clip, "ReloadM203");
+    	GetComponent.<Animation>()["ReloadM203"].AddMixingTransform(transform.Find("Pelvis/Spine1/Spine2"));
+    	GetComponent.<Animation>()["ReloadM203"].wrapMode = WrapMode.Clamp;
+    	GetComponent.<Animation>()["ReloadM203"].layer = 3;
+    	GetComponent.<Animation>()["ReloadM203"].time = 0;
+    	GetComponent.<Animation>()["ReloadM203"].speed = 1.0;
     	
-    	animation.AddClip(animation["StandingFireRPG"].clip, "FireM203");
-    	animation["FireM203"].AddMixingTransform(transform.Find("Pelvis/Spine1/Spine2"));
-    	animation["FireM203"].wrapMode = WrapMode.Clamp;
-    	animation["FireM203"].layer = 3;
-    	animation["FireM203"].time = 0;
-    	animation["FireM203"].speed = 1.0;
+    	GetComponent.<Animation>().AddClip(GetComponent.<Animation>()["StandingFireRPG"].clip, "FireM203");
+    	GetComponent.<Animation>()["FireM203"].AddMixingTransform(transform.Find("Pelvis/Spine1/Spine2"));
+    	GetComponent.<Animation>()["FireM203"].wrapMode = WrapMode.Clamp;
+    	GetComponent.<Animation>()["FireM203"].layer = 3;
+    	GetComponent.<Animation>()["FireM203"].time = 0;
+    	GetComponent.<Animation>()["FireM203"].speed = 1.0;
     	
-		animation["StandingJump"].layer = 2;
-		animation["StandingJump"].weight = 0;
-		animation["StandingJump"].speed = 0;
-		animation["StandingJump"].enabled = true;
-		animation["RunJump"].layer = 2;
-		animation["RunJump"].weight = 0;
-		animation["RunJump"].speed = 0;
-		animation["RunJump"].enabled = true;
-		animation.SyncLayer(2);
+		GetComponent.<Animation>()["StandingJump"].layer = 2;
+		GetComponent.<Animation>()["StandingJump"].weight = 0;
+		GetComponent.<Animation>()["StandingJump"].speed = 0;
+		GetComponent.<Animation>()["StandingJump"].enabled = true;
+		GetComponent.<Animation>()["RunJump"].layer = 2;
+		GetComponent.<Animation>()["RunJump"].weight = 0;
+		GetComponent.<Animation>()["RunJump"].speed = 0;
+		GetComponent.<Animation>()["RunJump"].enabled = true;
+		GetComponent.<Animation>().SyncLayer(2);
     	
     	SetupAdditiveAiming("StandingAimUp");
     	SetupAdditiveAiming("StandingAimDown");
@@ -203,11 +203,11 @@ class SoldierAnimations extends MonoBehaviour
 	
 	function SetupAdditiveAiming (anim : String)
 	{
-		animation[anim].blendMode = AnimationBlendMode.Additive;
-    	animation[anim].enabled = true;
-    	animation[anim].weight = 1;
-    	animation[anim].layer = 4;
-    	animation[anim].time = 0;
-    	animation[anim].speed = 0;
+		GetComponent.<Animation>()[anim].blendMode = AnimationBlendMode.Additive;
+    	GetComponent.<Animation>()[anim].enabled = true;
+    	GetComponent.<Animation>()[anim].weight = 1;
+    	GetComponent.<Animation>()[anim].layer = 4;
+    	GetComponent.<Animation>()[anim].time = 0;
+    	GetComponent.<Animation>()[anim].speed = 0;
 	}
 }	

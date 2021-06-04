@@ -126,7 +126,7 @@ class ColorCorrectionCurves extends PostEffectsBase
 			return;	
 		}
 	if(useDepthCorrection)
-		camera.depthTextureMode |= DepthTextureMode.Depth;	
+		GetComponent.<Camera>().depthTextureMode |= DepthTextureMode.Depth;	
 	}
 	
 	function OnDisable () {

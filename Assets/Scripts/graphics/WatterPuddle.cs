@@ -73,10 +73,10 @@ public class WatterPuddle : MonoBehaviour
         _currentWave1Time = 0;
         _currentWave2Time = 0;
 
-        Physics.IgnoreCollision(transform1.collider, soldierCollider);
-        Physics.IgnoreCollision(transform2.collider, soldierCollider);
+        Physics.IgnoreCollision(transform1.GetComponent<Collider>(), soldierCollider);
+        Physics.IgnoreCollision(transform2.GetComponent<Collider>(), soldierCollider);
 
-        mainTex = ((Texture2D)renderer.sharedMaterial.mainTexture);
+        mainTex = ((Texture2D)GetComponent<Renderer>().sharedMaterial.mainTexture);
     }
 
 
@@ -86,8 +86,8 @@ public class WatterPuddle : MonoBehaviour
     void Update()
     {
         //Set values in shader.
-        renderer.sharedMaterial.SetVector("_DataTransf1", new Vector4(positionTransf1.x, wave1Alpha, positionTransf1.z, wave1Scale));
-        renderer.sharedMaterial.SetVector("_DataTransf2", new Vector4(positionTransf2.x, wave2Alpha, positionTransf2.z, wave2Scale));
+        GetComponent<Renderer>().sharedMaterial.SetVector("_DataTransf1", new Vector4(positionTransf1.x, wave1Alpha, positionTransf1.z, wave1Scale));
+        GetComponent<Renderer>().sharedMaterial.SetVector("_DataTransf2", new Vector4(positionTransf2.x, wave2Alpha, positionTransf2.z, wave2Scale));
 
 
         if (wave1Update)
@@ -196,7 +196,7 @@ public class WatterPuddle : MonoBehaviour
     /// </summary>
 	public void OnWillRenderObject()
 	{
-		if( !enabled || !renderer || !renderer.sharedMaterial || !renderer.enabled )
+		if( !enabled || !GetComponent<Renderer>() || !GetComponent<Renderer>().sharedMaterial || !GetComponent<Renderer>().enabled )
 			return;
 			
 
@@ -247,7 +247,7 @@ public class WatterPuddle : MonoBehaviour
 		
     	reflectionCamera.transform.position = oldpos;
 		GL.SetRevertBackfacing (false);
-		renderer.sharedMaterial.SetTexture( "_ReflectionTex", m_ReflectionTexture );
+		GetComponent<Renderer>().sharedMaterial.SetTexture( "_ReflectionTex", m_ReflectionTexture );
 		
 		// Restore pixel light count
 		if( m_DisablePixelLights )
@@ -260,9 +260,9 @@ public class WatterPuddle : MonoBehaviour
 	/// </summary>
     void OnDisable()
 	{
-		if( renderer )
+		if( GetComponent<Renderer>() )
 		{
-			Material mat = renderer.sharedMaterial;
+			Material mat = GetComponent<Renderer>().sharedMaterial;
 			if( mat )
 			{
 				mat.SetTexture( "_ReflectionTex", null );
@@ -337,11 +337,11 @@ public class WatterPuddle : MonoBehaviour
 		if( !reflectionCamera ) // catch both not-in-dictionary and in-dictionary-but-deleted-GO
 		{
 			GameObject go = new GameObject( "Water Refl Camera id" + GetInstanceID() + " for " + currentCamera.GetInstanceID(), typeof(Camera), typeof(Skybox) );
-			reflectionCamera = go.camera;
+			reflectionCamera = go.GetComponent<Camera>();
 			reflectionCamera.enabled = false;
 			reflectionCamera.transform.position = transform.position;
 			reflectionCamera.transform.rotation = transform.rotation;
-			reflectionCamera.gameObject.AddComponent("FlareLayer");
+			reflectionCamera.gameObject.AddComponent<FlareLayer>();
 			go.hideFlags = HideFlags.HideAndDontSave;
 			m_ReflectionCameras[currentCamera] = reflectionCamera;
 		}

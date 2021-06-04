@@ -77,11 +77,11 @@ public class SoundObject : MonoBehaviour
             Destroy(this);
         }
 
-        if (rigidbody == null)
+        if (GetComponent<Rigidbody>() == null)
         {
             if (transform.parent != null)
             {
-                if (transform.parent.rigidbody != null)
+                if (transform.parent.GetComponent<Rigidbody>() != null)
                 {
                     SoundObjectAux aux = transform.parent.gameObject.AddComponent<SoundObjectAux>();
                     aux.soundGenerator = this;
@@ -127,9 +127,9 @@ public class SoundObject : MonoBehaviour
 
                         var go = Instantiate(waterParticles, hitInfo.point, Quaternion.identity) as GameObject;
 
-                        if (go.audio != null)
+                        if (go.GetComponent<AudioSource>() != null)
                         {
-                            go.audio.Play();
+                            go.GetComponent<AudioSource>().Play();
                         }
 
                         ParticleEmitter emitter;

@@ -16,11 +16,11 @@ class PauseSound extends MonoBehaviour
         
         if(c == null || c.Length <= 0)
         {
-            if(audio != null)
+            if(GetComponent.<AudioSource>() != null)
             {
                 _audioSources = new AudioSource[1];
                 _currentVolume = new float[1];
-                _audioSources[0] = audio;
+                _audioSources[0] = GetComponent.<AudioSource>();
             }
             else
             {

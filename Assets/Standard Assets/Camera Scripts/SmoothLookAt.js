@@ -37,7 +37,7 @@ function LateUpdate ()
 			{
 				color.a = Mathf.Clamp(alpha, 0.0f, 1.0f);
 				
-				renderer.material.SetColor(property, color);
+				GetComponent.<Renderer>().material.SetColor(property, color);
 			}
 		}
 	}
@@ -45,9 +45,9 @@ function LateUpdate ()
 
 function Start () {
 
-	if(renderer.material.HasProperty(property))
+	if(GetComponent.<Renderer>().material.HasProperty(property))
 	{
-		color = renderer.material.GetColor(property);
+		color = GetComponent.<Renderer>().material.GetColor(property);
 	}
 	else
 	{
@@ -55,6 +55,6 @@ function Start () {
 	}
 		
 	// Make the rigid body not change rotation
-   	if (rigidbody)
-		rigidbody.freezeRotation = true;
+   	if (GetComponent.<Rigidbody>())
+		GetComponent.<Rigidbody>().freezeRotation = true;
 }

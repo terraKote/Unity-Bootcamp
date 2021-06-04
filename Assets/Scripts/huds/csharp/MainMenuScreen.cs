@@ -284,8 +284,8 @@ public class MainMenuScreen : MonoBehaviour
             {
                 if (!GameManager.receiveDamage)
                 {
-                    audio.volume = clickVolume;
-                    audio.PlayOneShot(clickSound);
+                    GetComponent<AudioSource>().volume = clickVolume;
+                    GetComponent<AudioSource>().PlayOneShot(clickSound);
                     GameManager.receiveDamage = true;
                     lastMouseTime = Time.time;
                 }
@@ -294,8 +294,8 @@ public class MainMenuScreen : MonoBehaviour
             {
                 if (GameManager.receiveDamage)
                 {
-                    audio.volume = clickVolume;
-                    audio.PlayOneShot(clickSound);
+                    GetComponent<AudioSource>().volume = clickVolume;
+                    GetComponent<AudioSource>().PlayOneShot(clickSound);
                     GameManager.receiveDamage = false;
                     lastMouseTime = Time.time;
                 }
@@ -772,8 +772,8 @@ public class MainMenuScreen : MonoBehaviour
             if (!over)
             {
                 over = true;
-                audio.volume = overVolume;
-                audio.PlayOneShot(overSound);
+                GetComponent<AudioSource>().volume = overVolume;
+                GetComponent<AudioSource>().PlayOneShot(overSound);
             }
 
             GUI.DrawTexture(resumeRect, resumeOver);
@@ -782,8 +782,8 @@ public class MainMenuScreen : MonoBehaviour
             {
                 if (evt.type == EventType.MouseUp && evt.button == 0 && Time.time > lastMouseTime)
                 {
-                    audio.volume = clickVolume;
-                    audio.PlayOneShot(clickSound);
+                    GetComponent<AudioSource>().volume = clickVolume;
+                    GetComponent<AudioSource>().PlayOneShot(clickSound);
 
                     GameManager.pause = false;
                     Time.timeScale = 1.0f;
@@ -808,8 +808,8 @@ public class MainMenuScreen : MonoBehaviour
                 if (!over)
                 {
                     over = true;
-                    audio.volume = overVolume;
-                    audio.PlayOneShot(overSound);
+                    GetComponent<AudioSource>().volume = overVolume;
+                    GetComponent<AudioSource>().PlayOneShot(overSound);
                 }
 
                 GUI.DrawTexture(optionsRect, optionsOver);
@@ -818,8 +818,8 @@ public class MainMenuScreen : MonoBehaviour
                 {
                     if (evt.type == EventType.MouseUp && evt.button == 0 && Time.time > lastMouseTime)
                     {
-                        audio.volume = clickVolume;
-                        audio.PlayOneShot(clickSound);
+                        GetComponent<AudioSource>().volume = clickVolume;
+                        GetComponent<AudioSource>().PlayOneShot(clickSound);
 
                         if (state != MainMenuState.OPTIONS)
                         {
@@ -847,8 +847,8 @@ public class MainMenuScreen : MonoBehaviour
             if (!over)
             {
                 over = true;
-                audio.volume = overVolume;
-                audio.PlayOneShot(overSound);
+                GetComponent<AudioSource>().volume = overVolume;
+                GetComponent<AudioSource>().PlayOneShot(overSound);
             }
 
             GUI.DrawTexture(graphicsRect, graphicsOver);
@@ -857,8 +857,8 @@ public class MainMenuScreen : MonoBehaviour
             {
                 if (evt.type == EventType.MouseUp && evt.button == 0 && Time.time > lastMouseTime)
                 {
-                    audio.volume = clickVolume;
-                    audio.PlayOneShot(clickSound);
+                    GetComponent<AudioSource>().volume = clickVolume;
+                    GetComponent<AudioSource>().PlayOneShot(clickSound);
 
                     if (state != MainMenuState.GRAPHICS)
                     {
@@ -885,8 +885,8 @@ public class MainMenuScreen : MonoBehaviour
             if (!over)
             {
                 over = true;
-                audio.volume = overVolume;
-                audio.PlayOneShot(overSound);
+                GetComponent<AudioSource>().volume = overVolume;
+                GetComponent<AudioSource>().PlayOneShot(overSound);
             }
 
             GUI.DrawTexture(aboutRect, aboutOver);
@@ -895,8 +895,8 @@ public class MainMenuScreen : MonoBehaviour
             {
                 if (evt.type == EventType.MouseUp && evt.button == 0 && Time.time > lastMouseTime)
                 {
-                    audio.volume = clickVolume;
-                    audio.PlayOneShot(clickSound);
+                    GetComponent<AudioSource>().volume = clickVolume;
+                    GetComponent<AudioSource>().PlayOneShot(clickSound);
 
                     if (state != MainMenuState.ABOUT)
                     {

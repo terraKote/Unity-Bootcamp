@@ -163,7 +163,7 @@ class Turret extends MonoBehaviour
 				}
 			}
 			
-			audio.Play();
+			GetComponent.<AudioSource>().Play();
 			
 			shootTime = Time.time + 0.1;
 			
@@ -198,12 +198,12 @@ class Turret extends MonoBehaviour
 		timerToCreateDecal = 0.1;
 		var hitType : HitType;
 		
-		var body : Rigidbody = hit.collider.rigidbody;
+		var body : Rigidbody = hit.collider.GetComponent.<Rigidbody>();
 		if(body == null)
 		{
 			if(hit.collider.transform.parent != null)
 			{
-				body = hit.collider.transform.parent.rigidbody;
+				body = hit.collider.transform.parent.GetComponent.<Rigidbody>();
 			}
 		}
 		
@@ -255,7 +255,7 @@ class Turret extends MonoBehaviour
 		
 		go.layer = hit.collider.gameObject.layer;
 		
-		if(hit.collider.renderer == null) return;
+		if(hit.collider.GetComponent.<Renderer>() == null) return;
 		
 		
 			go = GameObject.Instantiate(bulletMark, hit.point, Quaternion.FromToRotation(Vector3.forward, -hit.normal));
@@ -288,19 +288,19 @@ class Turret extends MonoBehaviour
 				
 				var mat : Material = new Material(fadeShader);
 		
-				var r : Renderer = t.gameObject.renderer;
+				var r : Renderer = t.gameObject.GetComponent.<Renderer>();
 				
 				mat.mainTexture = r.material.mainTexture;
 				r.material = mat;
 				
 				if(t.gameObject.GetComponent("TrainingDummyPartDestructor") == null)
 				{
-					t.gameObject.AddComponent("TrainingDummyPartDestructor");
+					t.gameObject.AddComponent.<TrainingDummyPartDestructor>();
 				}
 				
-				if(t.rigidbody != null)
+				if(t.GetComponent.<Rigidbody>() != null)
 				{
-					t.rigidbody.isKinematic = false;
+					t.GetComponent.<Rigidbody>().isKinematic = false;
 				}
 			}
 			

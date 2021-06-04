@@ -1,3 +1,8 @@
+// Upgrade NOTE: commented out 'float4 unity_LightmapST', a built-in variable
+// Upgrade NOTE: commented out 'sampler2D unity_Lightmap', a built-in variable
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
+
 Shader "Misc/Mesh Terrain 4 Splats" {
 Properties {
 	_Control ("SplatMap (RGBA)", 2D) = "red" {}
@@ -37,8 +42,8 @@ SubShader {
 		uniform float4 _Control_ST;
 		
 		#ifdef LIGHTMAP_ON
-		uniform float4 unity_LightmapST;
-		uniform sampler2D unity_Lightmap;
+		// uniform float4 unity_LightmapST;
+		// uniform sampler2D unity_Lightmap;
 		#endif
 		
 		uniform sampler2D _Splat0,_Splat1,_Splat2,_Splat3;
@@ -47,7 +52,7 @@ SubShader {
 		v2f_vertex vert (appdata_lightmap v) 
 		{
 			v2f_vertex o;
-			o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
+			o.pos = UnityObjectToClipPos (v.vertex);
 			o.uv[0].xy = TRANSFORM_TEX (v.texcoord.xy, _Control);
 		#ifdef LIGHTMAP_ON
 			o.uv[0].zw = v.texcoord1.xy * unity_LightmapST.xy + unity_LightmapST.zw;
@@ -70,7 +75,7 @@ SubShader {
 			splat_color += splat_control.b * tex2D (_Splat2, i.uv[2].xy).rgb;
 			splat_color += splat_control.a * tex2D (_Splat3, i.uv[2].zw).rgb;
 			#ifdef LIGHTMAP_ON
-			splat_color *= DecodeLightmap (tex2D (unity_Lightmap, i.uv[0].zw));
+			splat_color *= DecodeLightmap (UNITY_SAMPLE_TEX2D (unity_Lightmap, i.uv[0].zw));
 			#endif
 		
 			return half4 (splat_color, 0.0);

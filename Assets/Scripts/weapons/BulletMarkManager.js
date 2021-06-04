@@ -23,7 +23,7 @@ class BulletMarkManager extends MonoBehaviour
 		if(instance == null)
 		{
 			var aux : GameObject = new GameObject("BulletMarkManager");
-			instance = aux.AddComponent("BulletMarkManager") as BulletMarkManager;
+			instance = aux.AddComponent.<BulletMarkManager>() as BulletMarkManager;
 			instance.marks = new Array();
 			instance.pushDistances = new Array();
 			instance.maxMarks = 60;

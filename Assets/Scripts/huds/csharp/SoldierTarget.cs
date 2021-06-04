@@ -28,7 +28,7 @@ void OnEnable()
 {
 	soldierTarget.parent = null;
 
-	gui = guiTexture;
+	gui = GetComponent<GUITexture>();
 
 	gui.pixelInset = new Rect(-target.width * 0.5f, -target.height * 0.5f, target.width, target.height);
 	gui.texture = target;

@@ -61,11 +61,11 @@ class DistanceDisable extends MonoBehaviour
 	{
 		var auxGO = t.gameObject;
 
-		if(auxGO.renderer != null)
+		if(auxGO.GetComponent.<Renderer>() != null)
 		{
 			var dObject : ObjectInfo = new ObjectInfo();
 			dObject.transform = t;
-			dObject.renderer = auxGO.renderer;
+			dObject.renderer = auxGO.GetComponent.<Renderer>();
 			dObject.state = ObjectState.ENABLED;
 			dObject.material = dObject.renderer.material;
 			dObject.baseShader = dObject.material.shader;

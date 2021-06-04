@@ -15,6 +15,6 @@ class SyncAudioListener extends MonoBehaviour
 	
 	function Update()
 	{
-		listener.enabled = camera.enabled;
+		listener.enabled = GetComponent.<Camera>().enabled;
 	}
 }

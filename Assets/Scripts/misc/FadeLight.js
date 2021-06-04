@@ -13,13 +13,13 @@ class FadeLight extends MonoBehaviour
 	
 	function Start()
 	{
-		if(light == null)
+		if(GetComponent.<Light>() == null)
 		{
 			Destroy(this);
 			return;
 		}
 		
-		intensity = light.intensity;
+		intensity = GetComponent.<Light>().intensity;
 		
 		
 		fadeTime = Mathf.Abs(fadeTime);
@@ -44,7 +44,7 @@ class FadeLight extends MonoBehaviour
 		else if(intensity > 0.0)
 		{
 			intensity -= fadeSpeed * Time.deltaTime;
-			light.intensity = intensity;
+			GetComponent.<Light>().intensity = intensity;
 		}
 	}
 }

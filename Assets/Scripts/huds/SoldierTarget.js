@@ -30,7 +30,7 @@ class SoldierTarget extends MonoBehaviour
 	{
 		soldierTarget.parent = null;
 		
-		gui = guiTexture;
+		gui = GetComponent.<GUITexture>();
 		
 		gui.pixelInset = new Rect(-target.width * 0.5, -target.height * 0.5, target.width, target.height);
 		gui.texture = target;

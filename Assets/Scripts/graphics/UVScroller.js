@@ -13,7 +13,7 @@ class UVScroller extends MonoBehaviour
 
 	function Start()
 	{
-		if(renderer == null)
+		if(GetComponent.<Renderer>() == null)
 		{
 			Debug.LogWarning("UVScroller[\"" + gameObject.name + "\"]: There is no renderer attached to the gameObject.");
 			Destroy(this);
@@ -33,7 +33,7 @@ class UVScroller extends MonoBehaviour
 		}
 
 		offset = Vector2.zero;
-		cRenderer = renderer;
+		cRenderer = GetComponent.<Renderer>();
 	}
 
 	function Update () 

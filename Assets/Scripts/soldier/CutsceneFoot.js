@@ -10,7 +10,7 @@ function Start()
 {
 	for(var i : int = 0; i < cols.length; i++)
 	{
-		Physics.IgnoreCollision(cols[i], collider);
+		Physics.IgnoreCollision(cols[i], GetComponent.<Collider>());
 	}
 }
 

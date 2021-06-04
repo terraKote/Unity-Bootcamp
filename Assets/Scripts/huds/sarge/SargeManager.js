@@ -76,13 +76,13 @@ class SargeManager extends MonoBehaviour
 		
 		container = new Rect(0, 0, sarge.width + background.width, Mathf.Max(sarge.height, background.height));
 		
-		if(audio == null)
+		if(GetComponent.<AudioSource>() == null)
 		{
-			gameObject.AddComponent("AudioSource");
+			gameObject.AddComponent.<AudioSource>();
 		}
 		
-		audio.loop = false;
-		audio.playOnAwake = false;
+		GetComponent.<AudioSource>().loop = false;
+		GetComponent.<AudioSource>().playOnAwake = false;
 	}
 	
 	function StopInstructions()
@@ -94,9 +94,9 @@ class SargeManager extends MonoBehaviour
 		
 		timeToHide = 0.0;
 		
-		if(audio.isPlaying)
+		if(GetComponent.<AudioSource>().isPlaying)
 		{
-			audio.Stop();
+			GetComponent.<AudioSource>().Stop();
 		}
 	}
 	
@@ -158,16 +158,16 @@ class SargeManager extends MonoBehaviour
 	{
 		if(GameManager.pause || SoldierController.dead || AchievmentScreen.returningToTraining)
 		{
-			if(audio.isPlaying)
+			if(GetComponent.<AudioSource>().isPlaying)
 			{
 				audioWasPlaying = true;
-				audio.Pause();
+				GetComponent.<AudioSource>().Pause();
 			}
 			return;
 		}
 		else if(audioWasPlaying)
 		{
-			audio.Play();
+			GetComponent.<AudioSource>().Play();
 			audioWasPlaying = false;
 		}
 		
@@ -221,7 +221,7 @@ class SargeManager extends MonoBehaviour
 	{
 		if(friendlyFire) return;
 		
-		if(audio.isPlaying)
+		if(GetComponent.<AudioSource>().isPlaying)
 		{
 			var i : int = Random.Range(0, 2);
 			var m : String;
@@ -244,9 +244,9 @@ class SargeManager extends MonoBehaviour
 				
 				if(currentInstruction.audio != null)
 				{
-					audio.clip = currentInstruction.audio;
-					audio.volume = currentInstruction.volume;
-					audio.Play();
+					GetComponent.<AudioSource>().clip = currentInstruction.audio;
+					GetComponent.<AudioSource>().volume = currentInstruction.volume;
+					GetComponent.<AudioSource>().Play();
 				}
 				
 				visible = true;
@@ -278,9 +278,9 @@ class SargeManager extends MonoBehaviour
 			
 			if(currentInstruction.audio != null)
 			{
-				audio.clip = currentInstruction.audio;
-				audio.volume = currentInstruction.volume;
-				audio.Play();
+				GetComponent.<AudioSource>().clip = currentInstruction.audio;
+				GetComponent.<AudioSource>().volume = currentInstruction.volume;
+				GetComponent.<AudioSource>().Play();
 			}
 			
 			visible = true;

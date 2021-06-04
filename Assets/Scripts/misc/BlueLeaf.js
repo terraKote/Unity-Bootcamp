@@ -90,15 +90,15 @@ class BlueLeaf extends MonoBehaviour
 		totalPlayed++;
 		
 		var go : GameObject = new GameObject("_LeafSound");
-		var audioS : AudioSource = go.AddComponent("AudioSource") as AudioSource;
+		var audioS : AudioSource = go.AddComponent.<AudioSource>() as AudioSource;
 		audioS.volume = volume;
 		
 		audioS.playOnAwake = false;
 		
-		var ad : AutoDestroy = go.AddComponent("AutoDestroy") as AutoDestroy;
+		var ad : AutoDestroy = go.AddComponent.<AutoDestroy>() as AutoDestroy;
 		ad.time = audios[sAudio].length + soundDelay + 1.0;
 		audioS.clip = audios[sAudio];
-		var bSound : BlueLeafSound = go.AddComponent("BlueLeafSound") as BlueLeafSound;
+		var bSound : BlueLeafSound = go.AddComponent.<BlueLeafSound>() as BlueLeafSound;
 		bSound.delay = soundDelay;
 		
 		/*

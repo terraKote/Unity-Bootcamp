@@ -65,7 +65,7 @@ class WaterInteractions extends MonoBehaviour
 		var i : int;
 
 		movementContainer.parent = null;
-		movementContainer.audio.volume = 0.0;
+		movementContainer.GetComponent.<AudioSource>().volume = 0.0;
 		for(i = 0; i < movementEmitters.Length; i++)
 		{
 			movementEmitters[i].emit = false;
@@ -172,28 +172,28 @@ class WaterInteractions extends MonoBehaviour
 		
 		if(emitMovement)
 		{
-			if(movementContainer.audio.volume < 0.65)
+			if(movementContainer.GetComponent.<AudioSource>().volume < 0.65)
 			{
-				if(!movementContainer.audio.isPlaying) movementContainer.audio.Play();
+				if(!movementContainer.GetComponent.<AudioSource>().isPlaying) movementContainer.GetComponent.<AudioSource>().Play();
 				
-				movementContainer.audio.volume += Time.deltaTime * fadeSpeed;
+				movementContainer.GetComponent.<AudioSource>().volume += Time.deltaTime * fadeSpeed;
 			}
 			else
 			{
-				movementContainer.audio.volume = 0.65;
+				movementContainer.GetComponent.<AudioSource>().volume = 0.65;
 			}
 		}
 		else
 		{
-			if(movementContainer.audio.isPlaying)
+			if(movementContainer.GetComponent.<AudioSource>().isPlaying)
 			{
-				if(movementContainer.audio.volume > 0.0)
+				if(movementContainer.GetComponent.<AudioSource>().volume > 0.0)
 				{
-					movementContainer.audio.volume -= Time.deltaTime * fadeSpeed * 2.0;
+					movementContainer.GetComponent.<AudioSource>().volume -= Time.deltaTime * fadeSpeed * 2.0;
 				}
 				else
 				{
-					movementContainer.audio.Pause();
+					movementContainer.GetComponent.<AudioSource>().Pause();
 				}
 			}
 		}
@@ -219,15 +219,15 @@ class WaterInteractions extends MonoBehaviour
 	{
 		var go : GameObject = GameObject.Instantiate(jumpParticle, hitInfo.point, Quaternion.identity) as GameObject;
 						
-		if(go.audio != null)
+		if(go.GetComponent.<AudioSource>() != null)
 		{
 			if(b)
 			{
-				go.audio.PlayOneShot(waterImpactSound, 0.5);
+				go.GetComponent.<AudioSource>().PlayOneShot(waterImpactSound, 0.5);
 			}
 			else
 			{
-				go.audio.PlayOneShot(waterJumpingSound, 1);
+				go.GetComponent.<AudioSource>().PlayOneShot(waterJumpingSound, 1);
 			}
 		}
 						
@@ -242,7 +242,7 @@ class WaterInteractions extends MonoBehaviour
 			emitter.Emit();
 		}
 						
-		var aux : AutoDestroy = go.AddComponent("AutoDestroy") as AutoDestroy;
+		var aux : AutoDestroy = go.AddComponent.<AutoDestroy>() as AutoDestroy;
 		aux.time = 2;
 	}
 	

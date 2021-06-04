@@ -14,7 +14,7 @@ class BlueLeafSound extends MonoBehaviour
 			
 			if(delay < 0.0)
 			{
-				audio.Play();
+				GetComponent.<AudioSource>().Play();
 			}
 		}	
 	}

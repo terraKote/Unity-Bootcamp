@@ -83,7 +83,7 @@ class StreamingController extends MonoBehaviour
         readyToPlayCutscene = false;
         streamingStep = streamingStep.None;    
         readyToLoadTerrain = false;
-        camera.fieldOfView = startFOV;
+        GetComponent.<Camera>().fieldOfView = startFOV;
         loadForest = false;
         alpha = 0.0;
 
@@ -122,8 +122,8 @@ class StreamingController extends MonoBehaviour
     		_vOfs = Mathf.Clamp(_vOfs, -7.5, 7.5);
 
 			if(_mouseControl) {
-				camera.transform.localEulerAngles.y = _hOfs;
- 				camera.transform.localEulerAngles.x = _vOfs;
+				GetComponent.<Camera>().transform.localEulerAngles.y = _hOfs;
+ 				GetComponent.<Camera>().transform.localEulerAngles.x = _vOfs;
 			}
     	}
  		
@@ -504,8 +504,8 @@ class StreamingController extends MonoBehaviour
 	        var oldPos : Vector3 = transform.position;
 	        var oldRot : Quaternion = transform.rotation;
 	        
-	        if(transform.parent && transform.parent.animation)
-	        	transform.parent.animation.Stop();
+	        if(transform.parent && transform.parent.GetComponent.<Animation>())
+	        	transform.parent.GetComponent.<Animation>().Stop();
 	        	
 	        var time2Play : float = 3.0 + Random.value * 2.0;
 	        
@@ -532,8 +532,8 @@ class StreamingController extends MonoBehaviour
 	        transform.position = oldPos;
 	        transform.rotation = oldRot;
 	        
-	        if(transform.parent && transform.parent.animation)	
-	        	transform.parent.animation.Play();
+	        if(transform.parent && transform.parent.GetComponent.<Animation>())	
+	        	transform.parent.GetComponent.<Animation>().Play();
 	        	
 	        EnableMouseControl(true);
 	        cloudBed.SendMessage("SetCut", 0.0);
@@ -606,8 +606,8 @@ class StreamingController extends MonoBehaviour
         cutsceneController.enabled = true;
         
 		// disable all the camera cloud effects shit
-		(camera.GetComponent("CloudEffects") as MonoBehaviour).enabled = false;
-        camera.enabled = false;
+		(GetComponent.<Camera>().GetComponent("CloudEffects") as MonoBehaviour).enabled = false;
+        GetComponent.<Camera>().enabled = false;
         
         // destroy clouds
         if(fakeClouds)

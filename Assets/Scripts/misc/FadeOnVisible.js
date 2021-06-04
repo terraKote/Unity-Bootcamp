@@ -20,7 +20,7 @@ class FadeOnVisible extends MonoBehaviour
 	{
 		fadeShader = Shader.Find("Transparent/VertexLit");
 		
-		if(renderer == null) 
+		if(GetComponent.<Renderer>() == null) 
 		{
 			Destroy(this);
 			return;
@@ -30,7 +30,7 @@ class FadeOnVisible extends MonoBehaviour
 		
 		if(r == null) 
 		{
-			r = renderer;
+			r = GetComponent.<Renderer>();
 			
 			mLength = r.materials.length;
 			colors = new Color[mLength];

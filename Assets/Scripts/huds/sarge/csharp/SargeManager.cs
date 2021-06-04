@@ -88,13 +88,13 @@ public class SargeManager : MonoBehaviour
 
         container = new Rect(0, 0, sarge.width + background.width, Mathf.Max(sarge.height, background.height));
 
-        if (audio == null)
+        if (GetComponent<AudioSource>() == null)
         {
-            gameObject.AddComponent("AudioSource");
+            gameObject.AddComponent<AudioSource>();
         }
 
-        audio.loop = false;
-        audio.playOnAwake = false;
+        GetComponent<AudioSource>().loop = false;
+        GetComponent<AudioSource>().playOnAwake = false;
     }
 
     void StopInstructions()
@@ -106,9 +106,9 @@ public class SargeManager : MonoBehaviour
 
         timeToHide = 0.0f;
 
-        if (audio.isPlaying)
+        if (GetComponent<AudioSource>().isPlaying)
         {
-            audio.Stop();
+            GetComponent<AudioSource>().Stop();
         }
     }
 
@@ -170,16 +170,16 @@ public class SargeManager : MonoBehaviour
     {
         if (GameManager.pause || SoldierController.dead || AchievmentScreen.returningToTraining)
         {
-            if (audio.isPlaying)
+            if (GetComponent<AudioSource>().isPlaying)
             {
                 audioWasPlaying = true;
-                audio.Pause();
+                GetComponent<AudioSource>().Pause();
             }
             return;
         }
         else if (audioWasPlaying)
         {
-            audio.Play();
+            GetComponent<AudioSource>().Play();
             audioWasPlaying = false;
         }
 
@@ -233,7 +233,7 @@ public class SargeManager : MonoBehaviour
     {
         if (friendlyFire) return;
 
-        if (audio.isPlaying)
+        if (GetComponent<AudioSource>().isPlaying)
         {
             int i = Random.Range(0, 2);
             string m;
@@ -256,9 +256,9 @@ public class SargeManager : MonoBehaviour
 
                 if (currentInstruction.audio != null)
                 {
-                    audio.clip = currentInstruction.audio;
-                    audio.volume = currentInstruction.volume;
-                    audio.Play();
+                    GetComponent<AudioSource>().clip = currentInstruction.audio;
+                    GetComponent<AudioSource>().volume = currentInstruction.volume;
+                    GetComponent<AudioSource>().Play();
                 }
 
                 visible = true;
@@ -290,9 +290,9 @@ public class SargeManager : MonoBehaviour
 
             if (currentInstruction.audio != null)
             {
-                audio.clip = currentInstruction.audio;
-                audio.volume = currentInstruction.volume;
-                audio.Play();
+                GetComponent<AudioSource>().clip = currentInstruction.audio;
+                GetComponent<AudioSource>().volume = currentInstruction.volume;
+                GetComponent<AudioSource>().Play();
             }
 
             visible = true;

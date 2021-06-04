@@ -30,7 +30,7 @@ function Update()
 			var go : GameObject = new GameObject("FPS Display", GUIText);
 			go.hideFlags = HideFlags.HideAndDontSave;
 			go.transform.position = Vector3(0,0,0);
-			gui = go.guiText;
+			gui = go.GetComponent.<GUIText>();
 			gui.pixelOffset = Vector2(5,55);
 		}
         var fps : float = frames / (timeNow - lastInterval);

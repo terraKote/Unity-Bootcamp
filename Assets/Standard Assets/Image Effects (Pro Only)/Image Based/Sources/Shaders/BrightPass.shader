@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/BrightPass" {
 	Properties {
 		_Color ("Main Color", Color) = (1,1,1,1)
@@ -19,7 +21,7 @@ Shader "Hidden/BrightPass" {
 		
 	v2f vert (appdata_base v) {
 		v2f o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
 		o.uv = float2(1,1);
 		return o;
 	}

@@ -170,7 +170,7 @@ class BloomAndFlares extends PostEffectsBase
 			for (var go : GameObject in gos) {
 				if(go.GetComponent(MeshFilter)) {
 					var mesh : Mesh = (go.GetComponent(MeshFilter) as MeshFilter).sharedMesh;
-					Graphics.DrawMesh(mesh,go.transform.localToWorldMatrix,_alphaAddMaterial,0,camera);
+					Graphics.DrawMesh(mesh,go.transform.localToWorldMatrix,_alphaAddMaterial,0,GetComponent.<Camera>());
 				}
 			}		
 		}		

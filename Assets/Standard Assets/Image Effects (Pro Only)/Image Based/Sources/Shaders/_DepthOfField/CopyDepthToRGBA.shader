@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/CopyDepthToRGBA" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "" {}
@@ -20,7 +22,7 @@ Shader "Hidden/CopyDepthToRGBA" {
 		
 	v2f vert( appdata_img v ) {
 		v2f o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
 		o.uv1.xy = TRANSFORM_TEX(v.texcoord, _CameraDepthTexture);
 		
 		#ifdef SHADER_API_D3D9

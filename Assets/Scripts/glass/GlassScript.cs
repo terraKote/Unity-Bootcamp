@@ -102,12 +102,12 @@ public class GlassScript : MonoBehaviour
 		destructAudio = GameSoundManager.GetClip("glass_destruction");
 		hitAudio = GameSoundManager.GetClip("glass_hit");
 		
-		if(audio == null)
+		if(GetComponent<AudioSource>() == null)
 		{
 			gameObject.AddComponent<AudioSource>();
 		}
-		audio.loop = false;
-		audio.playOnAwake = false;
+		GetComponent<AudioSource>().loop = false;
+		GetComponent<AudioSource>().playOnAwake = false;
 		
         //Intialize with false the first hit (used to change texture to breaked).
         firstHit = false;
@@ -117,7 +117,7 @@ public class GlassScript : MonoBehaviour
         sizeTextureY = (int)((textureBaseMarks[0].height / 4.0f) * tileVertical);
 
         textureCurrentAlpha = new Texture2D(2, 2,  TextureFormat.ARGB32, true);//(Texture2D)renderer.material.GetTexture("_AlphaTex");
-		renderer.material.SetTexture("_AlphaTex", textureCurrentAlpha);
+		GetComponent<Renderer>().material.SetTexture("_AlphaTex", textureCurrentAlpha);
         
         //Resize the base alpha color of glass.
         textureCurrentAlpha.Resize(sizeTextureX, sizeTextureY);
@@ -246,7 +246,7 @@ public class GlassScript : MonoBehaviour
         //If is the first hit, change the mainTexture to breaked.
         if (firstHit == false && glassType == GlassType.SINGLE)
         {
-            renderer.material.SetTexture("_MainTex", textureBreaked);
+            GetComponent<Renderer>().material.SetTexture("_MainTex", textureBreaked);
             firstHit = true;
         }
 
@@ -301,7 +301,7 @@ public class GlassScript : MonoBehaviour
 		
 		if(hitAudio != null)
 		{
-			audio.PlayOneShot(hitAudio);
+			GetComponent<AudioSource>().PlayOneShot(hitAudio);
 		}        
 		
 		//Set in matrix true in element that received hit.
@@ -558,7 +558,7 @@ public class GlassScript : MonoBehaviour
 	{
 		if(!firstHit)
 		{
-			renderer.material.SetTexture("_MainTex", textureBreaked);
+			GetComponent<Renderer>().material.SetTexture("_MainTex", textureBreaked);
 			firstHit = true;
 		}
 		
@@ -571,7 +571,7 @@ public class GlassScript : MonoBehaviour
 				if(GlassManager.timeToPlayAudio <= 0.0f)
 				{
 					GlassManager.timeToPlayAudio = destructAudio.length;
-					audio.PlayOneShot(destructAudio);
+					GetComponent<AudioSource>().PlayOneShot(destructAudio);
 				}
 			}
 		}

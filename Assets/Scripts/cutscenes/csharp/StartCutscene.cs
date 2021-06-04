@@ -52,10 +52,10 @@ public class StartCutscene : MonoBehaviour
             sarge = auxCam.GetComponent("SargeManager") as SargeManager;
         }
 
-        animation.Play("intro_cutscene_1");
+        GetComponent<Animation>().Play("intro_cutscene_1");
         thirdPersonCamera.active = false;
         cutsceneCamera1.active = true;
-        cutsceneCamera1.camera.enabled = true;
+        cutsceneCamera1.GetComponent<Camera>().enabled = true;
         cutsceneCamera2.active = true;
         loopFinished = false;
         loading = false;
@@ -85,11 +85,11 @@ public class StartCutscene : MonoBehaviour
 
     void ChangeToThirdPersonCamera()
     {
-        animation["intro_cutscene_2"].wrapMode = WrapMode.Loop;
-        animation.Play("intro_cutscene_2");
+        GetComponent<Animation>()["intro_cutscene_2"].wrapMode = WrapMode.Loop;
+        GetComponent<Animation>().Play("intro_cutscene_2");
 
         thirdPersonCamera.active = true;
-        thirdPersonCamera.camera.enabled = true;
+        thirdPersonCamera.GetComponent<Camera>().enabled = true;
         cutsceneCamera1.active = false;
         cutsceneCamera2.active = false;
 
@@ -211,7 +211,7 @@ public class StartCutscene : MonoBehaviour
             {
                 currentState += Time.deltaTime;
                 thirdPersonCamera.transform.localRotation = Quaternion.Slerp(startRotation, targetRotation, currentState);
-                thirdPersonCamera.camera.fieldOfView = Mathf.Lerp(60, 45, currentState);
+                thirdPersonCamera.GetComponent<Camera>().fieldOfView = Mathf.Lerp(60, 45, currentState);
                 cameraController.enabled = false;
                 if (currentState >= 1.0)
                 {

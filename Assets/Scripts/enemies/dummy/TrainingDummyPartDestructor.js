@@ -12,7 +12,7 @@ class TrainingDummyPartDestructor extends MonoBehaviour
 	
 	function  Start()
 	{
-		r = renderer;
+		r = GetComponent.<Renderer>();
 		
 		if(r.material.HasProperty("_MainColor"))
 		{

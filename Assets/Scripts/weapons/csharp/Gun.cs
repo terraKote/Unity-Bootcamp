@@ -115,7 +115,7 @@ public class Gun : MonoBehaviour
 
     void OnEnable()
     {
-        cam = soldierCamera.camera;
+        cam = soldierCamera.GetComponent<Camera>();
 
         reloadTimer = 0.0f;
         reloading = false;
@@ -267,9 +267,9 @@ public class Gun : MonoBehaviour
 
         projectile.transform.rotation = Quaternion.LookRotation(camRay.direction);
 
-        Rigidbody projectileRigidbody = projectile.rigidbody;
+        Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
 
-        if (projectile.rigidbody == null)
+        if (projectile.GetComponent<Rigidbody>() == null)
         {
             projectileRigidbody = projectile.AddComponent<Rigidbody>();
         }
@@ -356,12 +356,12 @@ public class Gun : MonoBehaviour
     {
         HitType hitType = HitType.CONCRETE;
 
-        Rigidbody body = hit.collider.rigidbody;
+        Rigidbody body = hit.collider.GetComponent<Rigidbody>();
         if (body == null)
         {
             if (hit.collider.transform.parent != null)
             {
-                body = hit.collider.transform.parent.rigidbody;
+                body = hit.collider.transform.parent.GetComponent<Rigidbody>();
             }
         }
 
@@ -420,7 +420,7 @@ public class Gun : MonoBehaviour
 
         go.layer = hit.collider.gameObject.layer;
 
-        if (hit.collider.renderer == null) return;
+        if (hit.collider.GetComponent<Renderer>() == null) return;
 
         if (timerToCreateDecal < 0.0 && hit.collider.tag != "water")
         {
@@ -487,16 +487,16 @@ public class Gun : MonoBehaviour
     //---------------AUDIO METHODS--------
     void PlayOutOfAmmoSound()
     {
-        audio.PlayOneShot(outOfAmmoSound, 1.5f);
+        GetComponent<AudioSource>().PlayOneShot(outOfAmmoSound, 1.5f);
     }
 
     void PlayReloadSound()
     {
-        audio.PlayOneShot(reloadSound, 1.5f);
+        GetComponent<AudioSource>().PlayOneShot(reloadSound, 1.5f);
     }
 
     void PlayShootSound()
     {
-        audio.PlayOneShot(shootSound);
+        GetComponent<AudioSource>().PlayOneShot(shootSound);
     }
 }

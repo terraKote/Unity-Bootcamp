@@ -44,7 +44,7 @@ class ForestCutscene extends MonoBehaviour
 		cStep = 0;
 		nextAnimTime = anims[0].time;
 		
-		camAnimation = cam.animation;
+		camAnimation = cam.GetComponent.<Animation>();
 		played = false;
 		playing = false;
 		timer = 0.0;
@@ -58,26 +58,26 @@ class ForestCutscene extends MonoBehaviour
 		
 		if(GameManager.pause)
 		{
-			soldier.animation["CS_2_Part1"].speed = 0.0;
-			soldier.animation["CS_2_Part2"].speed = 0.0;
-			cam.animation["industryCutsceneCamera_entire"].speed = 0.0;
+			soldier.GetComponent.<Animation>()["CS_2_Part1"].speed = 0.0;
+			soldier.GetComponent.<Animation>()["CS_2_Part2"].speed = 0.0;
+			cam.GetComponent.<Animation>()["industryCutsceneCamera_entire"].speed = 0.0;
 		}
-		else if(soldier.animation["CS_2_Part1"].speed < 1.0)
+		else if(soldier.GetComponent.<Animation>()["CS_2_Part1"].speed < 1.0)
 		{
-			soldier.animation["CS_2_Part1"].speed = 1.0;
-			soldier.animation["CS_2_Part2"].speed = 1.0;
-			cam.animation["industryCutsceneCamera_entire"].speed = 1.0;
+			soldier.GetComponent.<Animation>()["CS_2_Part1"].speed = 1.0;
+			soldier.GetComponent.<Animation>()["CS_2_Part2"].speed = 1.0;
+			cam.GetComponent.<Animation>()["industryCutsceneCamera_entire"].speed = 1.0;
 		}
 		
-		if(soldier.animation["CS_2_Part1"].normalizedTime > 0.965 && !part1)
+		if(soldier.GetComponent.<Animation>()["CS_2_Part1"].normalizedTime > 0.965 && !part1)
 		{
 			part1 = true;
-			soldier.animation["CS_2_Part2"].speed = 0.7;
-			soldier.animation.Play("CS_2_Part2");
+			soldier.GetComponent.<Animation>()["CS_2_Part2"].speed = 0.7;
+			soldier.GetComponent.<Animation>().Play("CS_2_Part2");
 			soldier.transform.localPosition = new Vector3(3.256119, soldier.transform.localPosition.y, soldier.transform.localPosition.z);
 		}
 		
-		if(soldier.animation["CS_2_Part2"].normalizedTime > 0.27 && !part2)
+		if(soldier.GetComponent.<Animation>()["CS_2_Part2"].normalizedTime > 0.27 && !part2)
 		{
 			part2 = true;
 			soldier.transform.localPosition = new Vector3(0.6527214, 1.321428, -1.147861);
@@ -106,7 +106,7 @@ class ForestCutscene extends MonoBehaviour
 		
 		Destroy(cam.GetComponent("AudioListener"));
 		SendMessageUpwards("StartGame");
-		soldier.animation.Stop();
+		soldier.GetComponent.<Animation>().Stop();
 		
 		if(soldierCam)
 			soldierCam.enabled = true;		
@@ -126,6 +126,6 @@ class ForestCutscene extends MonoBehaviour
 		
 		SendMessageUpwards("CutsceneStart", SendMessageOptions.DontRequireReceiver);
 		
-		soldier.animation.CrossFade("CS_2_Part1");
+		soldier.GetComponent.<Animation>().CrossFade("CS_2_Part1");
 	}
 }

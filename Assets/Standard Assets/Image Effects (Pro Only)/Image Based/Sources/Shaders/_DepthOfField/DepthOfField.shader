@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/DepthOfField" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "" {}
@@ -29,7 +31,7 @@ Shader "Hidden/DepthOfField" {
 		
 	v2f vert( appdata_img v ) {
 		v2f o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
 		o.uv.xy = TRANSFORM_TEX(v.texcoord, _MainTex);
 		o.uv1.xy = TRANSFORM_TEX(v.texcoord, _LowRez);
 

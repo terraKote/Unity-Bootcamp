@@ -20,11 +20,11 @@ class HelicopterCutscene extends MonoBehaviour
 	function Start()
 	{
 		currentPlaying = -1;
-		rope.animation.Play("RopeAnimation");
-		rope.animation["RopeAnimation"].enabled = true;
-		rope.animation["RopeAnimation"].time = 0.05;
-		rope.animation.Sample();
-		rope.animation["RopeAnimation"].enabled = false;
+		rope.GetComponent.<Animation>().Play("RopeAnimation");
+		rope.GetComponent.<Animation>()["RopeAnimation"].enabled = true;
+		rope.GetComponent.<Animation>()["RopeAnimation"].time = 0.05;
+		rope.GetComponent.<Animation>().Sample();
+		rope.GetComponent.<Animation>()["RopeAnimation"].enabled = false;
 		
 		for(var t : Transform in transform)
 		{
@@ -32,7 +32,7 @@ class HelicopterCutscene extends MonoBehaviour
 			childActive = false;
 		}
 		
-		animation["heli_load_animation"].wrapMode = WrapMode.Loop;
+		GetComponent.<Animation>()["heli_load_animation"].wrapMode = WrapMode.Loop;
 	}
 	
 	function Update()
@@ -40,7 +40,7 @@ class HelicopterCutscene extends MonoBehaviour
 		switch(currentPlaying)
 		{
 			case 0:
-				if(animation["heli_start_animation"].normalizedTime > 0.99)
+				if(GetComponent.<Animation>()["heli_start_animation"].normalizedTime > 0.99)
 				{
 					currentPlaying = -1;
 					SendMessageUpwards("HeliCutsceneEnd", 0);
@@ -49,14 +49,14 @@ class HelicopterCutscene extends MonoBehaviour
 			case 1:
 				break;
 			case 2:
-				if(coleague.animation["CS_Pointing"].normalizedTime > 0.99)
+				if(coleague.GetComponent.<Animation>()["CS_Pointing"].normalizedTime > 0.99)
 				{
 					currentPlaying = -1;
 					SendMessageUpwards("HeliCutsceneEnd", 2);
 				}
 				break;
 			case 3:
-				if(rope.animation["RopeAnimation"].normalizedTime > 0.99)
+				if(rope.GetComponent.<Animation>()["RopeAnimation"].normalizedTime > 0.99)
 				{
 					currentPlaying = -1;
 					SendMessageUpwards("HeliCutsceneEnd", 3);
@@ -92,32 +92,32 @@ class HelicopterCutscene extends MonoBehaviour
 		{
 			case 0:
 				inChopperCamera.SetActiveRecursively(false);
-				animation.Play("heli_start_animation");
-				coleague.animation.CrossFade("CS_ColeagueIdle");
+				GetComponent.<Animation>().Play("heli_start_animation");
+				coleague.GetComponent.<Animation>().CrossFade("CS_ColeagueIdle");
 				break;
 			case 1:
 				inChopperCamera.SetActiveRecursively(true);
 				cutsceneCamera.SetActiveRecursively(false);
 				soldier.SetActiveRecursively(false);
-				animation.Play("heli_load_animation");
-				coleague.animation.CrossFade("CS_ColeagueIdle");
+				GetComponent.<Animation>().Play("heli_load_animation");
+				coleague.GetComponent.<Animation>().CrossFade("CS_ColeagueIdle");
 				break;
 			case 2:
 				inChopperCamera.SetActiveRecursively(true);
 				cutsceneCamera.SetActiveRecursively(false);
 				soldier.SetActiveRecursively(false);
-				coleague.animation.CrossFade("CS_Pointing");
+				coleague.GetComponent.<Animation>().CrossFade("CS_Pointing");
 				break;
 			case 3:
 				inChopperCamera.SetActiveRecursively(false);
 				cutsceneCamera.SetActiveRecursively(true);
 				soldier.SetActiveRecursively(true);
-				coleague.animation.CrossFade("CS_ColeagueIdle");
+				coleague.GetComponent.<Animation>().CrossFade("CS_ColeagueIdle");
 				soldierWeapon.transform.parent = weaponAnimation.transform.GetChild(0);
 				soldierWeapon.transform.localPosition = Vector3.zero;
-				weaponAnimation.animation.Play("Take 001");
-				rope.animation.Play("RopeAnimation");
-				soldier.animation.Play("CS_Rope");
+				weaponAnimation.GetComponent.<Animation>().Play("Take 001");
+				rope.GetComponent.<Animation>().Play("RopeAnimation");
+				soldier.GetComponent.<Animation>().Play("CS_Rope");
 				break;
 		}
 	}

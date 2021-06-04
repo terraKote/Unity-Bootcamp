@@ -1,3 +1,6 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/Nature/Fast/Tree Creator Leaves Optimized" {
 	
 Properties {
@@ -58,14 +61,14 @@ SubShader {
 		{
 			v2f_leaf o;
 			TreeVertLeaf(v);
-			o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+			o.pos = UnityObjectToClipPos(v.vertex);
 
 			float ao = v.color.a;
 			ao += 0.1; ao = saturate(ao * ao * ao); // hack to emphasize AO, just for kicks now! ;)
 						
 			float3 color = v.color.rgb * ao;
 			
-			float3 worldN = mul ((float3x3)_Object2World, SCALED_NORMAL);
+			float3 worldN = mul ((float3x3)unity_ObjectToWorld, SCALED_NORMAL);
 
 			float4 mainLight;
 			mainLight.rgb = ShadeTranslucentMainLight (v.vertex, worldN) * color;
@@ -237,7 +240,7 @@ SubShader {
 
 			o.color.rgb = ShadeVertexLights (v.vertex, v.normal);
 				
-			o.pos = mul (UNITY_MATRIX_MVP, v.vertex);	
+			o.pos = UnityObjectToClipPos (v.vertex);	
 			o.uv = v.texcoord;
 			o.color.a = 1.0f;
 			return o;

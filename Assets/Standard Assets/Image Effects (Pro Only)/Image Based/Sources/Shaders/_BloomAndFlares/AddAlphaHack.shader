@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/AddAlphaHack" {
 	Properties {
 		_Color ("Main Color", Color) = (1,1,1,1)
@@ -21,7 +23,7 @@ Shader "Hidden/AddAlphaHack" {
 		
 	v2f vert (appdata_base v) {
 		v2f o; 
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex); 
+		o.pos = UnityObjectToClipPos(v.vertex); 
 		o.uv =  MultiplyUV(UNITY_MATRIX_TEXTURE0, v.texcoord);
 		return o;
 	}

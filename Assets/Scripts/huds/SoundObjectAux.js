@@ -8,7 +8,7 @@ class SoundObjectAux extends MonoBehaviour
 	
     function Awake()
     {
-        if(rigidbody != null) rigidbody.Sleep();
+        if(GetComponent.<Rigidbody>() != null) GetComponent.<Rigidbody>().Sleep();
     }
 
 	function OnCollisionEnter(collision : Collision)

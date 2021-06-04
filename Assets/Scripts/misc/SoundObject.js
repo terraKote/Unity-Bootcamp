@@ -80,13 +80,13 @@ class SoundObject extends MonoBehaviour
 			Destroy(this);
 		}
 		
-		if(rigidbody == null)
+		if(GetComponent.<Rigidbody>() == null)
 		{
 			if(transform.parent != null)
 			{
-				if(transform.parent.rigidbody != null)
+				if(transform.parent.GetComponent.<Rigidbody>() != null)
 				{
-					var aux : SoundObjectAux = transform.parent.gameObject.AddComponent("SoundObjectAux") as SoundObjectAux;
+					var aux : SoundObjectAux = transform.parent.gameObject.AddComponent.<SoundObjectAux>() as SoundObjectAux;
 					aux.soundGenerator = this;
 				}
 				else
@@ -130,9 +130,9 @@ class SoundObject extends MonoBehaviour
 						
 						var go : GameObject = GameObject.Instantiate(waterParticles, hitInfo.point, Quaternion.identity) as GameObject;
 						
-						if(go.audio != null)
+						if(go.GetComponent.<AudioSource>() != null)
 						{
-							go.audio.Play();
+							go.GetComponent.<AudioSource>().Play();
 						}
 						
 						var emitter : ParticleEmitter;
@@ -146,7 +146,7 @@ class SoundObject extends MonoBehaviour
 							emitter.Emit();
 						}
 						
-						var aux : AutoDestroy = go.AddComponent("AutoDestroy") as AutoDestroy;
+						var aux : AutoDestroy = go.AddComponent.<AutoDestroy>() as AutoDestroy;
 						aux.time = 2;
 						return;
 					}
@@ -167,7 +167,7 @@ class SoundObject extends MonoBehaviour
 		{
 			if(audioPlayer == null)
 			{
-				audioPlayer = gameObject.AddComponent("AudioSource") as AudioSource;
+				audioPlayer = gameObject.AddComponent.<AudioSource>() as AudioSource;
 				audioPlayer.playOnAwake = false;
 				audioPlayer.loop = false;
 				audioPlayer.clip = ac;

@@ -16,19 +16,19 @@ class Destructable extends MonoBehaviour
 				t.parent = null;
 				t.gameObject.active = true;
 				
-				if(t.renderer != null)
+				if(t.GetComponent.<Renderer>() != null)
 				{
-					t.renderer.enabled = true;
+					t.GetComponent.<Renderer>().enabled = true;
 				}
 				
-				if(t.rigidbody != null)
+				if(t.GetComponent.<Rigidbody>() != null)
 				{
-					t.rigidbody.isKinematic = false;
+					t.GetComponent.<Rigidbody>().isKinematic = false;
 				}
 				
 				if(t.gameObject.GetComponent("TrainingDummyPartDestructor") == null)
 				{
-					t.gameObject.AddComponent("TrainingDummyPartDestructor");
+					t.gameObject.AddComponent.<TrainingDummyPartDestructor>();
 				}
 			}
 			

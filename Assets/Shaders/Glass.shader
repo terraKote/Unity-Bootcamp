@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Glass"
 { 
 Properties
@@ -50,7 +52,7 @@ Subshader
 			vertOutput o;
 			
 			//Set position.
-			o.pos = mul (UNITY_MATRIX_MVP, i.vertex);  
+			o.pos = UnityObjectToClipPos (i.vertex);  
 			
 			//Set texcoord.
 			o.texcoord = i.texcoord;

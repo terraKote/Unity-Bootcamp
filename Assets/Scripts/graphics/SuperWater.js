@@ -5,6 +5,6 @@ var theLight : Transform;
 function Update () 
 {
     
-    renderer.sharedMaterial.SetVector("_WorldLightDir", -theLight.forward);
+    GetComponent.<Renderer>().sharedMaterial.SetVector("_WorldLightDir", -theLight.forward);
 
 }

@@ -144,7 +144,7 @@ class GameManager extends MonoBehaviour
             
             if (blurEffect == null)
             {
-                blurEffect = cam.gameObject.AddComponent("BlurEffect") as BlurEffect;
+                blurEffect = cam.gameObject.AddComponent.<BlurEffect>() as BlurEffect;
                 blurEffect.iterations = cam.gameObject.name.IndexOf("radar") != -1 ? 1 : 2;
                 blurEffect.blurSpread = 0.4;
             }    
