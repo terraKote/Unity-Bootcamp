@@ -266,8 +266,7 @@ public class LegAnimator : MonoBehaviour
         if (controlMotionState == null)
         {
             // Create dummy animation state with control motion name
-            AnimationClip clip = new AnimationClip();
-            clip.legacy = true;
+            AnimationClip clip = CreateEmptyLegacyClip();
             GetComponent<Animation>().AddClip(clip, "LocomotionSystem");
             controlMotionState = GetComponent<Animation>()["LocomotionSystem"];
         }
@@ -305,8 +304,7 @@ public class LegAnimator : MonoBehaviour
             if (controller == null)
             {
                 // Create dummy animation state with motion group name
-                AnimationClip clip = new AnimationClip();
-                clip.legacy = true;
+                AnimationClip clip = CreateEmptyLegacyClip();
                 GetComponent<Animation>().AddClip(clip, legC.motionGroups[g].name);
                 controller = GetComponent<Animation>()[legC.motionGroups[g].name];
             }
@@ -344,6 +342,13 @@ public class LegAnimator : MonoBehaviour
         {
             legStates[leg] = new LegState();
         }
+    }
+
+    private static AnimationClip CreateEmptyLegacyClip()
+    {
+        AnimationClip clip = new AnimationClip();
+        clip.legacy = true;
+        return clip;
     }
 
     private void ResetSteps()
