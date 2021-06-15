@@ -11,8 +11,6 @@ public class SoldierController : MonoBehaviour
     public float crouchWalkSpeed = 1.8f;
     public float crouchWalkStrafeSpeed = 1.8f;
 
-    public GameObject radarObject;
-
     public float maxRotationSpeed = 540.0f;
 
     public GunManager weaponSystem;
@@ -74,11 +72,6 @@ public class SoldierController : MonoBehaviour
 
     void OnEnable()
     {
-        if (radarObject != null)
-        {
-            radarObject.SetActiveRecursively(true);
-        }
-
         moveDir = Vector3.zero;
         headLookController = GetComponent<HeadLookController>();
         headLookController.enabled = true;
@@ -89,11 +82,6 @@ public class SoldierController : MonoBehaviour
 
     void OnDisable()
     {
-        if (radarObject != null)
-        {
-            radarObject.SetActiveRecursively(false);
-        }
-
         moveDir = Vector3.zero;
         headLookController.enabled = false;
         walk = true;
