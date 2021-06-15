@@ -74,9 +74,6 @@ public class SoldierCamera : MonoBehaviour
     private float cShakeSpeed;
     private int cShakeTimes;
 
-    public Transform radar;
-    public Transform radarCamera;
-
     private DepthOfField _depthOfFieldEffect;
 
     void Start()
@@ -204,11 +201,6 @@ public class SoldierCamera : MonoBehaviour
         if (Physics.Raycast(cPos, camDir, out hit, targetDistance + 0.2f, hitLayer))
         {
             targetDistance = hit.distance - 0.1f;
-        }
-        if (radar != null)
-        {
-            radar.position = cPos;
-            radarCamera.rotation = Quaternion.Euler(90, x, 0);
         }
 
         Vector3 lookPoint = cPos;
