@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class RadarHudService : MonoBehaviour
+public class RadarHudService : MonoBehaviour, IPauseListener
 {
     [Header("Shared Settings")]
     [SerializeField] private Transform soliderCamera;
@@ -45,5 +45,15 @@ public class RadarHudService : MonoBehaviour
     {
         radarCamera.position = player.position + new Vector3(0, targetHeight, 0);
         radarCamera.localRotation = Quaternion.Euler(90, soliderCamera.localRotation.eulerAngles.y, 0);
+    }
+
+    public void OnPause()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void OnUnPause()
+    {
+        gameObject.SetActive(true);
     }
 }

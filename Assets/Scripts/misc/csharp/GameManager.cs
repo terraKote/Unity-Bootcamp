@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,9 +17,13 @@ public class GameManager : MonoBehaviour
 
     public Camera[] PauseEffectCameras;
     private bool _paused;
+    private IPauseListener[] _pauseListeners;
 
     void Start()
     {
+        _pauseListeners = FindObjectsOfType<MonoBehaviour>().Where(x => x.GetComponent<IPauseListener>() != null).Select(x => x.GetComponent<IPauseListener>()).ToArray();
+        UpdatePauseListenerState();
+
         TrainingStatistics.ResetStatistics();
 
         Screen.lockCursor = true;
@@ -74,6 +79,8 @@ public class GameManager : MonoBehaviour
             {
                 Time.timeScale = 1.0f;
             }
+
+            UpdatePauseListenerState();
         }
 
         if (_paused != pause)
@@ -93,6 +100,21 @@ public class GameManager : MonoBehaviour
         }
 
         Screen.lockCursor = !pause && !scores;
+    }
+
+    private void UpdatePauseListenerState()
+    {
+        foreach (var pauseListener in _pauseListeners)
+        {
+            if (pause)
+            {
+                pauseListener.OnPause();
+            }
+            else
+            {
+                pauseListener.OnUnPause();
+            }
+        }
     }
 
     void StartGame()
