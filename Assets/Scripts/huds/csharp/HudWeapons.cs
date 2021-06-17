@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[System.Obsolete("Use AmmoHudService instead.")]
 public class HudWeapons : MonoBehaviour
 {
     public Texture2D[] weapon;
