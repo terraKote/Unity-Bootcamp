@@ -4,7 +4,7 @@ public class GunManager : MonoBehaviour
 {
     public GunKeyBinder[] guns;
     public SoldierController soldier;
-    public HudWeapons hud;
+    public AmmoHudService[] hud;
 
     [HideInInspector] public Gun currentGun;
     [HideInInspector] public int currentWeapon;
@@ -30,8 +30,23 @@ public class GunManager : MonoBehaviour
             }
         }
 
-        hud.selectedWeapon = currentWeapon;
-        hud.ammoRemaining[currentWeapon] = guns[currentWeapon].gun.currentRounds;
+        UpdateHud();
+    }
+
+    private void UpdateHud()
+    {
+        Gun gun = guns[currentWeapon].gun;
+        AmmoHudService currentHud = hud[currentWeapon];
+
+        currentHud.CurrentAmmoCount = gun.currentRounds;
+
+        if (gun.unlimited)
+        {
+            currentHud.TotalAmmoCount = -1;
+        } else
+        {
+            currentHud.TotalAmmoCount = gun.totalClips;
+        }
     }
 
     void ChangeToGun(int gunIndex)
@@ -67,5 +82,7 @@ public class GunManager : MonoBehaviour
             currentGun = cGun;
             currentWeapon = gunIndex;
         }
+
+        hud[currentWeapon].Show();
     }
 }
