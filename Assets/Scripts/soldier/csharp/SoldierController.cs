@@ -12,8 +12,6 @@ public class SoldierController : MonoBehaviour
     public float crouchWalkStrafeSpeed = 1.8f;
 
     public float maxRotationSpeed = 540.0f;
-
-    public GunManager weaponSystem;
     public float minCarDistance;
 
     static public bool dead;
@@ -147,7 +145,13 @@ public class SoldierController : MonoBehaviour
 
     void GetUserInputs()
     {
-        if (!weaponSystem) return;
+        var weaponSystem = GunManager.GetInstance();
+
+        if (!weaponSystem)
+        {
+            Debug.LogError("No GunManager found!");
+            return;
+        }
 
         //Check if the user if firing the weapon
         fire = Input.GetButton("Fire1") && weaponSystem.currentGun.freeToShoot && !dead && !inAir;
