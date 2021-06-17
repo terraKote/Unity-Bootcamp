@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GunManager : MonoBehaviour
+public class GunManager : MonoSingleton<GunManager>
 {
     public GunKeyBinder[] guns;
     public SoldierController soldier;
