@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -7,13 +8,11 @@ public class GameManager : MonoSingleton<GameManager>
     public ParticleEmitter soldierSmoke;
     public SargeManager sarge;
 
-    static public bool receiveDamage;
-    static public bool pause;
-    static public bool scores;
-    static public float time;
-    static public bool running;
-
-    public MainMenuScreen menu;
+    public bool receiveDamage;
+    public bool pause;
+    public bool scores;
+    public float time;
+    public bool running;
 
     public Camera[] PauseEffectCameras;
     private bool _paused;
@@ -26,7 +25,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         TrainingStatistics.ResetStatistics();
 
-        Screen.lockCursor = true;
+        Cursor.lockState = CursorLockMode.Locked;
 
         running = false;
         pause = false;
@@ -42,7 +41,7 @@ public class GameManager : MonoSingleton<GameManager>
 
             if (auxT.name == "Cutscene")
             {
-                if (auxT.gameObject.active)
+                if (auxT.gameObject.activeSelf)
                 {
                     hasCutscene = true;
                     break;
@@ -58,7 +57,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     void CutsceneStart()
     {
-        gamePlaySoldier.SetActiveRecursively(false);
+        gamePlaySoldier.SetActive(false);
     }
 
     void Update()
@@ -68,8 +67,6 @@ public class GameManager : MonoSingleton<GameManager>
         if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             pause = !pause;
-
-            menu.visible = pause;
 
             if (pause)
             {
@@ -99,7 +96,14 @@ public class GameManager : MonoSingleton<GameManager>
             }
         }
 
-        Screen.lockCursor = !pause && !scores;
+        if (!pause && !scores)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     private void UpdatePauseListenerState()
@@ -123,9 +127,9 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (gamePlaySoldier != null)
         {
-            if (!gamePlaySoldier.active)
+            if (!gamePlaySoldier.activeSelf)
             {
-                gamePlaySoldier.SetActiveRecursively(true);
+                gamePlaySoldier.SetActive(true);
             }
         }
 
@@ -137,7 +141,7 @@ public class GameManager : MonoSingleton<GameManager>
             }
         }
 
-        if (sarge != null && Application.loadedLevelName == "demo_forest")
+        if (sarge != null && SceneManager.GetActiveScene().name == "demo_forest")
         {
             sarge.ShowInstruction("instructions");
             sarge.ShowInstruction("instructions2");
