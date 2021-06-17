@@ -114,7 +114,7 @@ public class StreamingController : MonoBehaviour
     void Update()
     {
         // a little bit of control
-        if (!GameManager.pause)
+        if (!GameManager.GetInstance().pause)
         {
             var h = Input.GetAxis("Mouse X") * 0.25f;
             var v = Input.GetAxis("Mouse Y") * 0.25f;
@@ -512,7 +512,7 @@ public class StreamingController : MonoBehaviour
         // we are doing this shit as long as needed
         while (!readyToPlayCutscene)
         {
-            if (readyToLoadTerrain && !GameManager.pause)
+            if (readyToLoadTerrain && !GameManager.GetInstance().pause)
             {
                 streamingStep = StreamingStep.Terrain;
                 currentOp = Application.LoadLevelAdditiveAsync("demo_start_cutscene_terrain");

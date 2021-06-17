@@ -114,7 +114,7 @@ public class SoldierCamera : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.pause || GameManager.scores) return;
+        if (GameManager.GetInstance().pause || GameManager.GetInstance().scores) return;
 
         if (orbit && (Input.GetKeyDown(KeyCode.O) || Input.GetAxis("Horizontal") != 0.0 || Input.GetAxis("Vertical") != 0.0 || soldierController.aim || soldierController.fire))
         {
@@ -129,7 +129,7 @@ public class SoldierCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        if (GameManager.pause || GameManager.scores) return;
+        if (GameManager.GetInstance().pause || GameManager.GetInstance().scores) return;
 
         deltaTime = Time.fixedDeltaTime;
 

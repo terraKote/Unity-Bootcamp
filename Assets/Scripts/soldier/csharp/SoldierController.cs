@@ -89,7 +89,7 @@ public class SoldierController : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.pause || GameManager.scores)
+        if (GameManager.GetInstance().pause || GameManager.GetInstance().scores)
         {
             moveDir = Vector3.zero;
             motor.canControl = false;

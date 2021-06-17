@@ -171,7 +171,7 @@ public class MainMenuScreen : MonoBehaviour
             }
         }
 
-        if (Time.timeScale == 0.0 || GameManager.pause)
+        if (Time.timeScale == 0.0 || GameManager.GetInstance().pause)
         {
             lastMouseTime -= 0.01f;
         }
@@ -282,27 +282,27 @@ public class MainMenuScreen : MonoBehaviour
         {
             if (damageRect.Contains(mousePos))
             {
-                if (!GameManager.receiveDamage)
+                if (!GameManager.GetInstance().receiveDamage)
                 {
                     GetComponent<AudioSource>().volume = clickVolume;
                     GetComponent<AudioSource>().PlayOneShot(clickSound);
-                    GameManager.receiveDamage = true;
+                    GameManager.GetInstance().receiveDamage = true;
                     lastMouseTime = Time.time;
                 }
             }
             else if (dRect.Contains(mousePos))
             {
-                if (GameManager.receiveDamage)
+                if (GameManager.GetInstance().receiveDamage)
                 {
                     GetComponent<AudioSource>().volume = clickVolume;
                     GetComponent<AudioSource>().PlayOneShot(clickSound);
-                    GameManager.receiveDamage = false;
+                    GameManager.GetInstance().receiveDamage = false;
                     lastMouseTime = Time.time;
                 }
             }
         }
 
-        if (GameManager.receiveDamage)
+        if (GameManager.GetInstance().receiveDamage)
         {
             GUI.DrawTexture(damageRect, receiveDamageOn);
             GUI.DrawTexture(dRect, dontReceiveDamageOff);
@@ -778,14 +778,14 @@ public class MainMenuScreen : MonoBehaviour
 
             GUI.DrawTexture(resumeRect, resumeOver);
 
-            if (alpha <= 0.0 && GameManager.pause)
+            if (alpha <= 0.0 && GameManager.GetInstance().pause)
             {
                 if (evt.type == EventType.MouseUp && evt.button == 0 && Time.time > lastMouseTime)
                 {
                     GetComponent<AudioSource>().volume = clickVolume;
                     GetComponent<AudioSource>().PlayOneShot(clickSound);
 
-                    GameManager.pause = false;
+                    GameManager.GetInstance().pause = false;
                     Time.timeScale = 1.0f;
                     //Time.timeScale = 1.0;
                     visible = false;

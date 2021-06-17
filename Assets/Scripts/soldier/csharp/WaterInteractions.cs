@@ -95,7 +95,7 @@ public class WaterInteractions : MonoBehaviour
 
         thisT.position = soldier.position + new Vector3(0, 1.8f, 0);
 
-        if (!GameManager.pause)
+        if (!GameManager.GetInstance().pause)
         {
             jumped = Input.GetButtonDown("Jump");
         }

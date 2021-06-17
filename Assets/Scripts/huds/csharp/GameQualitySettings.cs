@@ -369,7 +369,7 @@ public class GameQualitySettings : MonoBehaviour {
 
 	void Update()
 	{
-		if (GameManager.pause || mainMenu)
+		if (GameManager.GetInstance().pause || mainMenu)
 		{
 			UpdateAllSettings();
 		}

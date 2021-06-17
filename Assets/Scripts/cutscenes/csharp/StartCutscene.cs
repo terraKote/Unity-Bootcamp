@@ -130,7 +130,7 @@ public class StartCutscene : MonoBehaviour
 
         if (!loading)
         {
-            if (GameManager.pause)
+            if (GameManager.GetInstance().pause)
             {
                 if (cameraController.enabled)
                 {

@@ -46,7 +46,7 @@ public class PauseSound : MonoBehaviour
     {
         int i;
 
-        if (GameManager.pause)
+        if (GameManager.GetInstance().pause)
         {
             if (!_paused)
             {
