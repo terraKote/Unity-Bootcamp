@@ -11,6 +11,7 @@ public abstract class AmmoHudService : MonoBehaviour, IPauseListener
     [SerializeField] private float showTime = 2.0f;
     [SerializeField] bool drawSeparator = true;
 
+    private int _previousAmmoCount;
     private int _currentAmmoCount;
     private int _totalAmmoCount;
     private float _alpha = 0.0f;
@@ -20,7 +21,11 @@ public abstract class AmmoHudService : MonoBehaviour, IPauseListener
     public int CurrentAmmoCount
     {
         get { return _currentAmmoCount; }
-        set { _currentAmmoCount = value; }
+        set
+        {
+            _previousAmmoCount = _currentAmmoCount;
+            _currentAmmoCount = value;
+        }
     }
 
     public int TotalAmmoCount
@@ -69,6 +74,11 @@ public abstract class AmmoHudService : MonoBehaviour, IPauseListener
         if (currentAmmoCountText)
         {
             currentAmmoCountText.text = _currentAmmoCount.ToString();
+        }
+
+        if (_previousAmmoCount != _currentAmmoCount)
+        {
+            Show();
         }
     }
 
