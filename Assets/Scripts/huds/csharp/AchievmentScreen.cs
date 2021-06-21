@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AchievmentScreen : MonoBehaviour
+public class AchievmentScreen : PausableBehaviour
 {
     public Texture2D menuBackground;
     private Rect menuBackgroundRect;
@@ -127,7 +127,7 @@ public class AchievmentScreen : MonoBehaviour
 
     void Update()
     {
-        if (!visible || GameManager.GetInstance().pause)
+        if (!visible || IsPaused)
         {
             if (!visible)
             {
@@ -162,7 +162,7 @@ public class AchievmentScreen : MonoBehaviour
 
    public void DrawGUI(Event e)
     {
-        if (!visible || GameManager.GetInstance().pause) return;
+        if (!visible || IsPaused) return;
 
         GUI.color = new Color(1.0f, 1.0f, 1.0f, overallAlpha);
 

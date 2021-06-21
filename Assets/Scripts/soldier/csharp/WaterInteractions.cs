@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WaterInteractions : MonoBehaviour
+public class WaterInteractions : PausableBehaviour
 {
     public Transform soldier;
     private SoldierController controller;
@@ -95,7 +95,7 @@ public class WaterInteractions : MonoBehaviour
 
         thisT.position = soldier.position + new Vector3(0, 1.8f, 0);
 
-        if (!GameManager.GetInstance().pause)
+        if (!IsPaused)
         {
             jumped = Input.GetButtonDown("Jump");
         }

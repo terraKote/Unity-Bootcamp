@@ -13,7 +13,7 @@ enum StreamingStep
     Cutscene,
 }
 
-public class StreamingController : MonoBehaviour
+public class StreamingController : PausableBehaviour
 {
     private AsyncOperation currentOp;
     private StreamingStep streamingStep;
@@ -114,7 +114,7 @@ public class StreamingController : MonoBehaviour
     void Update()
     {
         // a little bit of control
-        if (!GameManager.GetInstance().pause)
+        if (!IsPaused)
         {
             var h = Input.GetAxis("Mouse X") * 0.25f;
             var v = Input.GetAxis("Mouse Y") * 0.25f;
@@ -512,7 +512,7 @@ public class StreamingController : MonoBehaviour
         // we are doing this shit as long as needed
         while (!readyToPlayCutscene)
         {
-            if (readyToLoadTerrain && !GameManager.GetInstance().pause)
+            if (readyToLoadTerrain && !IsPaused)
             {
                 streamingStep = StreamingStep.Terrain;
                 currentOp = Application.LoadLevelAdditiveAsync("demo_start_cutscene_terrain");

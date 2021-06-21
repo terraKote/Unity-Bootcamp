@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SoldierController : MonoBehaviour
+public class SoldierController : PausableBehaviour
 {
     public float runSpeed = 4.6f;
     public float runStrafeSpeed = 3.07f;
@@ -89,7 +89,7 @@ public class SoldierController : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.GetInstance().pause || GameManager.GetInstance().scores)
+        if (IsPaused || GameManager.GetInstance().scores)
         {
             moveDir = Vector3.zero;
             motor.canControl = false;

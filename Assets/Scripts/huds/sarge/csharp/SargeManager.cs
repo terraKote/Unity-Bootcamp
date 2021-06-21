@@ -15,7 +15,7 @@ public class SargeInstruction
     public float volume = 1.0f;
 }
 
-public class SargeManager : MonoBehaviour
+public class SargeManager : PausableBehaviour
 {
     public Texture2D sarge;
     public Texture2D background;
@@ -116,7 +116,7 @@ public class SargeManager : MonoBehaviour
     {
         if (contentAlpha <= 0.0) return;
 
-        if (GameManager.GetInstance().pause || SoldierController.dead || AchievmentScreen.returningToTraining)
+        if (IsPaused || SoldierController.dead || AchievmentScreen.returningToTraining)
         {
             GUI.color = new Color(0.5f, 0.5f, 0.5f, 0.0f);
             return;
@@ -168,7 +168,7 @@ public class SargeManager : MonoBehaviour
     Texture2D tex;
     void Update()
     {
-        if (GameManager.GetInstance().pause || SoldierController.dead || AchievmentScreen.returningToTraining)
+        if (IsPaused || SoldierController.dead || AchievmentScreen.returningToTraining)
         {
             if (GetComponent<AudioSource>().isPlaying)
             {

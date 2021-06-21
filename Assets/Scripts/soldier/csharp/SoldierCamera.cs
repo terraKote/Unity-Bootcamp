@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SoldierCamera : MonoBehaviour
+public class SoldierCamera : PausableBehaviour
 {
     public Transform target;
     public Transform soldier;
@@ -114,7 +114,7 @@ public class SoldierCamera : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.GetInstance().pause || GameManager.GetInstance().scores) return;
+        if (IsPaused || GameManager.GetInstance().scores) return;
 
         if (orbit && (Input.GetKeyDown(KeyCode.O) || Input.GetAxis("Horizontal") != 0.0 || Input.GetAxis("Vertical") != 0.0 || soldierController.aim || soldierController.fire))
         {
@@ -129,7 +129,7 @@ public class SoldierCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        if (GameManager.GetInstance().pause || GameManager.GetInstance().scores) return;
+        if (IsPaused || GameManager.GetInstance().scores) return;
 
         deltaTime = Time.fixedDeltaTime;
 

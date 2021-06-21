@@ -9,7 +9,6 @@ public class GameManager : MonoSingleton<GameManager>
     public SargeManager sarge;
 
     public bool receiveDamage;
-    public bool pause;
     public bool scores;
     public float time;
     public bool running;
@@ -17,6 +16,8 @@ public class GameManager : MonoSingleton<GameManager>
     public Camera[] PauseEffectCameras;
     private bool _paused;
     private IPauseListener[] _pauseListeners;
+
+    public bool IsPaused { get { return _paused; } }
 
     void Start()
     {
@@ -28,7 +29,6 @@ public class GameManager : MonoSingleton<GameManager>
         Cursor.lockState = CursorLockMode.Locked;
 
         running = false;
-        pause = false;
         scores = false;
         _paused = false;
         time = 0.0f;
@@ -62,13 +62,13 @@ public class GameManager : MonoSingleton<GameManager>
 
     void Update()
     {
-        if (!pause && running) time += Time.deltaTime;
+        if (!_paused && running) time += Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
-            pause = !pause;
+            _paused = !_paused;
 
-            if (pause)
+            if (_paused)
             {
                 Time.timeScale = 0.00001f;
             }
@@ -80,23 +80,18 @@ public class GameManager : MonoSingleton<GameManager>
             UpdatePauseListenerState();
         }
 
-        if (_paused != pause)
+        CameraBlur(_paused);
+
+        for (int i = 0; i < PauseEffectCameras.Length; i++)
         {
-            _paused = pause;
-            CameraBlur(pause);
+            var cam = PauseEffectCameras[i];
+            if (cam == null) continue;
+            if (cam.name != "radar_camera") continue;
 
-
-            for (int i = 0; i < PauseEffectCameras.Length; i++)
-            {
-                var cam = PauseEffectCameras[i];
-                if (cam == null) continue;
-                if (cam.name != "radar_camera") continue;
-
-                cam.enabled = !pause;
-            }
+            cam.enabled = !_paused;
         }
 
-        if (!pause && !scores)
+        if (!_paused && !scores)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -110,7 +105,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         foreach (var pauseListener in _pauseListeners)
         {
-            if (pause)
+            if (_paused)
             {
                 pauseListener.OnPause();
             }

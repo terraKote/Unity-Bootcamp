@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StartCutscene : MonoBehaviour
+public class StartCutscene : PausableBehaviour
 {
     public GameObject cutsceneCamera1;
 	public GameObject cutsceneCamera2;
@@ -130,7 +130,7 @@ public class StartCutscene : MonoBehaviour
 
         if (!loading)
         {
-            if (GameManager.GetInstance().pause)
+            if (IsPaused)
             {
                 if (cameraController.enabled)
                 {

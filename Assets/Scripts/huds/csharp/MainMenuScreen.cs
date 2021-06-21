@@ -9,7 +9,7 @@ enum MainMenuState
     ABOUT,
 }
 
-public class MainMenuScreen : MonoBehaviour
+public class MainMenuScreen : PausableBehaviour
 {
     public Texture2D menuBackground;
     private Rect menuBackgroundRect;
@@ -171,7 +171,7 @@ public class MainMenuScreen : MonoBehaviour
             }
         }
 
-        if (Time.timeScale == 0.0 || GameManager.GetInstance().pause)
+        if (Time.timeScale == 0.0 || IsPaused)
         {
             lastMouseTime -= 0.01f;
         }
@@ -778,14 +778,16 @@ public class MainMenuScreen : MonoBehaviour
 
             GUI.DrawTexture(resumeRect, resumeOver);
 
-            if (alpha <= 0.0 && GameManager.GetInstance().pause)
+            if (alpha <= 0.0 && IsPaused)
             {
                 if (evt.type == EventType.MouseUp && evt.button == 0 && Time.time > lastMouseTime)
                 {
                     GetComponent<AudioSource>().volume = clickVolume;
                     GetComponent<AudioSource>().PlayOneShot(clickSound);
 
-                    GameManager.GetInstance().pause = false;
+                    // TODO: Fix unpausing from here?
+                    //GameManager.GetInstance().pause = false;
+                    
                     Time.timeScale = 1.0f;
                     //Time.timeScale = 1.0;
                     visible = false;

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class GameQualitySettings : MonoBehaviour {
+public class GameQualitySettings : PausableBehaviour {
 	//HAVE WE TAKE CURRENT GAME SETTINGS
 	static private bool initializedGameSettings ;
 	static private float _dynamicObjectsFarClip;
@@ -369,7 +369,7 @@ public class GameQualitySettings : MonoBehaviour {
 
 	void Update()
 	{
-		if (GameManager.GetInstance().pause || mainMenu)
+		if (IsPaused || mainMenu)
 		{
 			UpdateAllSettings();
 		}

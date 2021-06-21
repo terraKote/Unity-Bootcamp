@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PauseSound : MonoBehaviour
+public class PauseSound : PausableBehaviour
 {
     private bool _paused;
     private AudioSource[] _audioSources;
@@ -46,7 +46,7 @@ public class PauseSound : MonoBehaviour
     {
         int i;
 
-        if (GameManager.GetInstance().pause)
+        if (IsPaused)
         {
             if (!_paused)
             {
