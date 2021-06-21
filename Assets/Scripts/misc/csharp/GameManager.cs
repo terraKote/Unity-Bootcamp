@@ -17,8 +17,6 @@ public class GameManager : MonoSingleton<GameManager>
     private bool _paused;
     private IPauseListener[] _pauseListeners;
 
-    public bool IsPaused { get { return _paused; } }
-
     void Start()
     {
         _pauseListeners = FindObjectsOfType<MonoBehaviour>().Where(x => x.GetComponent<IPauseListener>() != null).Select(x => x.GetComponent<IPauseListener>()).ToArray();
