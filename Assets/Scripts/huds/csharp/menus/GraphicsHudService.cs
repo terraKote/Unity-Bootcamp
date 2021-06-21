@@ -8,7 +8,7 @@ public class GraphicsHudService : BaseWindow
     [SerializeField] private Slider qualitySlider;
     [SerializeField] private Text qualityLabel;
 
-    private void Start()
+    protected override void OnInit()
     {
         InitializeSlider();
         SetLabelText(0);
