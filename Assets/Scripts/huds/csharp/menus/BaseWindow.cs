@@ -9,4 +9,14 @@ public abstract class BaseWindow : MonoBehaviour
     }
 
     protected virtual void OnInit() { }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
 }
