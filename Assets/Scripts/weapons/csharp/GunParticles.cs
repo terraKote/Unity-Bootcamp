@@ -3,13 +3,13 @@
 public class GunParticles : MonoBehaviour
 {
     private bool cState;
-    private ParticleEmitter[] emitters;
+    private ParticleSystem[] emitters;
 
     void Start()
     {
         cState = true;
 
-        emitters = GetComponentsInChildren<ParticleEmitter>();
+        emitters = GetComponentsInChildren<ParticleSystem>();
 
         ChangeState(false);
     }
@@ -24,7 +24,14 @@ public class GunParticles : MonoBehaviour
         {
             for (int i = 0; i < emitters.Length; i++)
             {
-                emitters[i].emit = p_newState;
+                if (p_newState)
+                {
+                    emitters[i].Play();
+                }
+                else
+                {
+                    emitters[i].Stop();
+                }
             }
         }
     }
