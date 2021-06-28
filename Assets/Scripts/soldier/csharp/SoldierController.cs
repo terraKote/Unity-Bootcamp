@@ -182,9 +182,10 @@ public class SoldierController : PausableBehaviour
         }
 
         //Check if the user wants the soldier to crouch
-        if (PlayerInputService.GetInstance().IsCrouching)
+        crouch = PlayerInputService.GetInstance().IsCrouching;
+
+        if (crouch)
         {
-            crouch = !crouch;
             idleTimer = 0.0f;
         }
 
