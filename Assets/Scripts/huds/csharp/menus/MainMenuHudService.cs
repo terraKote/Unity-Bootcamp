@@ -27,26 +27,30 @@ public class MainMenuHudService : PausableBehaviour
         var window = _windows.Pop();
         window.Hide();
 
-        if(_windows.Count == 0)
+        if (_windows.Count == 0)
         {
             _canvasGroup.alpha = 1.0f;
         }
     }
 
-    public void OnPause()
+    public override void OnSwitchPauseState(bool paused)
     {
-        _canvasGroup.alpha = 1.0f;
-        gameObject.SetActive(true);
-    }
+        base.OnSwitchPauseState(paused);
 
-    public void OnUnPause()
-    {
-        while (_windows.Count > 0)
+        if (paused)
         {
-            var window = _windows.Pop();
-            window.Hide();
+            _canvasGroup.alpha = 1.0f;
+            gameObject.SetActive(true);
         }
+        else
+        {
+            while (_windows.Count > 0)
+            {
+                var window = _windows.Pop();
+                window.Hide();
+            }
 
-        gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
     }
 }
