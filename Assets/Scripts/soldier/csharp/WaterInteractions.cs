@@ -46,6 +46,8 @@ public class WaterInteractions : PausableBehaviour
     private Vector3 lastPositon;
     private Vector3 currentPosition;
 
+    private AudioSource movementContainerAudio;
+
     void Start()
     {
         controller = soldier.GetComponent<SoldierController>();
@@ -67,7 +69,8 @@ public class WaterInteractions : PausableBehaviour
         int i;
 
         movementContainer.parent = null;
-        movementContainer.GetComponent<AudioSource>().volume = 0.0f;
+        movementContainerAudio = movementContainer.GetComponent<AudioSource>();
+        movementContainerAudio.volume = 0.0f;
 
         movementEmitters = movementContainer.GetComponentsInChildren<ParticleSystem>();
 
@@ -92,7 +95,7 @@ public class WaterInteractions : PausableBehaviour
 
     void Update()
     {
-        if (!soldier.gameObject.active) return;
+        if (!soldier.gameObject.activeSelf) return;
 
         lastPositon = currentPosition;
         currentPosition = new Vector3(soldier.position.x, 0.0f, soldier.position.z);
@@ -180,28 +183,28 @@ public class WaterInteractions : PausableBehaviour
 
         if (emitMovement)
         {
-            if (movementContainer.GetComponent<AudioSource>().volume < 0.65f)
+            if (movementContainerAudio.volume < 0.65f)
             {
-                if (!movementContainer.GetComponent<AudioSource>().isPlaying) movementContainer.GetComponent<AudioSource>().Play();
+                if (!movementContainerAudio.isPlaying) movementContainerAudio.Play();
 
-                movementContainer.GetComponent<AudioSource>().volume += Time.deltaTime * fadeSpeed;
+                movementContainerAudio.volume += Time.deltaTime * fadeSpeed;
             }
             else
             {
-                movementContainer.GetComponent<AudioSource>().volume = 0.65f;
+                movementContainerAudio.volume = 0.65f;
             }
         }
         else
         {
-            if (movementContainer.GetComponent<AudioSource>().isPlaying)
+            if (movementContainerAudio.isPlaying)
             {
-                if (movementContainer.GetComponent<AudioSource>().volume > 0.0)
+                if (movementContainerAudio.volume > 0.0)
                 {
-                    movementContainer.GetComponent<AudioSource>().volume -= Time.deltaTime * fadeSpeed * 2.0f;
+                    movementContainerAudio.volume -= Time.deltaTime * fadeSpeed * 2.0f;
                 }
                 else
                 {
-                    movementContainer.GetComponent<AudioSource>().Pause();
+                    movementContainerAudio.Pause();
                 }
             }
         }
@@ -225,17 +228,18 @@ public class WaterInteractions : PausableBehaviour
 
     void EmitJumpParticles(bool b, RaycastHit hitInfo)
     {
-        var go = Instantiate(jumpParticle, hitInfo.point, Quaternion.identity) as GameObject;
+        var go = Instantiate(jumpParticle, hitInfo.point, Quaternion.identity);
+        var goAudio = go.GetComponent<AudioSource>();
 
-        if (go.GetComponent<AudioSource>() != null)
+        if (goAudio != null)
         {
             if (b)
             {
-                go.GetComponent<AudioSource>().PlayOneShot(waterImpactSound, 0.5f);
+                goAudio.PlayOneShot(waterImpactSound, 0.5f);
             }
             else
             {
-                go.GetComponent<AudioSource>().PlayOneShot(waterJumpingSound, 1);
+                goAudio.PlayOneShot(waterJumpingSound, 1);
             }
         }
 
