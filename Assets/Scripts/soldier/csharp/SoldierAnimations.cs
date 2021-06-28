@@ -164,7 +164,7 @@ public class SoldierAnimations : MonoBehaviour
         crouch = soldier.crouch;
         reloading = soldier.reloading;
         currentWeapon = soldier.currentWeapon;
-        moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        moveDir = PlayerInputService.GetInstance().moveDirection;
 
         inAir = !GetComponent<CharacterController>().isGrounded;
     }
