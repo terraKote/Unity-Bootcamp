@@ -8,11 +8,11 @@ public class WaterInteractions : PausableBehaviour
 
     private bool emitMovement;
     public Transform movementContainer;
-    public ParticleSystem[] movementEmitters;
+    private ParticleSystem[] movementEmitters;
 
     private bool emitStand;
     public Transform standingContainer;
-    public ParticleSystem[] standingEmitters;
+    private ParticleSystem[] standingEmitters;
 
     public float jumpHitDistance = 1.4f;
     public GameObject jumpParticle;
@@ -68,6 +68,9 @@ public class WaterInteractions : PausableBehaviour
 
         movementContainer.parent = null;
         movementContainer.GetComponent<AudioSource>().volume = 0.0f;
+
+        movementEmitters = movementContainer.GetComponentsInChildren<ParticleSystem>();
+
         for (i = 0; i < movementEmitters.Length; i++)
         {
             movementEmitters[i].Stop();
@@ -76,6 +79,9 @@ public class WaterInteractions : PausableBehaviour
         emitStand = false;
 
         standingContainer.parent = null;
+
+        standingEmitters = standingContainer.GetComponentsInChildren<ParticleSystem>();
+
         for (i = 0; i < standingEmitters.Length; i++)
         {
             standingEmitters[i].Stop();
