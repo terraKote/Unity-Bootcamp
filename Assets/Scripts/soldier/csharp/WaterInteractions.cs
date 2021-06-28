@@ -8,11 +8,11 @@ public class WaterInteractions : PausableBehaviour
 
     private bool emitMovement;
     public Transform movementContainer;
-    public ParticleEmitter[] movementEmitters;
+    public ParticleSystem[] movementEmitters;
 
     private bool emitStand;
     public Transform standingContainer;
-    public ParticleEmitter[] standingEmitters;
+    public ParticleSystem[] standingEmitters;
 
     public float jumpHitDistance = 1.4f;
     public GameObject jumpParticle;
@@ -70,7 +70,7 @@ public class WaterInteractions : PausableBehaviour
         movementContainer.GetComponent<AudioSource>().volume = 0.0f;
         for (i = 0; i < movementEmitters.Length; i++)
         {
-            movementEmitters[i].emit = false;
+            movementEmitters[i].Stop();
         }
 
         emitStand = false;
@@ -78,7 +78,7 @@ public class WaterInteractions : PausableBehaviour
         standingContainer.parent = null;
         for (i = 0; i < standingEmitters.Length; i++)
         {
-            standingEmitters[i].emit = false;
+            standingEmitters[i].Stop();
         }
 
         thisT = transform;
@@ -248,27 +248,41 @@ public class WaterInteractions : PausableBehaviour
         aux.time = 2f;
     }
 
-    void ChangeMovementState(bool b)
+    void ChangeMovementState(bool state)
     {
-        if (b == emitMovement) return;
+        if (state == emitMovement) return;
 
-        emitMovement = b;
+        emitMovement = state;
 
         for (int i = 0; i < movementEmitters.Length; i++)
         {
-            movementEmitters[i].emit = b;
+            if (state)
+            {
+                movementEmitters[i].Play();
+            }
+            else
+            {
+                movementEmitters[i].Stop();
+            }
         }
     }
 
-    void ChangeStandingState(bool b)
+    void ChangeStandingState(bool state)
     {
-        if (b == emitStand) return;
+        if (state == emitStand) return;
 
-        emitStand = b;
+        emitStand = state;
 
         for (int i = 0; i < standingEmitters.Length; i++)
         {
-            standingEmitters[i].emit = b;
+            if (state)
+            {
+                movementEmitters[i].Play();
+            }
+            else
+            {
+                movementEmitters[i].Stop();
+            }
         }
     }
 }
