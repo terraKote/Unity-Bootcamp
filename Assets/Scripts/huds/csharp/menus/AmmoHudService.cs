@@ -44,7 +44,6 @@ public abstract class AmmoHudService : PausableBehaviour
         UpdateCurrentAmmoText();
         UpdateTotalAmmoText();
         SetAlpha();
-        OnLateUpdate();
     }
 
     private void UpdateTotalAmmoText()
@@ -93,16 +92,11 @@ public abstract class AmmoHudService : PausableBehaviour
         _canvasGroup.alpha = _alpha;
     }
 
-    protected virtual void OnLateUpdate() { }
-
-    public void OnPause()
+    public override void OnSwitchPauseState(bool paused)
     {
-        gameObject.SetActive(false);
-    }
+        base.OnSwitchPauseState(paused);
 
-    public void OnUnPause()
-    {
-        gameObject.SetActive(true);
+        gameObject.SetActive(paused);
     }
 
     public void Show()
