@@ -239,15 +239,14 @@ public class WaterInteractions : PausableBehaviour
             }
         }
 
-        ParticleEmitter emitter;
+        ParticleSystem emitter;
         for (int i = 0; i < go.transform.childCount; i++)
         {
-            emitter = go.transform.GetChild(i).GetComponent<ParticleEmitter>();
+            emitter = go.transform.GetChild(i).GetComponent<ParticleSystem>();
 
             if (emitter == null) continue;
 
-            emitter.emit = false;
-            emitter.Emit();
+            emitter.Play();
         }
 
         AutoDestroy aux = go.AddComponent<AutoDestroy>();
