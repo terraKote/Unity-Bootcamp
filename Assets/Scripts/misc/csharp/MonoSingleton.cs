@@ -6,7 +6,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
 
     private void Awake()
     {
-        if (_instance)
+        if (_instance && _instance != this)
         {
             Destroy(gameObject);
             return;
@@ -18,6 +18,12 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
 
     public static T GetInstance()
     {
+        if (!_instance)
+        {
+            _instance = new GameObject(string.Format("{0} Singleton", typeof(T).Name), typeof(T)).GetComponent<T>();
+            DontDestroyOnLoad(_instance.gameObject);
+        }
+
         return _instance;
     }
 }
