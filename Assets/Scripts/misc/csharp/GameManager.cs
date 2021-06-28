@@ -62,7 +62,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (!_paused && running) time += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        if (PlayerInputService.GetInstance().IsPausing)
         {
             _paused = !_paused;
 
