@@ -51,6 +51,6 @@ public class RadarHudService : PausableBehaviour
     {
         base.OnSwitchPauseState(paused);
 
-        gameObject.SetActive(paused);
+        gameObject.SetActive(!paused);
     }
 }
