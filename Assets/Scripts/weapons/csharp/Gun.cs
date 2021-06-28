@@ -23,10 +23,10 @@ public class Gun : MonoBehaviour
 
     public LayerMask hitLayer;
 
-    public GameObject woodParticle;
-    public GameObject metalParticle;
-    public GameObject concreteParticle;
-    public GameObject sandParticle;
+    public ParticleSystem woodParticle;
+    public ParticleSystem metalParticle;
+    public ParticleSystem concreteParticle;
+    public ParticleSystem sandParticle;
     public GameObject waterParticle;
 
     //How many shots the gun can take in one second
@@ -389,30 +389,30 @@ public class Gun : MonoBehaviour
         {
             case "wood":
                 hitType = HitType.WOOD;
-                go = Instantiate(woodParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)) as GameObject;
+                go = Instantiate(woodParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)).gameObject;
                 break;
             case "metal":
                 hitType = HitType.METAL;
-                go = Instantiate(metalParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)) as GameObject;
+                go = Instantiate(metalParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)).gameObject;
                 break;
             case "car":
                 hitType = HitType.METAL;
-                go = Instantiate(metalParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)) as GameObject;
+                go = Instantiate(metalParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)).gameObject;
                 break;
             case "concrete":
                 hitType = HitType.CONCRETE;
-                go = Instantiate(concreteParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)) as GameObject;
+                go = Instantiate(concreteParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)).gameObject;
                 break;
             case "dirt":
                 hitType = HitType.CONCRETE;
-                go = Instantiate(sandParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)) as GameObject;
+                go = Instantiate(sandParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)).gameObject;
                 break;
             case "sand":
                 hitType = HitType.CONCRETE;
-                go = Instantiate(sandParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)) as GameObject;
+                go = Instantiate(sandParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)).gameObject;
                 break;
             case "water":
-                go = Instantiate(waterParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)) as GameObject;
+                go = Instantiate(waterParticle, hitPoint, Quaternion.FromToRotation(Vector3.up, hitUpDir)).gameObject;
                 break;
             default:
                 return;
@@ -424,7 +424,7 @@ public class Gun : MonoBehaviour
 
         if (timerToCreateDecal < 0.0 && hit.collider.tag != "water")
         {
-            go = (GameObject)Instantiate(bulletMark, hit.point, Quaternion.FromToRotation(Vector3.forward, -hit.normal));
+            go = Instantiate(bulletMark, hit.point, Quaternion.FromToRotation(Vector3.forward, -hit.normal));
             BulletMarks bm = go.GetComponent<BulletMarks>();
             bm.GenerateDecal(hitType, hit.collider.gameObject);
             timerToCreateDecal = 0.02f;
