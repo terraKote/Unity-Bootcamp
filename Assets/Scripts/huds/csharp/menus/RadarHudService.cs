@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class RadarHudService : MonoBehaviour, IPauseListener
+public class RadarHudService : PausableBehaviour
 {
     [Header("Shared Settings")]
     [SerializeField] private Transform soliderCamera;

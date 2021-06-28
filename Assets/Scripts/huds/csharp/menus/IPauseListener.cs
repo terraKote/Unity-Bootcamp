@@ -1,6 +1,5 @@
 ﻿public interface IPauseListener
 {
-    void OnPause();
-    void OnUnPause();
+    void OnSwitchPauseState(bool paused);
 }
 

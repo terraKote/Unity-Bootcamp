@@ -103,14 +103,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         foreach (var pauseListener in _pauseListeners)
         {
-            if (_paused)
-            {
-                pauseListener.OnPause();
-            }
-            else
-            {
-                pauseListener.OnUnPause();
-            }
+            pauseListener.OnSwitchPauseState(_paused);
         }
     }
 

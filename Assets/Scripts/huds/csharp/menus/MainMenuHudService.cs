@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class MainMenuHudService : MonoBehaviour, IPauseListener
+public class MainMenuHudService : PausableBehaviour
 {
     private Stack<BaseWindow> _windows = new Stack<BaseWindow>();
     private CanvasGroup _canvasGroup;

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
-public abstract class AmmoHudService : MonoBehaviour, IPauseListener
+public abstract class AmmoHudService : PausableBehaviour
 {
     [SerializeField] protected Text totalAmmoCountText;
     [SerializeField] protected Text currentAmmoCountText;
