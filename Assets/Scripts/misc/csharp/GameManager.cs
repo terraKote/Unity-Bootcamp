@@ -62,21 +62,18 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (!_paused && running) time += Time.deltaTime;
 
-        if (PlayerInputService.GetInstance().IsPausing)
+        _paused = PlayerInputService.GetInstance().IsPausing;
+
+        if (_paused)
         {
-            _paused = !_paused;
-
-            if (_paused)
-            {
-                Time.timeScale = 0.00001f;
-            }
-            else
-            {
-                Time.timeScale = 1.0f;
-            }
-
-            UpdatePauseListenerState();
+            Time.timeScale = 0.00001f;
         }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
+
+        UpdatePauseListenerState();
 
         CameraBlur(_paused);
 
