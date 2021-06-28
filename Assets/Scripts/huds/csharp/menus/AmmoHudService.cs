@@ -96,7 +96,7 @@ public abstract class AmmoHudService : PausableBehaviour
     {
         base.OnSwitchPauseState(paused);
 
-        gameObject.SetActive(paused);
+        gameObject.SetActive(!paused);
     }
 
     public void Show()
