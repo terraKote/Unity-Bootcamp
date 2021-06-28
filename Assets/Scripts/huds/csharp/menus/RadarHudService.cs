@@ -47,13 +47,10 @@ public class RadarHudService : PausableBehaviour
         radarCamera.localRotation = Quaternion.Euler(90, soliderCamera.localRotation.eulerAngles.y, 0);
     }
 
-    public void OnPause()
+    public override void OnSwitchPauseState(bool paused)
     {
-        gameObject.SetActive(false);
-    }
+        base.OnSwitchPauseState(paused);
 
-    public void OnUnPause()
-    {
-        gameObject.SetActive(true);
+        gameObject.SetActive(paused);
     }
 }
