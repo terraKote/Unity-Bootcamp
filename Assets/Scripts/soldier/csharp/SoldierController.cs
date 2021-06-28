@@ -105,7 +105,7 @@ public class SoldierController : PausableBehaviour
 
             if (!dead)
             {
-                moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                moveDir = PlayerInputService.GetInstance().moveDirection;
             }
             else
             {
@@ -119,7 +119,7 @@ public class SoldierController : PausableBehaviour
             moveDir = moveDir.normalized;
 
         motor.inputMoveDirection = transform.TransformDirection(moveDir);
-        motor.inputJump = Input.GetButton("Jump") && !crouch;
+        motor.inputJump = PlayerInputService.GetInstance().IsJumping && !crouch;
 
         motor.movement.maxForwardSpeed = ((walk) ? ((crouch) ? crouchWalkSpeed : walkSpeed) : ((crouch) ? crouchRunSpeed : runSpeed));
         motor.movement.maxBackwardsSpeed = motor.movement.maxForwardSpeed;
@@ -154,10 +154,10 @@ public class SoldierController : PausableBehaviour
         }
 
         //Check if the user if firing the weapon
-        fire = Input.GetButton("Fire1") && weaponSystem.currentGun.freeToShoot && !dead && !inAir;
+        fire = PlayerInputService.GetInstance().IsFiring && weaponSystem.currentGun.freeToShoot && !dead && !inAir;
 
         //Check if the user is aiming the weapon
-        aim = Input.GetButton("Fire2") && !dead;
+        aim = PlayerInputService.GetInstance().IsAiming && !dead;
 
         idleTimer += Time.deltaTime;
 
@@ -182,7 +182,7 @@ public class SoldierController : PausableBehaviour
         }
 
         //Check if the user wants the soldier to crouch
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (PlayerInputService.GetInstance().IsCrouching)
         {
             crouch = !crouch;
             idleTimer = 0.0f;
@@ -191,6 +191,6 @@ public class SoldierController : PausableBehaviour
         crouch |= dead;
 
         //Check if the user wants the soldier to walk
-        walk = (!Input.GetKey(KeyCode.LeftShift) && !dead) || moveDir == Vector3.zero || crouch;
+        walk = (!PlayerInputService.GetInstance().IsRunning && !dead) || moveDir == Vector3.zero || crouch;
     }
 }
