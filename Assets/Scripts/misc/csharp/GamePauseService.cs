@@ -10,8 +10,9 @@ public class GamePauseService : MonoBehaviour
     private void Start()
     {
         _pauseListeners = FindObjectsOfType<MonoBehaviour>().Where(x => x.GetComponent<IPauseListener>() != null).Select(x => x.GetComponent<IPauseListener>()).ToArray();
-
         UpdatePauseListenerState();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
