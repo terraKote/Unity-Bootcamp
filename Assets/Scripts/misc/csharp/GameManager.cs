@@ -17,8 +17,6 @@ public class GameManager : MonoSingleton<GameManager>
     {
         TrainingStatistics.ResetStatistics();
 
-        Cursor.lockState = CursorLockMode.Locked;
-
         running = false;
         scores = false;
         time = 0.0f;
