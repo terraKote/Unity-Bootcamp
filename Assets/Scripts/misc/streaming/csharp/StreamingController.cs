@@ -178,7 +178,10 @@ public class StreamingController : PausableBehaviour
 
                         for (var i = 0; i < cameras.Length; i++)
                         {
-                            gameManager.PauseEffectCameras[i + 1] = cameras[i];
+                            // Since there are no such scene,
+                            // this part is not relevant
+
+                            //gameManager.PauseEffectCameras[i + 1] = cameras[i];
                             quality.cameras[i + 1] = cameras[i];
                         }
 
