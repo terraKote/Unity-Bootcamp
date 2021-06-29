@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-public class GamePauseService : MonoSingleton<GamePauseService>
+public class GamePauseService : MonoBehaviour
 {
     public Camera[] PauseEffectCameras;
     private bool _paused;
