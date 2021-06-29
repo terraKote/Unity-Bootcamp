@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoSingleton<GameManager>
 {
     public GameObject gamePlaySoldier;
-    public ParticleEmitter soldierSmoke;
+    public ParticleSystem soldierSmoke;
     public SargeManager sarge;
 
     public bool receiveDamage;
@@ -17,8 +17,6 @@ public class GameManager : MonoSingleton<GameManager>
     {
         TrainingStatistics.ResetStatistics();
 
-        running = false;
-        scores = false;
         time = 0.0f;
 
         Transform auxT;
@@ -62,17 +60,14 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (gamePlaySoldier != null)
         {
-            if (!gamePlaySoldier.activeSelf)
-            {
-                gamePlaySoldier.SetActive(true);
-            }
+            gamePlaySoldier.SetActive(true);
         }
 
         if (soldierSmoke != null)
         {
             if (GameQualitySettings.ambientParticles)
             {
-                soldierSmoke.emit = true;
+                soldierSmoke.Play();
             }
         }
 
