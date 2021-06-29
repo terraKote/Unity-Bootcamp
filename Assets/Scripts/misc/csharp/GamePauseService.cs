@@ -61,17 +61,14 @@ public class GamePauseService : MonoBehaviour
 
     private void CameraBlur(bool state)
     {
-        if (PauseEffectCameras == null) return;
-        if (PauseEffectCameras.Length <= 0) return;
-
-        BlurEffect blurEffect;
+        if (PauseEffectCameras == null || PauseEffectCameras.Length <= 0) return;
 
         for (int i = 0; i < PauseEffectCameras.Length; i++)
         {
             var cam = PauseEffectCameras[i];
             if (cam == null) continue;
 
-            blurEffect = cam.GetComponent<BlurEffect>();
+            BlurEffect blurEffect = cam.GetComponent<BlurEffect>();
 
             if (blurEffect == null)
             {
