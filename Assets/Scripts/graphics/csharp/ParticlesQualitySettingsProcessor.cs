@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
+[System.Serializable]
 public struct ParticlesQualitySettingsData
 {
     public ParticleSystem[] particleSystems;
-    public float particleQualityMultiplier;
-    public bool displayAmbientParticles;
-    public AmbientParticleSettings[] ambientParticleSettings;
+    [System.NonSerialized] public float particleQualityMultiplier;
+    [System.NonSerialized] public bool displayAmbientParticles;
+    [System.NonSerialized] public AmbientParticleSettings[] ambientParticleSettings;
 }
 
 public class ParticlesQualitySettingsProcessor : IGameQualitySettingsProcessor
@@ -15,6 +17,22 @@ public class ParticlesQualitySettingsProcessor : IGameQualitySettingsProcessor
     public ParticlesQualitySettingsProcessor(ParticlesQualitySettingsData particlesQualitySettingsData)
     {
         this.particlesQualitySettingsData = particlesQualitySettingsData;
+
+        var settingsList = new List<AmbientParticleSettings>();
+
+        foreach (var go in this.particlesQualitySettingsData.particleSystems)
+        {
+            var setting = new AmbientParticleSettings();
+            //if (go)
+            //{
+            //    setting.minSize = go.GetComponent<ParticleEmitter>().minSize;
+            //    setting.maxSize = go.GetComponent<ParticleEmitter>().maxSize;
+            //    setting.minEmission = go.GetComponent<ParticleEmitter>().minEmission;
+            //    setting.maxEmission = go.GetComponent<ParticleEmitter>().maxEmission;
+            //}
+            settingsList.Add(setting);
+        }
+        this.particlesQualitySettingsData.ambientParticleSettings = settingsList.ToArray();
 
         // ApplyCustomQualityLevel(qualityLevel);
 
