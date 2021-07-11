@@ -34,12 +34,6 @@ public class GameQualityService : MonoBehaviour
         };
     }
 
-    private void Update()
-    {
-		// Test
-        ApplyAllSettings();
-    }
-
     private void InitSceneSettings()
     {
         if (_sceneSettings == null)
@@ -75,7 +69,7 @@ public class GameQualityService : MonoBehaviour
         }
     }
 
-	private void ApplyCustomQualityLevel(int qualityLevel)
+	public void ApplyCustomQualityLevel(int qualityLevel)
 	{
 		var dObjectDistance = 50.0f;
 		var dObjectDensity = 1.0f;
@@ -241,5 +235,7 @@ public class GameQualityService : MonoBehaviour
 			scenes[i].terrainTreesBillboardStart = billboards;
 			scenes[i].maxMeshTrees = mTrees;
 		}
+
+		ApplyAllSettings();
 	}
 }

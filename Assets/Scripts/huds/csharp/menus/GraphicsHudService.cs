@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class GraphicsHudService : BaseWindow
 {
+    [SerializeField] GameQualityService gameQualityService;
+
     [Header("Quality Settings")]
     [SerializeField] private Slider qualitySlider;
     [SerializeField] private Text qualityLabel;
@@ -11,7 +13,6 @@ public class GraphicsHudService : BaseWindow
     protected override void OnInit()
     {
         InitializeSlider();
-        SetLabelText(0);
     }
 
     private void InitializeSlider()
@@ -19,12 +20,18 @@ public class GraphicsHudService : BaseWindow
         qualitySlider.maxValue = QualitySettings.names.Length - 1;
         qualitySlider.wholeNumbers = true;
         qualitySlider.onValueChanged.AddListener(OnSliderMoved);
+
+        int currentSettings = QualitySettings.GetQualityLevel();
+        qualitySlider.value = currentSettings;
+
+        SetLabelText(currentSettings);
     }
 
     private void OnSliderMoved(float sliderValue)
     {
         int currentSettingsIndex = Mathf.RoundToInt(sliderValue);
         SetLabelText(currentSettingsIndex);
+        gameQualityService.ApplyCustomQualityLevel(currentSettingsIndex);
     }
 
     private void SetLabelText(int currentSettingsIndex)
