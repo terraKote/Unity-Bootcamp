@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-class AmbientParticleSettings
+public class AmbientParticleSettings
 {
     public float minSize;
     public float maxSize;
