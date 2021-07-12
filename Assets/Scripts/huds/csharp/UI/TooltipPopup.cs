@@ -2,12 +2,13 @@
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
+[RequireComponent(typeof(CanvasGroup))]
 public class TooltipPopup : MonoBehaviour
 {
     [SerializeField] private Text label;
     [SerializeField] private Vector2 offset = new Vector2(45, 0);
 
-    private Image _image;
+    private CanvasGroup _canvasGroup;
 
     public string Caption
     {
@@ -23,14 +24,13 @@ public class TooltipPopup : MonoBehaviour
 
     private void Awake()
     {
-        _image = GetComponent<Image>();
+        _canvasGroup = GetComponent<CanvasGroup>();
 
         Display(false);
     }
 
     public void Display(bool active)
     {
-        _image.enabled = active;
-        label.enabled = active;
+        _canvasGroup.alpha = active ? 1.0f : 0.0f;
     }
 }
