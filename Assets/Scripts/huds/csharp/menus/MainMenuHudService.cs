@@ -1,15 +1,40 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+[System.Serializable]
+public struct ButtonWindowRelation
+{
+    public Button button;
+    public BaseWindow window;
+}
 
 [RequireComponent(typeof(CanvasGroup))]
-public class MainMenuHudService : PausableBehaviour
+public class MainMenuHudService : MonoBehaviour, IPauseListener
 {
+    [SerializeField] private ButtonWindowRelation[] buttonWindowRelations;
+
     private Stack<BaseWindow> _windows = new Stack<BaseWindow>();
     private CanvasGroup _canvasGroup;
 
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    private void Start()
+    {
+        foreach (var relation in buttonWindowRelations)
+        {
+            relation.button.onClick.AddListener(() => ShowWindow(relation.window));
+        }
+
+        var windows = FindObjectsOfType<BaseWindow>();
+
+        foreach (var window in windows)
+        {
+            window.Hide();
+        }
     }
 
     public void ShowWindow(BaseWindow window)
@@ -33,14 +58,11 @@ public class MainMenuHudService : PausableBehaviour
         }
     }
 
-    public override void OnSwitchPauseState(bool paused)
+    public void OnSwitchPauseState(bool paused)
     {
-        base.OnSwitchPauseState(paused);
-
         if (paused)
         {
             _canvasGroup.alpha = 1.0f;
-            gameObject.SetActive(true);
         }
         else
         {
@@ -50,7 +72,9 @@ public class MainMenuHudService : PausableBehaviour
                 window.Hide();
             }
 
-            gameObject.SetActive(false);
+            _canvasGroup.alpha = 0.0f;
         }
+
+        _canvasGroup.interactable = paused;
     }
 }
