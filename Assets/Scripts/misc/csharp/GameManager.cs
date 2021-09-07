@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private PlayerInputService playerInputService;
+
     public GameObject gamePlaySoldier;
     public ParticleSystem soldierSmoke;
     public SargeManager sarge;
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!PlayerInputService.GetInstance().IsPausing && running)
+        if (!playerInputService.IsPausing && running)
         {
             time += Time.deltaTime;
         }

@@ -3,6 +3,8 @@
 public class SoldierController : PausableBehaviour
 {
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GunManager gunManager;
+    [SerializeField] private PlayerInputService playerInputService;
 
     public float runSpeed = 4.6f;
     public float runStrafeSpeed = 3.07f;
@@ -107,7 +109,7 @@ public class SoldierController : PausableBehaviour
 
             if (!dead)
             {
-                moveDir = PlayerInputService.GetInstance().moveDirection;
+                moveDir = playerInputService.moveDirection;
             }
             else
             {
@@ -121,7 +123,7 @@ public class SoldierController : PausableBehaviour
             moveDir = moveDir.normalized;
 
         motor.inputMoveDirection = transform.TransformDirection(moveDir);
-        motor.inputJump = PlayerInputService.GetInstance().IsJumping && !crouch;
+        motor.inputJump = playerInputService.IsJumping && !crouch;
 
         motor.movement.maxForwardSpeed = ((walk) ? ((crouch) ? crouchWalkSpeed : walkSpeed) : ((crouch) ? crouchRunSpeed : runSpeed));
         motor.movement.maxBackwardsSpeed = motor.movement.maxForwardSpeed;
@@ -147,19 +149,17 @@ public class SoldierController : PausableBehaviour
 
     void GetUserInputs()
     {
-        var weaponSystem = GunManager.GetInstance();
-
-        if (!weaponSystem)
+        if (!gunManager)
         {
             Debug.LogError("No GunManager found!");
             return;
         }
 
         //Check if the user if firing the weapon
-        fire = PlayerInputService.GetInstance().IsFiring && weaponSystem.currentGun.freeToShoot && !dead && !inAir;
+        fire = playerInputService.IsFiring && gunManager.currentGun.freeToShoot && !dead && !inAir;
 
         //Check if the user is aiming the weapon
-        aim = PlayerInputService.GetInstance().IsAiming && !dead;
+        aim = playerInputService.IsAiming && !dead;
 
         idleTimer += Time.deltaTime;
 
@@ -175,16 +175,16 @@ public class SoldierController : PausableBehaviour
 
         firing = (firingTimer <= 0.0 && fire);
 
-        if (weaponSystem && weaponSystem.currentGun != null)
+        if (gunManager && gunManager.currentGun != null)
         {
-            weaponSystem.currentGun.fire = firing;
-            reloading = weaponSystem.currentGun.reloading;
-            currentWeaponName = weaponSystem.currentGun.gunName;
-            currentWeapon = weaponSystem.currentWeapon;
+            gunManager.currentGun.fire = firing;
+            reloading = gunManager.currentGun.reloading;
+            currentWeaponName = gunManager.currentGun.gunName;
+            currentWeapon = gunManager.currentWeapon;
         }
 
         //Check if the user wants the soldier to crouch
-        crouch = PlayerInputService.GetInstance().IsCrouching;
+        crouch = playerInputService.IsCrouching;
 
         if (crouch)
         {
@@ -194,6 +194,6 @@ public class SoldierController : PausableBehaviour
         crouch |= dead;
 
         //Check if the user wants the soldier to walk
-        walk = (!PlayerInputService.GetInstance().IsRunning && !dead) || moveDir == Vector3.zero || crouch;
+        walk = (!playerInputService.IsRunning && !dead) || moveDir == Vector3.zero || crouch;
     }
 }

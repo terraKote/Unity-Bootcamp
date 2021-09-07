@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SoldierAnimations : MonoBehaviour
 {
+    [SerializeField] private PlayerInputService playerInputService;
+
     public Transform aimPivot;
     public Transform aimTarget;
     public HeadLookController headLookController;
@@ -164,7 +166,7 @@ public class SoldierAnimations : MonoBehaviour
         crouch = soldier.crouch;
         reloading = soldier.reloading;
         currentWeapon = soldier.currentWeapon;
-        moveDir = PlayerInputService.GetInstance().moveDirection;
+        moveDir = playerInputService.moveDirection;
 
         inAir = !GetComponent<CharacterController>().isGrounded;
     }

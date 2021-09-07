@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GamePauseService : MonoBehaviour
 {
+    [SerializeField] private PlayerInputService playerInputService;
+
     public Camera[] PauseEffectCameras;
     private bool _paused;
     private IPauseListener[] _pauseListeners;
@@ -17,7 +19,7 @@ public class GamePauseService : MonoBehaviour
 
     private void Update()
     {
-        _paused = PlayerInputService.GetInstance().IsPausing;
+        _paused = playerInputService.IsPausing;
 
         if (_paused)
         {

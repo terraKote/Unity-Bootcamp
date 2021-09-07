@@ -2,6 +2,8 @@
 
 public class SoldierTarget : MonoBehaviour
 {
+    [SerializeField] private PlayerInputService playerInputService;
+
     public Texture2D target;
     public Texture2D targetOver;
 
@@ -44,7 +46,7 @@ public class SoldierTarget : MonoBehaviour
             return;
         }
 
-        aim = PlayerInputService.GetInstance().IsAiming;
+        aim = playerInputService.IsAiming;
 
         var ray = soldierCam.ScreenPointToRay(new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0));
 
