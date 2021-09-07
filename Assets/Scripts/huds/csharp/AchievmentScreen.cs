@@ -3,6 +3,8 @@ using System.Collections;
 
 public class AchievmentScreen : PausableBehaviour
 {
+    [SerializeField] private GameManager gameManager;
+
     public Texture2D menuBackground;
     private Rect menuBackgroundRect;
 
@@ -286,13 +288,13 @@ public class AchievmentScreen : PausableBehaviour
         var timeRect = new Rect(panelLeftRect.x + 10, titleRect.y + 4, 200, 20);
         var time = string.Empty;
 
-        var hours = GameManager.GetInstance().time;
+        var hours = gameManager.time;
         hours /= 3600;
 
-        var minutes = GameManager.GetInstance().time;
+        var minutes = gameManager.time;
         minutes = (minutes / 60) - (hours * 60);
 
-        var seconds = GameManager.GetInstance().time;
+        var seconds = gameManager.time;
         seconds = seconds % 60;
 
         time += (((hours < 10) ? "0" : "") + hours.ToString()) + ":" + (((minutes < 10) ? "0" : "") + minutes.ToString()) + ":" + (((seconds < 10) ? "0" : "") + seconds.ToString());
@@ -367,7 +369,7 @@ public class AchievmentScreen : PausableBehaviour
                 if (evt.type == EventType.MouseUp && evt.button == 0 && Time.time > lastMouseTime)
                 {
                     visible = false;
-                    GameManager.GetInstance().scores = false;
+                    gameManager.scores = false;
                     lastMouseTime = Time.time;
                 }
             }
@@ -407,7 +409,7 @@ public class AchievmentScreen : PausableBehaviour
     {
         achievments[0].progress = TrainingStatistics.headShoot;
         achievments[0].done = achievments[0].progress >= achievments[0].maxProgress;
-        achievments[1].done = GameManager.GetInstance().time < 180.0f;
+        achievments[1].done = gameManager.time < 180.0f;
         achievments[4].done = (TrainingStatistics.turretsHit == 0) && (TrainingStatistics.dummiesHit == 0);
         achievments[5].progress = TrainingStatistics.turrets;
         achievments[5].done = (TrainingStatistics.turretsHit == 0) && (achievments[5].progress >= achievments[5].maxProgress);

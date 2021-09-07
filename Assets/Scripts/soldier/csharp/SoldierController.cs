@@ -2,6 +2,8 @@
 
 public class SoldierController : PausableBehaviour
 {
+    [SerializeField] private GameManager gameManager;
+
     public float runSpeed = 4.6f;
     public float runStrafeSpeed = 3.07f;
     public float walkSpeed = 1.22f;
@@ -89,7 +91,7 @@ public class SoldierController : PausableBehaviour
 
     void Update()
     {
-        if (IsPaused || GameManager.GetInstance().scores)
+        if (IsPaused || gameManager.scores)
         {
             moveDir = Vector3.zero;
             motor.canControl = false;

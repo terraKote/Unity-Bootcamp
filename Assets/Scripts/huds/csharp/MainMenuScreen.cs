@@ -11,6 +11,8 @@ enum MainMenuState
 
 public class MainMenuScreen : PausableBehaviour
 {
+    [SerializeField] private GameManager gameManager;
+
     public Texture2D menuBackground;
     private Rect menuBackgroundRect;
 
@@ -282,27 +284,27 @@ public class MainMenuScreen : PausableBehaviour
         {
             if (damageRect.Contains(mousePos))
             {
-                if (!GameManager.GetInstance().receiveDamage)
+                if (!gameManager.receiveDamage)
                 {
                     GetComponent<AudioSource>().volume = clickVolume;
                     GetComponent<AudioSource>().PlayOneShot(clickSound);
-                    GameManager.GetInstance().receiveDamage = true;
+                    gameManager.receiveDamage = true;
                     lastMouseTime = Time.time;
                 }
             }
             else if (dRect.Contains(mousePos))
             {
-                if (GameManager.GetInstance().receiveDamage)
+                if (gameManager.receiveDamage)
                 {
                     GetComponent<AudioSource>().volume = clickVolume;
                     GetComponent<AudioSource>().PlayOneShot(clickSound);
-                    GameManager.GetInstance().receiveDamage = false;
+                    gameManager.receiveDamage = false;
                     lastMouseTime = Time.time;
                 }
             }
         }
 
-        if (GameManager.GetInstance().receiveDamage)
+        if (gameManager.receiveDamage)
         {
             GUI.DrawTexture(damageRect, receiveDamageOn);
             GUI.DrawTexture(dRect, dontReceiveDamageOff);
@@ -787,7 +789,7 @@ public class MainMenuScreen : PausableBehaviour
 
                     // TODO: Fix unpausing from here?
                     //GameManager.GetInstance().pause = false;
-                    
+
                     Time.timeScale = 1.0f;
                     //Time.timeScale = 1.0;
                     visible = false;

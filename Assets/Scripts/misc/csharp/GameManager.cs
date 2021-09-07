@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoSingleton<GameManager>
+public class GameManager : MonoBehaviour
 {
     public GameObject gamePlaySoldier;
     public ParticleSystem soldierSmoke;
@@ -13,7 +13,7 @@ public class GameManager : MonoSingleton<GameManager>
     public float time;
     public bool running;
 
-    void Start()
+    private void Start()
     {
         TrainingStatistics.ResetStatistics();
 
